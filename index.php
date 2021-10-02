@@ -66,8 +66,8 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="index.php" class="nav-item nav-link">Trang chủ</a>
-                        <a href="about.php" class="nav-item nav-link active">Giới thiệu</a>
+                        <a href="index.php" class="nav-item nav-link active">Trang chủ</a>
+                        <a href="about.php" class="nav-item nav-link">Giới thiệu</a>
                         <a href="causes.php" class="nav-item nav-link">Hành động</a>
                         <a href="event.php" class="nav-item nav-link">Sự kiện</a>
                         <a href="blog.php" class="nav-item nav-link">Blog</a>
