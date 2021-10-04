@@ -59,7 +59,7 @@
         <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
-                <a href="index.php" class="navbar-brand">Helpz</a>
+                <a href="index.php" class="navbar-brand">Helpv</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -75,6 +75,7 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ủng hộ</a>
                             <div class="dropdown-menu">
                                 <a href="donate.php" class="dropdown-item">Quyên góp</a>
+                                <a href="donate.php" class="dropdown-item">Hướng dẫn quyên góp</a>
                                 <a href="volunteer.php" class="dropdown-item">Trở thành tình nguyện viên</a>
                             </div>
                         </div>
