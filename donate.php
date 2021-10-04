@@ -66,16 +66,15 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
                         <a href="index.php" class="nav-item nav-link">Trang chủ</a>
-                        <a href="about.php" class="nav-item nav-link ">Giới thiệu</a>
+                        <a href="about.php" class="nav-item nav-link">Giới thiệu</a>
                         <a href="causes.php" class="nav-item nav-link">Hành động</a>
                         <a href="event.php" class="nav-item nav-link">Sự kiện</a>
                         <a href="blog.php" class="nav-item nav-link">Blog</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ủng hộ</a>
+                            <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Ủng hộ</a>
                             <div class="dropdown-menu">
-                                <a href="donate.php" class="dropdown-item active">Quyên góp</a>
-                                <a href="donate.php" class="dropdown-item">Hướng dẫn quyên góp</a>
-                                <a href="volunteer.php" class="dropdown-item">Trở thành tình nguyện viên</a>
+                                <a href="donate.php" class="dropdown-item">Quyên góp</a>
+                                <a href="volunteer.php" class="dropdown-item">Tình nguyện viên</a>
                             </div>
                         </div>
                         <a href="contact.php" class="nav-item nav-link">Liên hệ</a>
@@ -94,8 +93,8 @@
                         <h2>Ủng hộ</h2>
                     </div>
                     <div class="col-12">
-                        <a href="index.html">Trang chủ</a>
-                        <a href="donate.html">Quyên góp</a>
+                        <a href="index.php">Trang chủ</a>
+                        <a href="donate.php">Quyên góp</a>
                     </div>
                 </div>
             </div>
@@ -129,16 +128,8 @@
                                 <div class="control-group">
                                     <input type="email" class="form-control" placeholder="Email" required="required" />
                                 </div>
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-custom active">
-                                        <input type="radio" name="options" checked> 50.000
-                                    </label>
-                                    <label class="btn btn-custom">
-                                        <input type="radio" name="options"> 100.000
-                                    </label>
-                                    <label class="btn btn-custom">
-                                        <input type="radio" name="options"> Khác
-                                    </label>
+                                <div class="control-group">
+                                    <input type="number" class="form-control" placeholder="Số tiền ủng hộ" required="required" />
                                 </div>
                                 <div>
                                     <button class="btn btn-custom" type="submit">Ủng hộ ngay</button>

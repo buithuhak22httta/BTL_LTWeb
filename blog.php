@@ -59,15 +59,15 @@
         <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
-                <a href="index.php" class="navbar-brand">Helpv</a>
+                <a href="index.php" class="navbar-brand">Helpz</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                       <a href="index.php" class="nav-item nav-link">Trang chủ</a>
-                        <a href="about.php" class="nav-item nav-link ">Giới thiệu</a>
+                        <a href="index.php" class="nav-item nav-link">Trang chủ</a>
+                        <a href="about.php" class="nav-item nav-link">Giới thiệu</a>
                         <a href="causes.php" class="nav-item nav-link">Hành động</a>
                         <a href="event.php" class="nav-item nav-link">Sự kiện</a>
                         <a href="blog.php" class="nav-item nav-link active">Blog</a>
@@ -75,11 +75,10 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ủng hộ</a>
                             <div class="dropdown-menu">
                                 <a href="donate.php" class="dropdown-item">Quyên góp</a>
-                                <a href="donate.php" class="dropdown-item">Hướng dẫn quyên góp</a>
                                 <a href="volunteer.php" class="dropdown-item">Trở thành tình nguyện viên</a>
                             </div>
                         </div>
-                        <a href="contact.php" class="nav-item nav-link">Liên hệ</a>
+                        <a href="contact.php" class="nav-item nav-link">Liên hệ </a>
                     </div>
                 </div>
             </div>
@@ -252,7 +251,7 @@
                     </div>
                 <div class="col-lg-3 col-md-6">
                         <div class="footer-link">
-                            <<h2>Về HELPV</h2>
+                            <h2>Về HELPV</h2>
                             <a href="about.php">Giới thiệu</a>
                             <a href="contact.php">Liên hệ với chúng tôi</a>
                             <a href="causes.php">Các hoạt động phổ biến</a>

@@ -59,7 +59,7 @@
         <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
-                <a href="index.html" class="navbar-brand">Helpv</a>
+                <a href="index.php" class="navbar-brand">Helpv</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -75,8 +75,6 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ủng hộ</a>
                             <div class="dropdown-menu">
                                 <a href="donate.php" class="dropdown-item">Quyên góp</a>
-                                <a href="donate.php" class="dropdown-item">Hướng dẫn quyên góp</a>
-
                                 <a href="volunteer.php" class="dropdown-item">Trở thành tình nguyện viên</a>
                             </div>
                         </div>
@@ -127,7 +125,7 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control" id="subject" placeholder="Chủ đề" required="required" data-validation-required-message="Hãy điền chủ đề" />
+                                <input type="text" class="form-control" id="subject" placeholder="Nghề nghiệp" required="required">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
@@ -165,7 +163,7 @@
                     </div>
                 <div class="col-lg-3 col-md-6">
                         <div class="footer-link">
-                           <h2>Về HELPV</h2>
+                            <h2>Về HELPV</h2>
                             <a href="about.php">Giới thiệu</a>
                             <a href="contact.php">Liên hệ với chúng tôi</a>
                             <a href="causes.php">Các hoạt động phổ biến</a>

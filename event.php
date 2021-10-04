@@ -74,9 +74,9 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ủng hộ</a>
                             <div class="dropdown-menu">
-                                <a href="donate.php" class="dropdown-item">Quyên góp</a>
-                                <a href="donate.php" class="dropdown-item">Hướng dẫn quyên góp</a>
+                            <a href="donate.php" class="dropdown-item">Quyên góp</a>
                                 <a href="volunteer.php" class="dropdown-item">Trở thành tình nguyện viên</a>
+                                
                             </div>
                         </div>
                         <a href="contact.php" class="nav-item nav-link">Liên hệ</a>
@@ -111,26 +111,37 @@
                     <p>Sự kiện nổi bật</p>
                     <h2>Bạn hãy chuẩn bị cho mình một tâm thế sẵn sàng để cùng tham gia các sự kiện từ thiện sắp tới của chúng tôi nhé!</h2>
                 </div>
+                <?php
+                $ket_noi = mysqli_connect("localhost","root","","helpv");
+                $sql="SELECT * FROM tbl_su_kien";
+                $noi_dung=mysqli_query($ket_noi,$sql);
+                while($row=mysqli_fetch_array($noi_dung))
+                {
+                    ;?>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="event-item">
-                            <img src="img/im10.jpg" alt="Image">
+                            <img src="<?php echo $row["image"];?>" alt="Image">
                             <div class="event-content">
                                 <div class="event-meta">
-                                    <p><i class="fa fa-calendar-alt"></i>01-11-2021</p>
-                                    <p><i class="far fa-clock"></i>8:00 - 16:00</p>
-                                    <p><i class="fa fa-map-marker-alt"></i>Hồ Chí Minh</p>
+                                    <p><i class="fa fa-calendar-alt"></i><?php echo $row["ngay_to_chuc"];?></p>
+                                    <p><i class="far fa-clock"></i><?php echo $row["thoi_gian"];?></p>
+                                    <p><i class="fa fa-map-marker-alt"></i><?php echo $row["dia_diem"];?></p>
                                 </div>
                                 <div class="event-text">
-                                    <h3>Chiến dịch "Em không lẻ loi" </h3>
+                                    <h3><?php echo $row["ten"];?></h3>
                                     <p>
-                                       Chiến dịch hỗ trợ cho trẻ em mồ côi vì Covid-19 hướng đến mục tiêu kêu gọi ủng hộ từ các nguồn lực trong xã hội để cung cấp những hỗ trợ khẩn cấp cũng như dài hạn cho trẻ em có hoàn cảnh khó khăn mất cha/mẹ, hoặc người chăm sóc chính vì dịch bệnh Covid-19.
+                                       <?php echo $row["noi_dung"];?>
                                     </p>
                                     <a class="btn btn-custom" href="">Tham gia</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php
+                    }
+                    mysqli_close($ket_noi);
+                    ;?>
                     <div class="col-lg-6">
                         <div class="event-item">
                             <img src="img/im9.jpg" alt="Image">

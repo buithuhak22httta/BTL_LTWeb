@@ -75,7 +75,6 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ủng hộ</a>
                             <div class="dropdown-menu">
                                 <a href="donate.php" class="dropdown-item">Quyên góp</a>
-                                <a href="donate.php" class="dropdown-item">Hướng dẫn quyên góp</a>
                                 <a href="volunteer.php" class="dropdown-item">Trở thành tình nguyện viên</a>
                             </div>
                         </div>
@@ -101,7 +100,7 @@
                                 Trẻ em hôm nay, thế giới ngày mai! Hãy dành cho trẻ em mọi điều tốt đẹp!
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn btn-custom" href="donate.html">Ủng hộ</a>
+                                <a class="btn btn-custom" href="donate.php">Ủng hộ</a>
                             </div>
                         </div>
                     </div>
@@ -115,7 +114,7 @@
                                 Chúng tôi tập trung vào sự sống còn và phát triển của trẻ nhỏ, chủ yếu vào các lĩnh vực như giáo dục, sức khỏe trẻ em, dinh dưỡng và tâm lý.
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn btn-custom" href="donate.html">Ủng hộ</a>
+                                <a class="btn btn-custom" href="donate.php">Ủng hộ</a>
                             </div>
                         </div>
                     </div>
@@ -129,7 +128,7 @@
                                 Hành trình của chúng tôi là mang đến niềm vui cho mọi trẻ em Việt Nam.
                             </p>
                             <div class="carousel-btn">
-                                <a class="btn btn-custom" href="donate.html">Ủng hộ</a>
+                                <a class="btn btn-custom" href="donate.php">Ủng hộ</a>
                             </div>
                         </div>
                     </div>
