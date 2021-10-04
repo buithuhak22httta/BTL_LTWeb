@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Trang chủ quản trị</title>
+  <title>Helpv - Trang chủ quản trị website</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -60,10 +60,8 @@
                   </div>
                 </div>
                 <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">Application Error</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    Just now
-                  </p>
+                  <h6 class="preview-subject font-weight-normal">Điều khoản bảo mật</h6>
+                  
                 </div>
               </a>
               <a class="dropdown-item preview-item">
@@ -74,25 +72,10 @@
                 </div>
                 <div class="preview-item-content">
                   <h6 class="preview-subject font-weight-normal">Cài Đặt</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    Private message
-                  </p>
+                  
                 </div>
               </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-info">
-                    <i class="ti-user mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    2 days ago
-                  </p>
-                </div>
-              </a>
-            </div>
+              
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
@@ -127,10 +110,10 @@
         <div id="settings-trigger"><i class="ti-settings"></i></div>
         <div id="theme-settings" class="settings-panel">
           <i class="settings-close ti-close"></i>
-          <p class="settings-heading">SIDEBAR SKINS</p>
-          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
-          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
-          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <p class="settings-heading">Chế độ hiển thị</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Sáng</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Tối</div>
+          <p class="settings-heading mt-2">Thanh header</p>
           <div class="color-tiles mx-0 px-4">
             <div class="tiles success"></div>
             <div class="tiles warning"></div>
@@ -145,10 +128,10 @@
         <i class="settings-close ti-close"></i>
         <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
           <li class="nav-item">
-            <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+            <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">Công việc</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+            <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">Trò chuyện</a>
           </li>
         </ul>
         <div class="tab-content" id="setting-content">
@@ -156,8 +139,8 @@
             <div class="add-items d-flex px-3 mb-0">
               <form class="form w-100">
                 <div class="form-group d-flex">
-                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
-                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
+                  <input type="text" class="form-control todo-list-input" placeholder="Việc cần làm">
+                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Thêm mới</button>
                 </div>
               </form>
             </div>
@@ -167,7 +150,7 @@
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="checkbox" type="checkbox">
-                      Team review meeting at 3.00 PM
+                      Cuộc họp của nhóm lúc 15h
                     </label>
                   </div>
                   <i class="remove ti-close"></i>
@@ -176,20 +159,12 @@
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="checkbox" type="checkbox">
-                      Prepare for presentation
+                      Chuẩn bị cho chuyến đi Cao Bằng
                     </label>
                   </div>
                   <i class="remove ti-close"></i>
                 </li>
-                <li>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox">
-                      Resolve all the low priority tickets due today
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
+                
                 <li class="completed">
                   <div class="form-check">
                     <label class="form-check-label">
@@ -199,18 +174,10 @@
                   </div>
                   <i class="remove ti-close"></i>
                 </li>
-                <li class="completed">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="checkbox" type="checkbox" checked>
-                      Project review
-                    </label>
-                  </div>
-                  <i class="remove ti-close"></i>
-                </li>
+                
               </ul>
             </div>
-            <h4 class="px-3 text-muted mt-5 font-weight-light mb-0">Events</h4>
+            <h4 class="px-3 text-muted mt-5 font-weight-light mb-0">Sự kiện sắp tới</h4>
             <div class="events pt-4 px-3">
               <div class="wrapper d-flex mb-2">
                 <i class="ti-control-record text-primary mr-2"></i>
@@ -377,8 +344,8 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Welcome Aamir</h3>
-                  <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>
+                  <h3 class="font-weight-bold">Quản trị hệ thống</h3>
+                  <h6 class="font-weight-normal mb-0"><br>Tất cả các hệ thống đang hoạt động trơn tru! Bạn có <span class="text-primary">3 thông báo chưa đọc!</span></h6>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
