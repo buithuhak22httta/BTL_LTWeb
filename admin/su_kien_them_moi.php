@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Trang chủ quản trị</title>
+  <title>Thêm mới sự kiện</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -20,6 +20,18 @@
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>
+            tinymce.init({
+                selector: '#txtNoiDung'
+                            });
+        </script>
+        <script>
+            tinymce.init({
+                selector: '#txtTen'
+                            });
+        </script>
 </head>
 <body>
   <div class="container-scroller">
@@ -162,8 +174,7 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Welcome Aamir</h3>
-                  <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>
+                  <h3 class="font-weight-bold">Thêm mới sự kiện</h3>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -177,68 +188,44 @@
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6 grid-margin stretch-card">
-              <div class="card tale-bg">
-                <div class="card-people mt-auto">
-                  <img src="images/dashboard/people.svg" alt="people">
-                  <div class="weather-info">
-                    <div class="d-flex">
-                      <div>
-                        <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
-                      </div>
-                      <div class="ml-2">
-                        <h4 class="location font-weight-normal">Bangalore</h4>
-                        <h6 class="font-weight-normal">India</h6>
-                      </div>
+          <div class="col-lg-12 stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Danh sách sự kiện | <a href="su_kien_them_moi.php">Thêm mới</a></h4>
+                  <div class="table-responsive pt-3">
+                    <form class="forms-sample" method="POST" action="su_kien_them_moi_thuc_hien.php" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="txtTen">Tên sự kiện</label>
+                      <input type="text" class="form-control" id="txtTen" name="txtTen" placeholder="Tên sự kiện">
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 grid-margin transparent">
-              <div class="row">
-                <div class="col-md-6 mb-4 stretch-card transparent">
-                  <div class="card card-tale">
-                    <div class="card-body">
-                      <p class="mb-4">Today’s Bookings</p>
-                      <p class="fs-30 mb-2">4006</p>
-                      <p>10.00% (30 days)</p>
+                    <div class="form-group">
+                      <label for="txtNoiDung">Nội dung</label>
+                      <input type="text" class="form-control" id="txtNoiDung" name="txtNoiDung" placeholder="Nội dung">
                     </div>
-                  </div>
-                </div>
-                <div class="col-md-6 mb-4 stretch-card transparent">
-                  <div class="card card-dark-blue">
-                    <div class="card-body">
-                      <p class="mb-4">Total Bookings</p>
-                      <p class="fs-30 mb-2">61344</p>
-                      <p>22.00% (30 days)</p>
+                    <div class="form-group">
+                      <label for="txtNgay">Ngày tổ chức</label>
+                      <input type="text" class="form-control" id="txtNgay" name="txtNgay" placeholder="Ngày tổ chức">
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-                  <div class="card card-light-blue">
-                    <div class="card-body">
-                      <p class="mb-4">Number of Meetings</p>
-                      <p class="fs-30 mb-2">34040</p>
-                      <p>2.00% (30 days)</p>
+                    <div class="form-group">
+                      <label for="txtThoiGian">Thời gian</label>
+                      <input type="text" class="form-control" id="txtThoiGian" name="txtThoiGian" placeholder="Thời gian">
                     </div>
-                  </div>
-                </div>
-                <div class="col-md-6 stretch-card transparent">
-                  <div class="card card-light-danger">
-                    <div class="card-body">
-                      <p class="mb-4">Number of Clients</p>
-                      <p class="fs-30 mb-2">47033</p>
-                      <p>0.22% (30 days)</p>
+                    <div class="form-group">
+                      <label for="txtDiaDiem">Địa điểm</label>
+                      <input type="text" class="form-control" id="txtDiaDiem" name="txtDiaDiem" placeholder="Địa điểm">
                     </div>
+                    <div class="form-group">
+                      <label for="txtAnh">Ảnh</label>
+                      <input type="file" class="form-control" id="txtAnh" name="txtAnh" placeholder="Ảnh minh họa">
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Đăng bài</button>
+                  </form>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
         

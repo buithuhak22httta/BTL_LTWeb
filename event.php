@@ -111,6 +111,7 @@
                     <p>Sự kiện nổi bật</p>
                     <h2>Bạn hãy chuẩn bị cho mình một tâm thế sẵn sàng để cùng tham gia các sự kiện từ thiện sắp tới của chúng tôi nhé!</h2>
                 </div>
+                <div class="row">
                 <?php
                 $ket_noi = mysqli_connect("localhost","root","","helpv");
                 $sql="SELECT * FROM tbl_su_kien";
@@ -118,7 +119,6 @@
                 while($row=mysqli_fetch_array($noi_dung))
                 {
                     ;?>
-                <div class="row">
                     <div class="col-lg-6">
                         <div class="event-item">
                             <img src="<?php echo $row["image"];?>" alt="Image">
@@ -133,7 +133,7 @@
                                     <p>
                                        <?php echo $row["noi_dung"];?>
                                     </p>
-                                    <a class="btn btn-custom" href="">Tham gia</a>
+                                    <a class="btn btn-custom" href="volunteer.php">Tham gia</a>
                                 </div>
                             </div>
                         </div>
@@ -142,101 +142,6 @@
                     }
                     mysqli_close($ket_noi);
                     ;?>
-                    <div class="col-lg-6">
-                        <div class="event-item">
-                            <img src="img/im9.jpg" alt="Image">
-                            <div class="event-content">
-                                <div class="event-meta">
-                                    <p><i class="fa fa-calendar-alt"></i>15-01-2022</p>
-                                    <p><i class="far fa-clock"></i>8:00 - 17:00</p>
-                                    <p><i class="fa fa-map-marker-alt"></i>Hà Nội</p>
-                                </div>
-                                <div class="event-text">
-                                    <h3>Giúp đỡ trẻ em cơ nhỡ trên địa bàn Hà Nội</h3>
-                                    <p>
-                                      Các hoạt động của Dự án gồm: Tiếp cận với trẻ em và cung cấp, hỗ trợ khẩn cấp ban đầu cho các em nơi ở an toàn, dinh dưỡng, y tế, ăn mặc, trị liệu tâm lý…; hỗ trợ học phí và các chi phí học tập cho hơn 100 trẻ từ cấp TH tới THPT (học phí, bán trú, đồng phục, đồ dùng học tập…
-                                    </p>
-                                    <a class="btn btn-custom" href="">Tham gia</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="event-item">
-                            <img src="img/im4.jpg" alt="Image">
-                            <div class="event-content">
-                                <div class="event-meta">
-                                    <p><i class="fa fa-calendar-alt"></i>01-05-2022</p>
-                                    <p><i class="far fa-clock"></i>8:00 - 10:00</p>
-                                    <p><i class="fa fa-map-marker-alt"></i>Cao Bằng</p>
-                                </div>
-                                <div class="event-text">
-                                    <h3>Tặng quà cho trẻ em nghèo vùng cao tỉnh Cao Bằng</h3>
-                                    <p>
-                                        Helpz tổ chức trao gần 200 xuất quà gồm: chăn, quần áo, giầy dép, đồ dùng học tập, nhu yếu phẩm... cho các em trường tiểu học Bản Lung và trường tiểu học, mẫu giáo Đoài Côn, xã Đoài Côn, huyện Trùng Khánh, tỉnh Cao Bằng.
-                                    </p>
-                                    <a class="btn btn-custom" href="">Tham gia</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="event-item">
-                            <img src="img/im2.jpg" alt="Image">
-                            <div class="event-content">
-                                <div class="event-meta">
-                                    <p><i class="fa fa-calendar-alt"></i>30-07-2022</p>
-                                    <p><i class="far fa-clock"></i>8:00 - 20:00</p>
-                                    <p><i class="fa fa-map-marker-alt"></i>New York</p>
-                                </div>
-                                <div class="event-text">
-                                    <h3>Xây dựng mái trường mới cho trẻ em bản Hốc Bon, tỉnh Sơn La</h3>
-                                    <p>
-                                        Để tạo một môi trường học tập thuận lợi cho những em nhỏ hiếu học trường Tiểu học Mường Khiêng 2, hãy chung tay cùng Helpz quyên góp  giúp các em nhỏ bản Hốc Bon có một ngôi trường mới.
-                                    </p>
-                                    <a class="btn btn-custom" href="">Tham gia</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="event-item">
-                            <img src="img/im8.jpg" alt="Image">
-                            <div class="event-content">
-                                <div class="event-meta">
-                                    <p><i class="fa fa-calendar-alt"></i>01-03-2022</p>
-                                    <p><i class="far fa-clock"></i>10:00 - 18:00</p>
-                                    <p><i class="fa fa-map-marker-alt"></i>Mộc Châu</p>
-                                </div>
-                                <div class="event-text">
-                                    <h3>"Dự án nuôi em"</h3>
-                                    <p>
-                                        Với mong muốn cải thiện bữa trưa của những đứa trẻ đang “tuổi ăn tuổi lớn”, tháng 3/2022, Helpv kết hợp với Hội Phụ nữ (Công an huyện Mộc Châu) đã đề xuất ý tưởng, quyết định triển khai Dự án “Nuôi em Mộc Châu” tại Trường mầm non Lóng Sập.
-                                    </p>
-                                    <a class="btn btn-custom" href="">Tham gia</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="event-item">
-                            <img src="img/im1.jpg" alt="Image">
-                            <div class="event-content">
-                                <div class="event-meta">
-                                    <p><i class="fa fa-calendar-alt"></i>15-07-2022</p>
-                                    <p><i class="far fa-clock"></i>8:00 - 20:00</p>
-                                    <p><i class="fa fa-map-marker-alt"></i>Điện Biên</p>
-                                </div>
-                                <div class="event-text">
-                                    <h3>Dự án "Bước chân đi, niềm vui ở lại" </h3>
-                                    <p>
-                                        Đoàn tình nguyện sẽ tới 10 điểm trường của xã Mường Toong thuộc các Bản Nậm Pan 1,2,3,4,5,6,7,8,9,10. Tại đây đoàn sẽ tổ chức giao lưu văn nghệ, giúp đỡ bà còn dọn dẹp thôn bản, phát quà cho trẻ em và các hộ gia đình còn khó khăn. 
-                                    </p>
-                                    <a class="btn btn-custom" href="">Tham gia</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
