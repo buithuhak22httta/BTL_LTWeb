@@ -177,7 +177,10 @@
           <div class="col-lg-12 stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Danh sách sự kiện | <a href="su_kien_them_moi.php">Thêm mới</a></h4>
+                  <h4 class="card-title">Danh sách sự kiện</h4>
+                  <p class="card-description">
+                   <button type="button" class="btn btn-primary btn-sm"><a href="su_kien_them_moi.php" style="color: white; text-decoration: none">Thêm mới</a></button>
+                  </p>
                   <div class="table-responsive pt-3">
                     <table class="table table-bordered">
                       <thead>
