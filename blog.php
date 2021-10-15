@@ -111,119 +111,33 @@
                     <h2>Tin tức và bài viết mới nhất từ blog của chúng tôi</h2>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="row">
+                <?php
+                $ket_noi = mysqli_connect("localhost","root","","helpv");
+                $sql="SELECT * FROM tbl_blog";
+                $noi_dung=mysqli_query($ket_noi,$sql);
+                while($row=mysqli_fetch_array($noi_dung))
+                {
+                    ;?>
+                   <div class="col-lg-4">
                         <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/causes-2.jpg" alt="Image">
-                            </div>
+                           <img src="<?php echo $row["image"];?>" alt="Image">
                             <div class="blog-text">
-                                <h3><a href="#">Áo ấm cho em</a></h3>
+                                <h3><a href="#"><?php echo $row["ten"];?></a></h3>
                                 <p>
-                                    Quyên góp quần áo ấm và đồ dùng thiết yếu cho trẻ em xã Bình Trung, huyện Chợ Đồn, tỉnh Bắc Kạn.
+                                   <?php echo $row["noi_dung"] ;?>
                                 </p>
-                            </div>
-                            <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">12 Bình luận</a></p>
+                                    
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/causes-3.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="#">Bữa ăn dinh dưỡng cho trẻ</a></h3>
-                                <p>
-                                    Cung cấp 205 bữa ăn lành mạnh cho các em nhỏ tại Trung tâm Nhân đạo Quê Hương (Bình Dương).
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">16 Bình luận </a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/causes-4.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="#">Hỗ trợ học trực tuyến</a></h3>
-                                <p>
-                                    Ủng hộ 40 chiếc điện thoại giúp các em nhỏ tại Bình Dương đủ điều kiện học tập.
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 Bình luận</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/b3.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="#"> Thắp sáng ước mơ </a></h3>
-                                <p>
-                                   Tại Yên Vui Pleiku – Gia Lai, Help đã hỗ trợ cho các em
-                                   100 bộ sách giáo khoa, 300 quyển vở và hàng trăm chiếc bút hỗ trợ học tập.
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                                <p><i class="fa fa-comments"></i><a href=""> 9 Bình luận</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/b22.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="#">Tết Trung Thu thời Covid</a></h3>
-                                <p>
-                                   Helpv đã tổ chức tiệc trung thu và tặng quà cho các em nhỏ tại làng trẻ SOS tại Quảng Ngãi để giúp các em có một cái tết toàn viên thật đầm ấm .
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 Bình luận</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/b4.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="#"> Nụ cười trẻ thơ </a></h3>
-                                <p>
-                                    Heplv đã tài trợ cho 10 em nhỏ bị hở hàm ếch tại tình Hà Giang có hoàn cảnh khó khăn được 
-                                    phẫu thuật tìm lại nụ cười . 
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">19 Bình luận</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled"><a class="page-link" href="#">Trang </a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#"> Tiếp </a></li>
-                        </ul> 
-                    </div>
+                    <?php
+                    }
+                    mysqli_close($ket_noi);
+                    ;?>
+                    
                 </div>
             </div>
         </div>
