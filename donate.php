@@ -123,13 +123,17 @@
                         <div class="donate-form">
                             <form>
                                 <div class="control-group">
-                                    <input type="text" class="form-control" placeholder="Tên" required="required" />
+                                    <input type="text" class="form-control" placeholder="Họ và tên" required="required" />
                                 </div>
                                 <div class="control-group">
                                     <input type="email" class="form-control" placeholder="Email" required="required" />
                                 </div>
                                 <div class="control-group">
                                     <input type="number" class="form-control" placeholder="Số tiền ủng hộ" required="required" />
+                                </div>
+                                <div class="control-group">
+                                    <label style="color: white"> Ảnh xác nhận </label>
+                                    <input type="file" class="form-control" placeholder="Ảnh xác nhận" required="required" />
                                 </div>
                                 <div>
                                     <button class="btn btn-custom" type="submit">Ủng hộ ngay</button>

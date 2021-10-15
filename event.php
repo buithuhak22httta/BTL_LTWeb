@@ -113,7 +113,7 @@
                 </div>
                 <div class="row">
                 <?php
-                $ket_noi = mysqli_connect("localhost","root","","helpv");
+                include('config.php');
                 $sql="SELECT * FROM tbl_su_kien";
                 $noi_dung=mysqli_query($ket_noi,$sql);
                 while($row=mysqli_fetch_array($noi_dung))

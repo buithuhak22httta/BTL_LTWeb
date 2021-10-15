@@ -111,9 +111,8 @@
                     <h2>Tin tức và bài viết mới nhất từ blog của chúng tôi</h2>
                 </div>
                 <div class="row">
-                    <div class="row">
                 <?php
-                $ket_noi = mysqli_connect("localhost","root","","helpv");
+               include('config.php');
                 $sql="SELECT * FROM tbl_blog";
                 $noi_dung=mysqli_query($ket_noi,$sql);
                 while($row=mysqli_fetch_array($noi_dung))
@@ -121,7 +120,8 @@
                     ;?>
                    <div class="col-lg-4">
                         <div class="blog-item">
-                           <img src="<?php echo $row["image"];?>" alt="Image">
+                            <div class="blog-img">
+                           <img src="<?php echo $row["anh_minh_hoa"];?>" alt="Image">
                             <div class="blog-text">
                                 <h3><a href="#"><?php echo $row["ten"];?></a></h3>
                                 <p>

@@ -99,13 +99,6 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="quan_tri_admin.php">
-              <i class="icon-head menu-icon"></i>
-              <span class="menu-title">Quản trị admin</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
             <a class="nav-link" href="quan_tri_su_kien.php">
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">Quản trị sự kiện</span>
@@ -126,9 +119,23 @@
           </li>
           
           <li class="nav-item">
+            <a class="nav-link" href="quan_tri_admin.php">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Quản trị admin</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" href="quan_tri_ung_ho.php">
               <i class="icon-columns menu-icon"></i>
-              <span class="menu-title">Quản trị ủng hộ</span>
+              <span class="menu-title">Quản trị ủng hộ tiền</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="quan_tri_ung_ho.php">
+              <i class="icon-columns menu-icon"></i>
+              <span class="menu-title">Quản trị ủng hộ vật chất</span>
             </a>
           </li>
 

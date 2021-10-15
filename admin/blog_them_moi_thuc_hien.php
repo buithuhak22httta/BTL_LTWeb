@@ -41,8 +41,8 @@
 
             //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
             $sql = "
-                   INSERT INTO `tbl_blog` (`id_blog`, `ten`, `noi_dung`)
-                   VALUES (NULL, '".$ten."', '".$noi_dung."');
+                   INSERT INTO `tbl_blog` (`id_blog`, `ten`, `noi_dung`, `anh_minh_hoa`)
+                   VALUES (NULL, '".$ten."', '".$noi_dung."', '".$anh."');
                     ";
             //4. Thực thi câu lệnh truy vấn
                 $noi_dung_blog = mysqli_query($ket_noi, $sql);

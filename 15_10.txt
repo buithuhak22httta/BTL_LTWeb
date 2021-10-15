@@ -1,0 +1,21 @@
+1. Vẽ sơ đồ thực thể liên kết(Ng Hà)
+ủng hộ tiền <cho> sự kiện
+ủng hộ vật chất <cho> sự kiện
+tình nguyện viên <tham gia> sự kiện
+admin <quản lý> sự kiện
+admin <quản lý> blog
+admin<quản lý> chia sẻ user
+2. Ủng hộ vs tình nguyện viên từ trang chủ về csdl(Oanh)
+3. Báo cáo tài chính
+4. Xóa cảm nhận về Helpv, load data ra index(Hà)
+5. Hướng dẫn sử dụng(Tuấn)
+- STK, momo, shopee pay, vnpay, zalo pay, ...
+- Chuyển khoản với nội dung: Tên - email - ủng hộ sự kiện nào?
+- Ủng hộ vật chất qua địa chỉ: ...
+
+
+Tình nguyện viên: chọn sự kiện muốn tham gia
+Ủng hộ: chọn sự kiện muốn ủng hộ
+Những sự kiện ngày tổ chức< ngày hiện tại show ra hdgd và số tiền đã nhận đc
+6. Cập nhật ủng hộ (Chính)
+7. Tài khoản(Hà)

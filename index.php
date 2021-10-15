@@ -75,7 +75,8 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ủng hộ</a>
                             <div class="dropdown-menu">
                                 <a href="donate.php" class="dropdown-item">Quyên góp</a>
-                                <a href="volunteer.php" class="dropdown-item">Trở thành tình nguyện viên</a>
+                                <a href="volunteer.php" class="dropdown-item">Tình nguyện viên</a>
+                                <a href="donate.php" class="dropdown-item">Cập nhật ủng hộ</a>
                             </div>
                         </div>
                         <a href="contact.php" class="nav-item nav-link">Liên hệ</a>
@@ -439,23 +440,19 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="donate-form">
-                            <form>
+                            <form class="forms-sample" method="POST" action="admin/ung_ho_them_moi_thuc_hien.php" enctype="multipart/form-data">
                                 <div class="control-group">
-                                    <input type="text" class="form-control" placeholder="Tên" required="required" />
+                                    <input type="text" class="form-control" placeholder="Họ và tên" required="required" />
                                 </div>
                                 <div class="control-group">
                                     <input type="email" class="form-control" placeholder="Email" required="required" />
                                 </div>
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-custom active">
-                                        <input type="radio" name="options" checked> 50.000
-                                    </label>
-                                    <label class="btn btn-custom">
-                                        <input type="radio" name="options"> 100.000
-                                    </label>
-                                    <label class="btn btn-custom">
-                                        <input type="radio" name="options"> Khác
-                                    </label>
+                                <div class="control-group">
+                                    <input type="number" class="form-control" placeholder="Số tiền ủng hộ" required="required" />
+                                </div>
+                                <div class="control-group">
+                                    <label style="color: white"> Ảnh xác nhận </label>
+                                    <input type="file" class="form-control" placeholder="Ảnh xác nhận" required="required" />
                                 </div>
                                 <div>
                                     <button class="btn btn-custom" type="submit">Ủng hộ ngay</button>
@@ -477,44 +474,36 @@
                     <h2>Sẵn sàng cho hành trình tiếp theo</h2>
                 </div>
                 <div class="row">
+                    <?php
+                include('config.php');
+                $sql="SELECT * FROM tbl_su_kien limit 2";
+                $noi_dung=mysqli_query($ket_noi,$sql);
+                while($row=mysqli_fetch_array($noi_dung))
+                {
+                    ;?>
                     <div class="col-lg-6">
                         <div class="event-item">
-                            <img src="img/im10.jpg" alt="Image">
+                            <img src="<?php echo $row["image"];?>" alt="Image">
                             <div class="event-content">
                                 <div class="event-meta">
-                                    <p><i class="fa fa-calendar-alt"></i>01-11-2021</p>
-                                    <p><i class="far fa-clock"></i>8:00 - 10:00</p>
-                                    <p><i class="fa fa-map-marker-alt"></i>Hồ Chí Minh</p>
+                                    <p><i class="fa fa-calendar-alt"></i><?php echo $row["ngay_to_chuc"];?></p>
+                                    <p><i class="far fa-clock"></i><?php echo $row["thoi_gian"];?></p>
+                                    <p><i class="fa fa-map-marker-alt"></i><?php echo $row["dia_diem"];?></p>
                                 </div>
                                 <div class="event-text">
-                                    <h3>Chiến dịch "Em không lẻ loi"</h3>
+                                    <h3><?php echo $row["ten"];?></h3>
                                     <p>
-                                        Chiến dịch hỗ trợ cho trẻ em mồ côi vì Covid-19 hướng đến mục tiêu kêu gọi ủng hộ từ các nguồn lực trong xã hội để cung cấp những hỗ trợ khẩn cấp cũng như dài hạn cho trẻ em có hoàn cảnh khó khăn mất cha/mẹ, hoặc người chăm sóc chính vì dịch bệnh Covid-19.
+                                       <?php echo $row["noi_dung"];?>
                                     </p>
-                                    <a class="btn btn-custom" href="">Tham gia</a>
+                                    <a class="btn btn-custom" href="volunteer.php">Tham gia</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="event-item">
-                            <img src="img/im9.jpg" alt="Image">
-                            <div class="event-content">
-                                <div class="event-meta">
-                                    <p><i class="fa fa-calendar-alt"></i>15-01-2022</p>
-                                    <p><i class="far fa-clock"></i>8:00 - 17:00</p>
-                                    <p><i class="fa fa-map-marker-alt"></i>Hà Nội</p>
-                                </div>
-                                <div class="event-text">
-                                    <h3>Giúp đỡ trẻ em cơ nhỡ trên địa bàn Hà Nội</h3>
-                                    <p>
-                                        Các hoạt động của Dự án gồm: Tiếp cận với trẻ em và cung cấp, hỗ trợ khẩn cấp ban đầu cho các em nơi ở an toàn, dinh dưỡng, y tế, ăn mặc, trị liệu tâm lý…; hỗ trợ học phí và các chi phí học tập cho hơn 100 trẻ từ cấp TH tới THPT (học phí, bán trú, đồng phục, đồ dùng học tập…
-                                    </p>
-                                    <a class="btn btn-custom" href="">Tham gia</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    }
+                    mysqli_close($ket_noi);
+                    ;?>
                 </div>
             </div>
         </div>
@@ -623,7 +612,7 @@
                         <div class="volunteer-form">
                             <form>
                                 <div class="control-group">
-                                    <input type="text" class="form-control" placeholder="Tên" required="required" />
+                                    <input type="text" class="form-control" placeholder="Họ và tên" required="required" />
                                 </div>
                                 <div class="control-group">
                                     <input type="email" class="form-control" placeholder="Email" required="required" />

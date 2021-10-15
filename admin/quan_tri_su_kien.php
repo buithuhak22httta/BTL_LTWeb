@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -98,12 +99,6 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="quan_tri_admin.php">
-              <i class="icon-head menu-icon"></i>
-              <span class="menu-title">Quản trị admin</span>
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="quan_tri_su_kien.php">
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">Quản trị sự kiện</span>
@@ -120,6 +115,13 @@
             <a class="nav-link" href="quan_tri_chia_se.php">
               <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">Quản trị chia sẻ</span>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="quan_tri_admin.php">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Quản trị admin</span>
             </a>
           </li>
 
@@ -177,10 +179,7 @@
           <div class="col-lg-12 stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Danh sách sự kiện</h4>
-                  <p class="card-description">
-                   <button type="button" class="btn btn-primary btn-sm"><a href="su_kien_them_moi.php" style="color: white; text-decoration: none">Thêm mới</a></button>
-                  </p>
+                  <h4 class="card-title">Danh sách sự kiện | <a href="su_kien_them_moi.php">Thêm mới</a></h4>
                   <div class="table-responsive pt-3">
                     <table class="table table-bordered">
                       <thead>

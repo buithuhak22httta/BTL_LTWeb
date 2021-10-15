@@ -53,7 +53,7 @@
 
                  $sql = "
                     UPDATE `tbl_blog` 
-                    SET `ten` = '".$ten." ', `noi_dung` = '".$noi_dung."' , `image` = 'img/".$anh."'
+                    SET `ten` = '".$ten." ', `noi_dung` = '".$noi_dung."' , `anh_minh_hoa` = 'img/".$anh."'
                     WHERE `tbl_blog`.`id_blog` = '".$id_blog."'
                     ";
                
