@@ -108,26 +108,34 @@
             <div class="volunteer" data-parallax="scroll" data-image-src="img/volunteer.jpg">
                 <div class="row align-items-center">
                     <div class="col-lg-5">
+                    
                         <div class="volunteer-form">
+                            <div class="section-header">
+                                <h3 style="text-align: center; color: white;" >Đăng kí trở thành tình nguyện viên</h3>
+                            </div>
                             <form>
                                 <div class="control-group">
-                                    <input type="text" class="form-control" placeholder="Name" required="required" />
+                                    <input type="text" class="form-control" placeholder="Họ và tên" required="required" />
                                 </div>
                                 <div class="control-group">
-                                    <input type="text" class="form-control" placeholder="SDT" required="required" />
+                                    <input type="text" class="form-control" placeholder="Số điện thoại" required="required" />
                                 </div>
                                 <div class="control-group">
                                     <input type="email" class="form-control" placeholder="Email" required="required" />
                                 </div>
-                                <div class="control-group">
+                                <div class="form-group">
+                                  <input type="text" class="form-control" placeholder="Giới tính" required="required" />
+                                  </div>
+                                  <div class="control-group">
                                     <textarea class="form-control" placeholder="Vì sao bạn muốn trở thành một tình nguyện viên?" required="required"></textarea>
                                 </div>
-                                <div>
-                                    <button class="btn btn-custom" type="submit">Trở thành một tình nguyện viên</button>
+                                  <div>
+                                    <button class="btn btn-custom" type="submit">Đăng kí</button>
                                 </div>
                             </form>
                         </div>
                     </div>
+                    
                     <div class="col-lg-7">
                         <div class="volunteer-content">
                             <div class="section-header">
