@@ -75,7 +75,7 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ủng hộ</a>
                             <div class="dropdown-menu">
                                 <a href="donate.php" class="dropdown-item">Quyên góp</a>
-                                <a href="volunteer.php" class="dropdown-item">Tình nguyện viên</a>
+                                <a href="volunteer.php" class="dropdown-item">Trở thành tình nguyện viên</a>
                             </div>
                         </div>
                         <a href="contact.php" class="nav-item nav-link active">Liên hệ</a>
@@ -181,16 +181,7 @@
                             <a href="">FQAs</a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-newsletter">
-                            <h2>Cảm nhận của bạn về Helpv!</h2>
-                            <form>
-                                <input class="form-control" placeholder="Cảm nhận của bạn">
-                                <button class="btn btn-custom">Gửi</button>
-                                <label>Mỗi lời nhận xét của bạn sẽ giúp Helpv phát triển và hoàn thiện hơn!</label>
-                            </form>
-                        </div>
-                    </div>                 
+                                
                 </div>
             </div>
             <div class="container copyright">

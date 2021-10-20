@@ -75,7 +75,7 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ủng hộ</a>
                             <div class="dropdown-menu">
                                 <a href="donate.php" class="dropdown-item">Quyên góp</a>
-                                <a href="volunteer.php" class="dropdown-item">Tình nguyện viên</a>
+                                <a href="volunteer.php" class="dropdown-item">Trở thành tình nguyện viên</a>
                             </div>
                         </div>
                         <a href="contact.php" class="nav-item nav-link">Liên hệ</a>
@@ -201,13 +201,20 @@
                     <h2>Những gương mặt tiêu biểu sau những hoạt động của chúng tôi</h2>
                 </div>
                 <div class="row">
+                <?php
+                include('config.php');
+                $sql="SELECT * FROM tbl_admin";
+                $noi_dung=mysqli_query($ket_noi,$sql);
+                while($row=mysqli_fetch_array($noi_dung))
+                {
+                    ;?>
                     <div class="col-lg-3 col-md-6">
                         <div class="team-item">
                             <div class="team-img">
-                                <img src="img/team-1.jpg" alt="Team Image">
+                                <img src="<?php echo $row["image"];?>" alt="Team Image">
                             </div>
                             <div class="team-text">
-                                <h2>Bùi Thu Hà</h2>
+                                <h2><?php echo $row["ten"];?></h2>
                                 <div class="team-social">
                                     <a href=""><i class="fab fa-twitter"></i></a>
                                     <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -217,70 +224,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-2.jpg" alt="Team Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Trần Xuân Bo</h2>
-                                <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-3.jpg" alt="Team Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Trần Đức Tuấn</h2>
-                                <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-4.jpg" alt="Team Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Tạ Kim Oanh</h2>
-                                <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-4.jpg" alt="Team Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Hoàng Thị Ngọc Hà</h2>
-                                <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    }
+                    mysqli_close($ket_noi);
+                    ;?>
                 </div>
             </div>
         </div>
@@ -288,69 +235,38 @@
         
         
         <!-- Testimonial Start -->
-        <div class="testimonial">
+       <div class="testimonial">
             <div class="container">
                 <div class="section-header text-center">
                     <p>Chia sẻ</p>
                     <h2>Mọi người nói gì về những hoạt động của chúng tôi?</h2>
                 </div>
                 <div class="owl-carousel testimonials-carousel">
+                <?php
+                include('config.php');
+                $sql="SELECT * FROM tbl_chia_se_user limit 4";
+                $noi_dung=mysqli_query($ket_noi,$sql);
+                while($row=mysqli_fetch_array($noi_dung))
+                {
+                    ;?>
                     <div class="testimonial-item">
                         <div class="testimonial-profile">
-                            <img src="img/testimo-4.jpg" alt="Image">
+                            <img src="img/testimo.jpg" alt="Image">
                             <div class="testimonial-name">
-                                <h3>Trần Thị Thủy Tiên</h3>
-                                <p>Ca sĩ</p>
+                                <h3><?php echo $row["ten"];?></h3>
+                                <p><?php echo $row["nghe_nghiep"];?></p>
                             </div>
                         </div>
                         <div class="testimonial-text">
                             <p>
-                                Đây là một tổ chức rất ý nghĩa, cảm ơn đội ngũ đã thực hiện những chương trình giúp đỡ trẻ em. 
+                                <?php echo $row["loi_nhan"];?>
                             </p>
                         </div>
                     </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-profile">
-                            <img src="img/testimo-2.jpg" alt="Image">
-                            <div class="testimonial-name">
-                                <h3>Nguyễn Phương Hằng</h3>
-                                <p>Doanh nhân</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-text">
-                            <p>
-                                HELPV là một tổ chức tuyệt vời. Cảm ơn tất cả các bạn.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-profile">
-                            <img src="img/testimo-3.jpg" alt="Image">
-                            <div class="testimonial-name">
-                                <h3>Võ Hoài Linh</h3>
-                                <p>Nghệ sĩ</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-text">
-                            <p>
-                                Thật tuyệt vời , các bạn đã thắp sáng thêm cho tương lai của những mần non đất nước.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-profile">
-                            <img src="img/testimo-1.jpg" alt="Image">
-                            <div class="testimonial-name">
-                                <h3>Lưu Mạnh Thắng</h3>
-                                <p>Giáo viên</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-text">
-                            <p>
-                                Tôi đã trao đổi với người đứng đầu và tôi có niềm tin rằng tôi có thể yên tâm đầu tư từ thiện vào nơi đây.
-                            </p>
-                        </div>
-                    </div>
+                    <?php
+                    }
+                    mysqli_close($ket_noi);
+                    ;?>
                 </div>
             </div>
         </div>
@@ -395,17 +311,7 @@
                             <a href="">Help</a>
                             <a href="">FQAs</a>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-newsletter">
-                            <h2>Cảm nhận của bạn về Helpv!</h2>
-                            <form>
-                                <input class="form-control" placeholder="Cảm nhận của bạn">
-                                <button class="btn btn-custom">Gửi</button>
-                                <label>Mỗi lời nhận xét của bạn sẽ giúp Helpv phát triển và hoàn thiện hơn!</label>
-                            </form>
-                        </div>
-                    </div>                 
+                    </div>             
                 </div>
             </div>
             <div class="container copyright">

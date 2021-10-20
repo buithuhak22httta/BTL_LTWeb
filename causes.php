@@ -75,7 +75,7 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ủng hộ</a>
                             <div class="dropdown-menu">
                             <a href="donate.php" class="dropdown-item">Quyên góp</a>
-                                <a href="volunteer.php" class="dropdown-item">Tình nguyện viên</a>
+                                <a href="volunteer.php" class="dropdown-item">Trở thành tình nguyện viên</a>
                                 
                             </div>
                         </div>
@@ -192,9 +192,16 @@
                     <h2>Từ tháng 01 năm 2021 đến nay</h2>
                 </div>
                 <div class="owl-carousel causes-carousel">
+                 <?php
+                include('config.php');
+                $sql="SELECT * FROM tbl_su_kien where ngay_to_chuc <= CURRENT_DATE order by ngay_to_chuc ASC";
+                $noi_dung=mysqli_query($ket_noi,$sql);
+                while($row=mysqli_fetch_array($noi_dung))
+                {
+                    ;?>
                     <div class="causes-item">
                         <div class="causes-img">
-                            <img src="img/causes-1.jpg" alt="Image">
+                            <img src="<?php echo $row["image"];?>" alt="Image">
                         </div>
                         <div class="causes-progress">
                             <div class="progress">
@@ -203,79 +210,18 @@
                                 </div>
                             </div>
                             <div class="progress-text">
-                                <p><strong>Mục tiêu:</strong> $3000</p>
-                                <p><strong>Đạt được:</strong> $3000</p>
+                                <p><strong>Đạt được:</strong> <?php echo $row["so_tien_ung_ho"];?></p>
                             </div>
                         </div>
                         <div class="causes-text">
-                            <h3>Em đến trường</h3>
-                            <p>Ủng hộ sách vở, đồ dùng học tập cho trẻ em bị ảnh hưởng bởi lũ lụt tại Quảng Trị.</p>
-                        </div>
-                        
+                            <h3><?php echo $row["ten"];?></h3>
+                            <p><?php echo $row["noi_dung"];?></p>
+                        </div>                        
                     </div>
-                    <div class="causes-item">
-                        <div class="causes-img">
-                            <img src="img/causes-2.jpg" alt="Image">
-                        </div>
-                        <div class="causes-progress">
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                                    <span>100%</span>
-                                </div>
-                            </div>
-                            <div class="progress-text">
-                                <p><strong>Mục tiêu:</strong> $1000</p>
-                                <p><strong>Đạt được:</strong> $1000</p>
-                            </div>
-                        </div>
-                        <div class="causes-text">
-                            <h3>Áo ấm cho em</h3>
-                            <p>Quyên góp quần áo ấm và đồ dùng thiết yếu cho trẻ em xã Bình Trung, huyện Chợ Đồn, tỉnh Bắc Kạn.</p>
-                        </div>
-                        
-                    </div>
-                    <div class="causes-item">
-                        <div class="causes-img">
-                            <img src="img/causes-3.jpg" alt="Image">
-                        </div>
-                        <div class="causes-progress">
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                                    <span>100%</span>
-                                </div>
-                            </div>
-                            <div class="progress-text">
-                                <p><strong>Mục tiêu</strong> $3000</p>
-                                <p><strong>Đạt được:</strong> $3000</p>
-                            </div>
-                        </div>
-                        <div class="causes-text">
-                            <h3>Bữa ăn dinh dưỡng cho trẻ</h3>
-                            <p>Cung cấp 205 bữa ăn lành mạnh cho các em nhỏ tại Trung tâm Nhân đạo Quê Hương (Bình Dương).</p>
-                        </div>
-                        
-                    </div>
-                    <div class="causes-item">
-                        <div class="causes-img">
-                            <img src="img/causes-4.jpg" alt="Image">
-                        </div>
-                        <div class="causes-progress">
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                                    <span>100%</span>
-                                </div>
-                            </div>
-                            <div class="progress-text">
-                                <p><strong>Mục tiêu:</strong> $5000</p>
-                                <p><strong>Đạt được:</strong> $5000</p>
-                            </div>
-                        </div>
-                        <div class="causes-text">
-                            <h3>Hỗ trợ học trực tuyến</h3>
-                            <p>Ủng hộ 40 chiếc điện thoại giúp các em nhỏ tại Bình Dương đủ điều kiện học tập.</p>
-                        </div>
-                        
-                    </div>
+                    <?php
+                    }
+                    mysqli_close($ket_noi);
+                    ;?>
                 </div>
             </div>
         </div>
@@ -321,16 +267,7 @@
                             <a href="">FQAs</a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-newsletter">
-                            <h2>Cảm nhận của bạn về Helpv!</h2>
-                            <form>
-                                <input class="form-control" placeholder="Cảm nhận của bạn">
-                                <button class="btn btn-custom">Gửi</button>
-                                <label>Mỗi lời nhận xét của bạn sẽ giúp Helpv phát triển và hoàn thiện hơn!</label>
-                            </form>
-                        </div>
-                    </div>                 
+                                    
                 </div>
             </div>
             <div class="container copyright">

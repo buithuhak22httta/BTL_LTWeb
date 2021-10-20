@@ -1,3 +1,21 @@
+<?php
+    //kiểm tra bạn có quyền truy cập trang này k qua biến $session['da_dang_nhap']
+    session_start();
+    if(!$_SESSION['da_dang_nhap'])
+        {
+                        echo "
+                    <script type='text/javascript'>
+                        window.alert('Bạn không có quyền truy cập');
+                    </script>
+                ";
+                echo "
+                    <script type='text/javascript'>
+                        window.location.href='dang_nhap.php';
+                    </script>
+                ";
+        }
+
+;?>
 <!DOCTYPE html>
 <html lang="en">
 

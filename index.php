@@ -335,9 +335,16 @@
                     <h2>Từ tháng 01 năm 2021 đến nay</h2>
                 </div>
                 <div class="owl-carousel causes-carousel">
+                 <?php
+                include('config.php');
+                $sql="SELECT * FROM tbl_su_kien where ngay_to_chuc <= CURRENT_DATE order by ngay_to_chuc ASC";
+                $noi_dung=mysqli_query($ket_noi,$sql);
+                while($row=mysqli_fetch_array($noi_dung))
+                {
+                    ;?>
                     <div class="causes-item">
                         <div class="causes-img">
-                            <img src="img/causes-1.jpg" alt="Image">
+                            <img src="<?php echo $row["image"];?>" alt="Image">
                         </div>
                         <div class="causes-progress">
                             <div class="progress">
@@ -346,75 +353,18 @@
                                 </div>
                             </div>
                             <div class="progress-text">
-                                <p><strong>Mục tiêu:</strong> $3000</p>
-                                <p><strong>Đạt được:</strong> $3000</p>
+                                <p><strong>Đạt được:</strong> <?php echo $row["so_tien_ung_ho"];?></p>
                             </div>
                         </div>
                         <div class="causes-text">
-                            <h3>Em đến trường</h3>
-                            <p>Ủng hộ sách vở, đồ dùng học tập cho trẻ em bị ảnh hưởng bởi lũ lụt tại Quảng Trị.</p>
+                            <h3><?php echo $row["ten"];?></h3>
+                            <p><?php echo $row["noi_dung"];?></p>
                         </div>                        
                     </div>
-                    <div class="causes-item">
-                        <div class="causes-img">
-                            <img src="img/causes-2.jpg" alt="Image">
-                        </div>
-                        <div class="causes-progress">
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                                    <span>100%</span>
-                                </div>
-                            </div>
-                            <div class="progress-text">
-                                <p><strong>Mục tiêu:</strong> $1000</p>
-                                <p><strong>Đạt được:</strong> $1000</p>
-                            </div>
-                        </div>
-                        <div class="causes-text">
-                            <h3>Áo ấm cho em</h3>
-                            <p>Quyên góp quần áo ấm và đồ dùng thiết yếu cho trẻ em xã Bình Trung, huyện Chợ Đồn, tỉnh Bắc Kạn.</p>
-                        </div>                        
-                    </div>
-                    <div class="causes-item">
-                        <div class="causes-img">
-                            <img src="img/causes-3.jpg" alt="Image">
-                        </div>
-                        <div class="causes-progress">
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                                    <span>100%</span>
-                                </div>
-                            </div>
-                            <div class="progress-text">
-                                <p><strong>Mục tiêu:</strong> $3000</p>
-                                <p><strong>Đạt được:</strong> $3000</p>
-                            </div>
-                        </div>
-                        <div class="causes-text">
-                            <h3>Bữa ăn dinh dưỡng cho trẻ</h3>
-                            <p>Cung cấp 205 bữa ăn lành mạnh cho các em nhỏ tại Trung tâm Nhân đạo Quê Hương (Bình Dương).</p>
-                        </div>                        
-                    </div>
-                    <div class="causes-item">
-                        <div class="causes-img">
-                            <img src="img/causes-4.jpg" alt="Image">
-                        </div>
-                        <div class="causes-progress">
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                                    <span>100%</span>
-                                </div>
-                            </div>
-                            <div class="progress-text">
-                                <p><strong>Mục tiêu:</strong> $5000</p>
-                                <p><strong>Đạt được:</strong> $5000</p>
-                            </div>
-                        </div>
-                        <div class="causes-text">
-                            <h3>Hỗ trợ học trực tuyến</h3>
-                            <p>Ủng hộ 40 chiếc điện thoại giúp các em nhỏ tại Bình Dương đủ điều kiện học tập.</p>
-                        </div>
-                    </div>
+                    <?php
+                    }
+                    mysqli_close($ket_noi);
+                    ;?>
                 </div>
             </div>
         </div>
@@ -518,13 +468,20 @@
                     <h2>Những gương mặt tiêu biểu sau những hoạt động của chúng tôi</h2>
                 </div>
                 <div class="row">
+                <?php
+                include('config.php');
+                $sql="SELECT * FROM tbl_admin";
+                $noi_dung=mysqli_query($ket_noi,$sql);
+                while($row=mysqli_fetch_array($noi_dung))
+                {
+                    ;?>
                     <div class="col-lg-3 col-md-6">
                         <div class="team-item">
                             <div class="team-img">
-                                <img src="img/team-1.jpg" alt="Team Image">
+                                <img src="<?php echo $row["image"];?>" alt="Team Image">
                             </div>
                             <div class="team-text">
-                                <h2>Bùi Thu Hà</h2>
+                                <h2><?php echo $row["ten"];?></h2>
                                 <div class="team-social">
                                     <a href=""><i class="fab fa-twitter"></i></a>
                                     <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -534,70 +491,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-2.jpg" alt="Team Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Trần Xuân Bo</h2>
-                                <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-3.jpg" alt="Team Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Trần Đức Tuấn</h2>
-                                <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-4.jpg" alt="Team Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Tạ Kim Oanh</h2>
-                                <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-4.jpg" alt="Team Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Hoàng Thị Ngọc Hà</h2>
-                                <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    }
+                    mysqli_close($ket_noi);
+                    ;?>
                 </div>
             </div>
         </div>
@@ -605,27 +502,38 @@
         
         
         <!-- Volunteer Start -->
-        <div class="volunteer" data-parallax="scroll" data-image-src="img/volunteer.jpg">
-            <div class="container">
+<div class="container">
+            <div class="volunteer" data-parallax="scroll" data-image-src="img/volunteer.jpg">
                 <div class="row align-items-center">
                     <div class="col-lg-5">
+                    
                         <div class="volunteer-form">
+                            <div class="section-header">
+                                <h3 style="text-align: center; color: white;" >Đăng kí trở thành tình nguyện viên</h3>
+                            </div>
                             <form>
                                 <div class="control-group">
                                     <input type="text" class="form-control" placeholder="Họ và tên" required="required" />
                                 </div>
                                 <div class="control-group">
-                                    <input type="email" class="form-control" placeholder="Email" required="required" />
+                                    <input type="text" class="form-control" placeholder="Số điện thoại" required="required" />
                                 </div>
                                 <div class="control-group">
-                                    <textarea class="form-control" placeholder="Tại sao bạn muốn trở thành tình nguyện viên?" required="required"></textarea>
+                                    <input type="email" class="form-control" placeholder="Email" required="required" />
                                 </div>
-                                <div>
-                                    <button class="btn btn-custom" type="submit">Trở thành tình nghuyện viên</button>
+                                <div class="form-group">
+                                  <input type="text" class="form-control" placeholder="Giới tính" required="required" />
+                                  </div>
+                                  <div class="control-group">
+                                    <textarea class="form-control" placeholder="Vì sao bạn muốn trở thành một tình nguyện viên?" required="required"></textarea>
+                                </div>
+                                  <div>
+                                    <button class="btn btn-custom" type="submit">Đăng kí</button>
                                 </div>
                             </form>
                         </div>
                     </div>
+                    
                     <div class="col-lg-7">
                         <div class="volunteer-content">
                             <div class="section-header">
@@ -653,62 +561,31 @@
                     <h2>Mọi người nói gì về những hoạt động của chúng tôi?</h2>
                 </div>
                 <div class="owl-carousel testimonials-carousel">
+                <?php
+                include('config.php');
+                $sql="SELECT * FROM tbl_chia_se_user limit 4";
+                $noi_dung=mysqli_query($ket_noi,$sql);
+                while($row=mysqli_fetch_array($noi_dung))
+                {
+                    ;?>
                     <div class="testimonial-item">
                         <div class="testimonial-profile">
-                            <img src="img/testimo-4.jpg" alt="Image">
+                            <img src="img/testimo.jpg" alt="Image">
                             <div class="testimonial-name">
-                                <h3>Trần Thị Thủy Tiên</h3>
-                                <p>Ca sĩ</p>
+                                <h3><?php echo $row["ten"];?></h3>
+                                <p><?php echo $row["nghe_nghiep"];?></p>
                             </div>
                         </div>
                         <div class="testimonial-text">
                             <p>
-                                Đây là một tổ chức rất ý nghĩa, cảm ơn đội ngũ đã thực hiện những chương trình giúp đỡ trẻ em. 
+                                <?php echo $row["loi_nhan"];?>
                             </p>
                         </div>
                     </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-profile">
-                            <img src="img/testimo-2.jpg" alt="Image">
-                            <div class="testimonial-name">
-                                <h3>Nguyễn Phương Hằng</h3>
-                                <p>Doanh nhân</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-text">
-                            <p>
-                                HELPV là một tổ chức tuyệt vời. Cảm ơn tất cả các bạn.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-profile">
-                            <img src="img/testimo-3.jpg" alt="Image">
-                            <div class="testimonial-name">
-                                <h3>Võ Hoài Linh</h3>
-                                <p>Nghệ sĩ</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-text">
-                            <p>
-                                Thật tuyệt vời , các bạn đã thắp sáng thêm cho tương lai của những mần non đất nước.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-profile">
-                            <img src="img/testimo-1.jpg" alt="Image">
-                            <div class="testimonial-name">
-                                <h3>Lưu Mạnh Thắng</h3>
-                                <p>Giáo viên</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-text">
-                            <p>
-                                Tôi đã trao đổi với người đứng đầu và tôi có niềm tin rằng tôi có thể yên tâm đầu tư từ thiện vào nơi đây.
-                            </p>
-                        </div>
-                    </div>
+                    <?php
+                    }
+                    mysqli_close($ket_noi);
+                    ;?>
                 </div>
             </div>
         </div>
@@ -762,15 +639,22 @@
                     <h2>Tin tức mới nhất từ chúng tôi</h2>
                 </div>
                 <div class="row">
+                <?php
+                include('config.php');
+                $sql="SELECT * FROM tbl_blog limit 3";
+                $noi_dung=mysqli_query($ket_noi,$sql);
+                while($row=mysqli_fetch_array($noi_dung))
+                {
+                    ;?>
                     <div class="col-lg-4">
                         <div class="blog-item">
                             <div class="blog-img">
-                                <img src="img/blog-1.jpg" alt="Image">
+                                <img src="<?php echo $row["anh_minh_hoa"];?>" alt="Image">
                             </div>
                             <div class="blog-text">
-                                <h3><a href="#">Tấm gương sáng</a></h3>
+                                <h3><a href="#"><?php echo $row["ten"];?></a></h3>
                                 <p>
-                                    Em Lùi Thị Mía một học sinh nghèo tại khu vực miền núi khó khăn nhất tỉnh Sơn La. Đã xuất sắc đỗ trường Học viện Ngân Hàng nhưng hoàn cảnh khó khăn, em không đủ điều kiện tới trường. Nhờ sự giúp đỡ của quỹ học bổng HELPV em đã có cơ hội tiếp tục con đường học tập và giành nhiều thành tích cao trong học tập. 
+                                    <?php echo $row["noi_dung"];?> 
                                 </p>
                             </div>
                             <div class="blog-meta">
@@ -779,40 +663,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/blog-2.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="#">Trái tim trở lại</a></h3>
-                                <p>
-                                    Em La Pu Sá bị mắc bệnh tim bẩm sinh, gia đình hoàn cảnh khó khăn không đủ điều kiện chữa trị cho em. Các nhà hảo tâm và tình nguyện viên của HELPV đã tài trợ và giúp đỡ tạo điều kiện cho em được phẫu thuật thành công. Hiện tại, em đã hoàn toàn bình phục.
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">18 bình luận</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/blog-3.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="#">Ngôi nhà mới</a></h3>
-                                <p>
-                                    Hai anh em Vũ Văn An và Vũ Văn Bình mất đi cả người thân lẫn ngôi nhà gắn bó hơn 10 năm sau trận lũ lụt năm 2020. Nhờ quỹ Mái ấm cho em của HELPV, tháng 12 năm 2020 các em đã có một ngôi nhà mới. 
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">12 bình luận</a></p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    }
+                    mysqli_close($ket_noi);
+                    ;?>
                 </div>
             </div>
         </div>
@@ -857,17 +711,7 @@
                             <a href="">Help</a>
                             <a href="">FQAs</a>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-newsletter">
-                            <h2>Cảm nhận của bạn về Helpv!</h2>
-                            <form>
-                                <input class="form-control" placeholder="Cảm nhận của bạn">
-                                <button class="btn btn-custom">Gửi</button>
-                                <label>Mỗi lời nhận xét của bạn sẽ giúp Helpv phát triển và hoàn thiện hơn!</label>
-                            </form>
-                        </div>
-                    </div>                 
+                    </div>               
                 </div>
             </div>
             <div class="container copyright">

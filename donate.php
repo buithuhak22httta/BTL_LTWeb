@@ -186,16 +186,7 @@
                             <a href="">FQAs</a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-newsletter">
-                            <h2>Cảm nhận của bạn về Helpv!</h2>
-                            <form>
-                                <input class="form-control" placeholder="Cảm nhận của bạn">
-                                <button class="btn btn-custom">Gửi</button>
-                                <label>Mỗi lời nhận xét của bạn sẽ giúp Helpv phát triển và hoàn thiện hơn!</label>
-                            </form>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <div class="container copyright">

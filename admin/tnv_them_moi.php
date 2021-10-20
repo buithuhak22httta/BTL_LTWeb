@@ -1,3 +1,22 @@
+<?php
+    //kiểm tra bạn có quyền truy cập trang này k qua biến $session['da_dang_nhap']
+    session_start();
+    if(!$_SESSION['da_dang_nhap'])
+        {
+                        echo "
+                    <script type='text/javascript'>
+                        window.alert('Bạn không có quyền truy cập');
+                    </script>
+                ";
+                echo "
+                    <script type='text/javascript'>
+                        window.location.href='dang_nhap.php';
+                    </script>
+                ";
+        }
+$ten=$_SESSION['ten'];
+$anh=$_SESSION['anh'];
+;?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,16 +69,17 @@
         </ul>
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
+          <strong><?php echo $ten ;?></strong>
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face28.jpg" alt="profile"/>
+              <img src="../<?php echo $anh ;?>" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
                 <i class="ti-settings text-primary"></i>
                 Cài Đặt
               </a>
-              <a class="dropdown-item">
-                <i class="ti-power-off text-primary"></i>
+              <a class="dropdown-item" href='dang_nhap.php'>
+                <i class="ti-power-off text-primary" ></i>
                 Đăng Xuất
               </a>
             </div>
@@ -98,13 +118,7 @@
           <li class="nav-item">
             <a class="nav-link" href="index.php">
               <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Trang chủ</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="quan_tri_admin.php">
-              <i class="icon-head menu-icon"></i>
-              <span class="menu-title">Quản trị admin</span>
+              <span class="menu-title">Danh mục</span>
             </a>
           </li>
           <li class="nav-item">
@@ -124,6 +138,13 @@
             <a class="nav-link" href="quan_tri_chia_se.php">
               <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">Quản trị chia sẻ</span>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="quan_tri_admin.php">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Quản trị admin</span>
             </a>
           </li>
 
@@ -173,16 +194,7 @@
           <div class="col-lg-12 stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Thêm mới tình nguyện viên</h4>
-                  <div class="col-12 col-xl-4">
-                 <div class="justify-content-end d-flex">
-                  <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-                    <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2">
-                     <i class="mdi mdi-calendar"></i><?php echo date("d/m/Y") ;?>
-                    </button>
-                  </div>
-                 </div>
-                </div>
+                  <h4 class="card-title">Danh sách tình nguyện viên | <a href="tnv_them_moi.php">Thêm mới</a></h4>
                   <div class="table-responsive pt-3">
                     <form class="forms-sample" method="POST" action="tnv_them_moi_thuchien.php" enctype="multipart/form-data">
                     <div class="form-group">

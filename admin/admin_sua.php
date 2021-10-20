@@ -1,3 +1,22 @@
+<?php
+    //kiểm tra bạn có quyền truy cập trang này k qua biến $session['da_dang_nhap']
+    session_start();
+    if(!$_SESSION['da_dang_nhap'])
+        {
+                        echo "
+                    <script type='text/javascript'>
+                        window.alert('Bạn không có quyền truy cập');
+                    </script>
+                ";
+                echo "
+                    <script type='text/javascript'>
+                        window.location.href='dang_nhap.php';
+                    </script>
+                ";
+        }
+$ten=$_SESSION['ten'];
+$anh=$_SESSION['anh'];
+;?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,26 +41,6 @@
   <link rel="shortcut icon" href="images/favicon.png" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-        <script>
-            tinymce.init({
-                selector: '#txtDiaChi'
-                            });
-        </script>
-        <script>
-            tinymce.init({
-                selector: '#txtDienThoai'
-                            });
-        </script>
-        <script>
-            tinymce.init({
-                selector: '#txtEmail'
-                            });
-        </script>
-        <script>
-            tinymce.init({
-                selector: '#txtTen'
-                            });
-        </script>
 </head>
 <body>
   <div class="container-scroller">
@@ -69,15 +68,16 @@
         </ul>
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
+          <strong><?php echo $ten ;?></strong>
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face28.jpg" alt="profile"/>
+              <img src="../<?php echo $anh ;?>" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
                 <i class="ti-settings text-primary"></i>
                 Cài Đặt
               </a>
-              <a class="dropdown-item">
+              <a class="dropdown-item" href='dang_nhap.php'>
                 <i class="ti-power-off text-primary"></i>
                 Đăng Xuất
               </a>
@@ -230,7 +230,7 @@
                     </div>
                     <div class="form-group">
                       <label for="txtEmail">Email</label>
-                      <<input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Nhập email" value="<?php echo $row['email'] ;?>"/>
+                      <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Nhập email" value="<?php echo $row['email'] ;?>"/>
                     </div>
                     <div class="form-group">
                       <label for="txtDienThoai">Số điện thoại</label>

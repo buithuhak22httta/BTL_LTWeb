@@ -1,3 +1,22 @@
+<?php
+    //kiểm tra bạn có quyền truy cập trang này k qua biến $session['da_dang_nhap']
+    session_start();
+    if(!$_SESSION['da_dang_nhap'])
+        {
+                        echo "
+                    <script type='text/javascript'>
+                        window.alert('Bạn không có quyền truy cập');
+                    </script>
+                ";
+                echo "
+                    <script type='text/javascript'>
+                        window.location.href='dang_nhap.php';
+                    </script>
+                ";
+        }
+$ten=$_SESSION['ten'];
+$anh=$_SESSION['anh'];
+;?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,26 +41,6 @@
   <link rel="shortcut icon" href="images/favicon.png" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-   <script>
-            tinymce.init({
-                selector: '#txtDiaChi'
-                            });
-        </script>
-        <script>
-            tinymce.init({
-                selector: '#txtDienThoai'
-                            });
-        </script>
-        <script>
-            tinymce.init({
-                selector: '#txtEmail'
-                            });
-        </script>
-        <script>
-            tinymce.init({
-                selector: '#txtTen'
-                            });
-        </script>
 </head>
 <body>
   <div class="container-scroller">
@@ -57,6 +56,7 @@
         </button>
         <ul class="navbar-nav mr-lg-2">
           <li class="nav-item nav-search d-none d-lg-block">
+          <strong><?php echo $ten ;?></strong>
             <div class="input-group">
               <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
                 <span class="input-group-text" id="search">
@@ -70,14 +70,14 @@
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face28.jpg" alt="profile"/>
+              <img src="../<?php echo $anh ;?>" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
                 <i class="ti-settings text-primary"></i>
                 Cài Đặt
               </a>
-              <a class="dropdown-item">
+              <a class="dropdown-item" href='dang_nhap.php'>
                 <i class="ti-power-off text-primary"></i>
                 Đăng Xuất
               </a>
@@ -200,10 +200,7 @@
           <div class="col-lg-12 stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Danh sách admin</h4>
-                  <p class="card-description">
-                   <button type="button" class="btn btn-primary btn-sm"><a href="admin_them_moi.php" style="color: white; text-decoration: none">Thêm mới</a></button>
-                  </p>
+                  <h4 class="card-title">Danh sách admin  | <a href="admin_them_moi.php">Thêm mới</a></h4>
                   <div class="table-responsive pt-3">
                     <form class="forms-sample" method="POST" action="admin_them_moi_thuc_hien.php" enctype="multipart/form-data">
                     <div class="form-group">

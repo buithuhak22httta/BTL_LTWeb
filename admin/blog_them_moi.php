@@ -1,3 +1,22 @@
+<?php
+    //kiểm tra bạn có quyền truy cập trang này k qua biến $session['da_dang_nhap']
+    session_start();
+    if(!$_SESSION['da_dang_nhap'])
+        {
+                        echo "
+                    <script type='text/javascript'>
+                        window.alert('Bạn không có quyền truy cập');
+                    </script>
+                ";
+                echo "
+                    <script type='text/javascript'>
+                        window.location.href='dang_nhap.php';
+                    </script>
+                ";
+        }
+$ten=$_SESSION['ten'];
+$anh=$_SESSION['anh'];
+;?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,15 +78,16 @@
         </ul>
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
+          <strong><?php echo $ten ;?></strong>
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face28.jpg" alt="profile"/>
+              <img src="../<?php echo $anh ;?>" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
                 <i class="ti-settings text-primary"></i>
                 Cài Đặt
               </a>
-              <a class="dropdown-item">
+              <a class="dropdown-item" href='dang_nhap.php'>
                 <i class="ti-power-off text-primary"></i>
                 Đăng Xuất
               </a>
@@ -102,18 +122,12 @@
       </div>
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
             <a class="nav-link" href="index.php">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Danh mục</span>
-            </a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" href="quan_tri_admin.php">
-              <i class="icon-head menu-icon"></i>
-              <span class="menu-title">Quản trị admin</span>
             </a>
           </li>
           <li class="nav-item">
@@ -133,6 +147,13 @@
             <a class="nav-link" href="quan_tri_chia_se.php">
               <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">Quản trị chia sẻ</span>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="quan_tri_admin.php">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Quản trị admin</span>
             </a>
           </li>
 
@@ -190,10 +211,7 @@
           <div class="col-lg-12 stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Danh sách blog</h4>
-                  <p class="card-description">
-                   <button type="button" class="btn btn-primary btn-sm"><a href="blog_them_moi.php" style="color: white; text-decoration: none">Thêm mới</a></button>
-                  </p>
+                  <h4 class="card-title">Danh sách blog | <a href="blog_them_moi.php">Thêm mới</a></h4>
                   <div class="table-responsive pt-3">
                     <form class="forms-sample" method="POST" action="blog_them_moi_thuc_hien.php" enctype="multipart/form-data">
                     <div class="form-group">
