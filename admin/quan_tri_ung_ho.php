@@ -99,6 +99,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="quan_tri_admin.php">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Quản trị admin</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="quan_tri_su_kien.php">
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">Quản trị sự kiện</span>
@@ -115,13 +121,6 @@
             <a class="nav-link" href="quan_tri_chia_se.php">
               <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">Quản trị chia sẻ</span>
-            </a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" href="quan_tri_admin.php">
-              <i class="icon-head menu-icon"></i>
-              <span class="menu-title">Quản trị admin</span>
             </a>
           </li>
 
@@ -262,4 +261,3 @@
 </body>
 
 </html>
-
