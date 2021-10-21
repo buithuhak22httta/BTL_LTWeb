@@ -75,6 +75,7 @@
                             <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Ủng hộ</a>
                             <div class="dropdown-menu">
                                 <a href="donate.php" class="dropdown-item">Quyên góp</a>
+                                <a href="update_donate.php" class="dropdown-item">Cập nhật ủng hộ</a>
                                 <a href="volunteer.php" class="dropdown-item">Tình nguyện viên</a>
                             </div>
                         </div>

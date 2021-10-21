@@ -111,7 +111,7 @@
                         <div class="donate-content">
                             <div class="section-header">
                                 <p>Ủng hộ</p>
-                                <h2>Hãy quyên góp để trẻ em đang gặp khó khăn có cuộc sống tốt hơn</h2>
+                                <h2>Hãy chung tay để trẻ em đang gặp khó khăn có cuộc sống tốt hơn</h2>
                             </div>
                             <div class="donate-text">
                                 <p>
@@ -122,19 +122,32 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="donate-form">
-                            <form>
+                         <h3 style="text-align: center; color: white;" >Ủng hộ tiền</h3>
+                            <form class="forms-sample" method="POST" action="donate_act.php" enctype="multipart/form-data">
+
                                 <div class="control-group">
-                                    <input type="text" class="form-control" placeholder="Họ và tên" required="required" />
+                                <label for="txtTen"></label>
+                                    <input type="text" class="form-control"
+                                    id="txtTen"  name="txtTen" placeholder="Họ và tên" " required="required" />
                                 </div>
                                 <div class="control-group">
-                                    <input type="email" class="form-control" placeholder="Email" required="required" />
+                                <label for="txtSdt"></label>
+                                    <input type="text" class="form-control"
+                                    id="txtSdt" name = "txtSdt" placeholder="Số điện thoại" required="required" />
                                 </div>
                                 <div class="control-group">
-                                    <input type="number" class="form-control" placeholder="Số tiền ủng hộ" required="required" />
+                                 <label for="txtEmail"></label>
+                                    <input type="email" class="form-control"
+                                    id="txtEmail" name="txtEmail"  placeholder="Email" required="required" />
+                                </div>
+                                <div class="control-group"> 
+                                <label for="txtSotien"></label>
+
+                                    <input type="number" class="form-control" id="txtSotien" name="txtSotien"  placeholder="Số tiền ủng hộ" required="required" />
                                 </div>
                                 <div class="control-group">
-                                    <label style="color: white"> Ảnh xác nhận </label>
-                                    <input type="file" class="form-control" placeholder="Ảnh xác nhận" required="required" />
+                                    <label for="txtAnh" style="color: white"> Ảnh xác nhận </label>
+                                    <input type="file" class="form-control" id="txtAnh" name="txtAnh" placeholder="Ảnh xác nhận" required="required" />
                                 </div>
                                 <div>
                                     <button class="btn btn-custom" type="submit">Ủng hộ ngay</button>

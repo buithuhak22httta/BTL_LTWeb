@@ -380,7 +380,7 @@
                         <div class="donate-content">
                             <div class="section-header">
                                 <p>Úng hộ</p>
-                                <h2>Hãy quyên góp để trẻ em đang gặp khó khăn có cuộc sống tốt hơn</h2>
+                                <h2>Hãy chung tay để trẻ em đang gặp khó khăn có cuộc sống tốt hơn</h2>
                             </div>
                             <div class="donate-text">
                                 <p>
@@ -391,26 +391,17 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="donate-form">
-                            <form class="forms-sample" method="POST" action="admin/ung_ho_them_moi_thuc_hien.php" enctype="multipart/form-data">
-                                <div class="control-group">
-                                    <input type="text" class="form-control" placeholder="Họ và tên" required="required" />
-                                </div>
-                                <div class="control-group">
-                                    <input type="email" class="form-control" placeholder="Email" required="required" />
-                                </div>
-                                <div class="control-group">
-                                    <input type="number" class="form-control" placeholder="Số tiền ủng hộ" required="required" />
-                                </div>
-                                <div class="control-group">
-                                    <label style="color: white"> Ảnh xác nhận </label>
-                                    <input type="file" class="form-control" placeholder="Ảnh xác nhận" required="required" />
-                                </div>
+                             <form class="forms-sample" enctype="multipart/form-data">
                                 <div>
-                                    <button class="btn btn-custom" type="submit">Ủng hộ ngay</button>
+                                    <button class="btn btn-custom" type="submit"><a href="donate.php" >Ủng hộ ngay</a> </button>
+                                </div>
+                                 <div >
+                                    <button class="btn btn-custom" type="submit"><a href="update_donate.php" >Danh sách ủng hộ</a> </button>
                                 </div>
                             </form>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
