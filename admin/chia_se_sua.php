@@ -119,6 +119,13 @@ $anh=$_SESSION['anh'];
               <span class="menu-title">Danh mục</span>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="quan_tri_admin.php">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Quản trị admin</span>
+            </a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="quan_tri_su_kien.php">
               <i class="icon-layout menu-icon"></i>
@@ -138,26 +145,26 @@ $anh=$_SESSION['anh'];
               <span class="menu-title">Quản trị chia sẻ</span>
             </a>
           </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" href="quan_tri_admin.php">
-              <i class="icon-head menu-icon"></i>
-              <span class="menu-title">Quản trị admin</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="quan_tri_ung_ho.php">
-              <i class="icon-columns menu-icon"></i>
-              <span class="menu-title">Quản trị ủng hộ</span>
-            </a>
-          </li>
 
           <li class="nav-item">
             <a class="nav-link" href="quan_tri_tinh_nguyen_vien.php">
               <i class="icon-head menu-icon"></i>
               <span class="menu-title">Quản trị tình nguyện viên</span>
             </a>
+          </li>
+            
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Quản trị ủng hộ</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="quan_tri_ung_ho_tien.php"> Ủng hộ tiền </a></li>
+                <li class="nav-item"> <a class="nav-link" href="quan_tri_ung_ho_vat_chat.php">Ủng hộ vật chất</a></li>
+              </ul>
+            </div>
           </li>
 
           <li class="nav-item">
@@ -173,6 +180,7 @@ $anh=$_SESSION['anh'];
               </ul>
             </div>
           </li>
+
           
         </ul>
       </nav>
