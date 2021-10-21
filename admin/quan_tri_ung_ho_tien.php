@@ -1,11 +1,30 @@
-
+<?php
+    //kiểm tra bạn có quyền truy cập trang này k qua biến $session['da_dang_nhap']
+    session_start();
+    if(!$_SESSION['da_dang_nhap'])
+        {
+                        echo "
+                    <script type='text/javascript'>
+                        window.alert('Bạn không có quyền truy cập');
+                    </script>
+                ";
+                echo "
+                    <script type='text/javascript'>
+                        window.location.href='dang_nhap.php';
+                    </script>
+                ";
+        }
+$ten=$_SESSION['ten'];
+$anh=$_SESSION['anh'];
+;?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Thêm mới người ủng hộ</title>
+  <title>Quản trị ủng hộ</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -20,13 +39,6 @@
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-  <script>
-            tinymce.init({
-                selector: '#txtTen'
-                            });
-        </script>
 </head>
 <body>
   <div class="container-scroller">
@@ -107,6 +119,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="quan_tri_admin.php">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Quản trị admin</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="quan_tri_su_kien.php">
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">Quản trị sự kiện</span>
@@ -125,52 +143,43 @@
               <span class="menu-title">Quản trị chia sẻ</span>
             </a>
           </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" href="quan_tri_admin.php">
-              <i class="icon-head menu-icon"></i>
-              <span class="menu-title">Quản trị admin</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="quan_tri_ung_ho.php">
-              <i class="icon-columns menu-icon"></i>
-              <span class="menu-title">Quản trị ủng hộ</span>
-            </a>
-          </li>
-
           <li class="nav-item">
             <a class="nav-link" href="quan_tri_tinh_nguyen_vien.php">
               <i class="icon-head menu-icon"></i>
               <span class="menu-title">Quản trị tình nguyện viên</span>
             </a>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
-              <i class="icon-ban menu-icon"></i>
-              <span class="menu-title">Error pages</span>
-              <i class="menu-arrow"></i>
+              <i class="icon-columns menu-icon"></i>
+              <span class="menu-title">Quản trị ủng hộ</span>
             </a>
             <div class="collapse" id="error">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.php"> 404 </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.php"> 500 </a></li>
+                 <li class="nav-item">
+                  <a class="nav-link" href="quan_tri_ung_ho_tien.php">
+                    <span class="menu-title">Ủng hộ tiền</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="quan_tri_ung_ho_vat_chat.php">
+                  <span class="menu-title">Ủng hộ vật chất</span>
+                </a>
+              </li>
               </ul>
             </div>
           </li>
-          
         </ul>
       </nav>
       <!-- partial -->
+
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Thêm người ủng hộ</h3>
+                  <h3 class="font-weight-bold">Quản trị ủng hộ tiền</h3>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -184,27 +193,78 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-12 stretch-card">
+            
+            <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Danh sách người ủng hộ |</h4>
-                  <div class="table-responsive pt-3">
-                    <form class="forms-sample" method="POST" action="ung_ho_them_moi_thuc_hien.php" enctype="multipart/form-data">
-                    
-                    <div class="form-group">
-                      <label for="txtTen">Tên người ủng hộ</label>
-                      <input type="text" class="form-control" id="txtTen" name="txtTen" placeholder="Tên người ủng hộ">
-                    </div>
-                    <div class="form-group">
-                      <label for="txtEmail">Email</label>
-                      <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                      <label for="txtSotien">Số tiền ủng hộ</label>
-                      <input type="text" class="form-control" id="txtSotien" name="txtSotien" placeholder="Số tiền ủng hộ">
-                    </div>
-                    <button type="submit" class="btn btn-primary mr-2">Cập nhật</button>
-                  </form>
+                  <h4 class="card-title">Danh sách ủng hộ</h4>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>
+                            STT
+                          </th>
+                          <th>
+                            Họ tên
+                          </th>
+                          <th>
+                            Số điện thoại
+                          </th>
+                          <th>
+                            Email
+                          </th>
+                          <th>
+                            Số tiền ủng hộ
+                          </th>
+                          <th> Ảnh xác nhận</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <?php
+                        //1. Kết nối đến máy chủ dữ liệu & CSDL mà các bạn muốn lấy, thêm mới, sửa, xóa
+                        $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
+                        //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
+                        $sql = "
+                                SELECT * 
+                                from tbl_ung_ho
+                                order by id_ung_ho desc";
+                        //3. Thực thi câu lệnh truy vấn
+                        $ten_ung_ho = mysqli_query($ket_noi, $sql);
+                        //4. Hiện thị dữ liệu lấy đc
+                        $i=0;
+                        while ($row = mysqli_fetch_array($ten_ung_ho))
+                            {
+                                $i++;
+                                ;?>
+                        <tr>
+                          <td>
+                           <?php echo $i;?>
+                          </td>
+                          
+                          <td>
+                            <?php echo $row["ten"];?>
+                          </td>
+                          <td>
+                            <?php echo $row["dien_thoai"];?>
+                          </td>
+                           <td>
+                            <?php echo $row["email"];?>
+                          </td>
+                          <td>
+                              <?php echo $row["so_tien"];?>
+                          </td>
+                           <td>
+                              <?php echo $row["anh_xac_nhan"];?>
+                          </td>
+                          
+                          <td><a href="ungho_sua.php?id=<?php echo $row['id_tnv'];?>">Sửa</a></td>
+                        </tr>
+                        <?php }
+                            //5. Đóng kết nối
+                            mysqli_close($ket_noi) ;?>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>

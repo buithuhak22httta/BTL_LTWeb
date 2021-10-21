@@ -197,6 +197,7 @@ $anh=$_SESSION['anh'];
                   <h4 class="card-title">Danh sách tình nguyện viên | <a href="tnv_them_moi.php">Thêm mới</a></h4>
                   <div class="table-responsive pt-3">
                     <form class="forms-sample" method="POST" action="tnv_them_moi_thuchien.php" enctype="multipart/form-data">
+                    
                     <div class="form-group">
                       <label for="txtTen">Họ và tên</label>
                       <input type="text" class="form-control" id="txtTen" name="txtTen" placeholder="Họ và tên">

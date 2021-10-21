@@ -148,7 +148,7 @@ $anh=$_SESSION['anh'];
               <span class="menu-title">Quản trị tình nguyện viên</span>
             </a>
           </li>
-          <li class="nav-item">
+         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
               <i class="icon-columns menu-icon"></i>
               <span class="menu-title">Quản trị ủng hộ</span>
@@ -156,12 +156,12 @@ $anh=$_SESSION['anh'];
             <div class="collapse" id="error">
               <ul class="nav flex-column sub-menu">
                  <li class="nav-item">
-                  <a class="nav-link" href="quan_tri_ung_ho.php">
+                  <a class="nav-link" href="quan_tri_ung_ho_tien.php">
                     <span class="menu-title">Ủng hộ tiền</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="quan_tri_ung_ho.php">
+                <a class="nav-link" href="quan_tri_ung_ho_vat_chat.php">
                   <span class="menu-title">Ủng hộ vật chất</span>
                 </a>
               </li>
