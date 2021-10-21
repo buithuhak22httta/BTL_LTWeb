@@ -149,26 +149,34 @@ $anh=$_SESSION['anh'];
               <span class="menu-title">Quản trị tình nguyện viên</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
-              <i class="icon-columns menu-icon"></i>
+           <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="icon-head menu-icon"></i>
               <span class="menu-title">Quản trị ủng hộ</span>
+              <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="error">
+            <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                 <li class="nav-item">
-                  <a class="nav-link" href="quan_tri_ung_ho_tien.php">
-                    <span class="menu-title">Ủng hộ tiền</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="quan_tri_ung_ho_vat_chat.php">
-                  <span class="menu-title">Ủng hộ vật chất</span>
-                </a>
-              </li>
+                <li class="nav-item"> <a class="nav-link" href="quan_tri_ung_ho_tien.php"> Ủng hộ tiền </a></li>
+                <li class="nav-item"> <a class="nav-link" href="quan_tri_ung_ho_vat_chat.php">Ủng hộ vật chất</a></li>
               </ul>
             </div>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
+              <i class="icon-ban menu-icon"></i>
+              <span class="menu-title">Error pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="error">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.php"> 404 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.php"> 500 </a></li>
+              </ul>
+            </div>
+          </li>
+
 
         </ul>
       </nav>
