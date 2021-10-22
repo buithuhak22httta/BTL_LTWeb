@@ -22,7 +22,34 @@
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
     </head>
-
+    <style>
+        .card{
+            padding: 15px 0;
+            width: 100%;
+           
+            color: #20212b;
+            background-color: #f3f6ff;
+            font-family: 'Quicksand';
+            border: 1px solid #8e8e8e 
+        }
+        .card-body{
+            font-family: 'Quicksand';
+        }
+        .form-control{
+             border: 1px solid #8e8e8e;   
+               font-family: 'Quicksand';
+                background-color: #f3f6ff;
+                height: 62px;
+        }
+        .form-group{
+            background-color: #f3f6ff;
+        }
+        .butonn{
+                width: 50%;
+                background-color: #f2bd31;
+                height: 62px
+        }
+    </style>
     <body>
         <!-- Top Bar Start -->
         <div class="top-bar d-none d-md-block">
@@ -106,57 +133,113 @@
         <!-- Donate Start -->
         <div class="container">
             <div class="donate" data-parallax="scroll" data-image-src="img/donate.jpg">
-                <div class="row align-items-center">
+                <div class="row align-items-center" >
                     <div class="col-lg-7">
                         <div class="donate-content">
                             <div class="section-header">
-                                <p>Ủng hộ</p>
-                                <h2>Hãy chung tay để trẻ em đang gặp khó khăn có cuộc sống tốt hơn</h2>
+                                <h2 style="text-align: center">Hãy chung tay để trẻ em đang gặp khó khăn có cuộc sống tốt hơn</h2>
                             </div>
                             <div class="donate-text">
-                                <p>
+                                <p style="text-align: center"> 
                                     Cả nước hiện có khoảng gần 5,6 triệu trẻ em nghèo đa chiều. Trong đó 50% trẻ em dân tộc thiếu số là trẻ em nghèo. Hơn 36% trẻ em dân tộc thiểu số còn chưa được dùng nước sạch, dịch vụ y tế, chưa được tiếp cận kịp thời các dịch vụ bảo vệ trẻ em, tỷ lệ học sinh được đến trường ở vùng dân tộc thiểu số và miền núi còn thấp, hầu hết các xã miền núi đặc biệt khó khăn còn thiếu điểm vui chơi cho trẻ em.
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5">
-                        <div class="donate-form">
-                         <h3 style="text-align: center; color: white;" >Ủng hộ tiền</h3>
-                            <form class="forms-sample" method="POST" action="donate_act.php" enctype="multipart/form-data">
-
-                                <div class="control-group">
-                                <label for="txtTen"></label>
-                                    <input type="text" class="form-control"
-                                    id="txtTen"  name="txtTen" placeholder="Họ và tên" " required="required" />
-                                </div>
-                                <div class="control-group">
-                                <label for="txtSdt"></label>
-                                    <input type="text" class="form-control"
-                                    id="txtSdt" name = "txtSdt" placeholder="Số điện thoại" required="required" />
-                                </div>
-                                <div class="control-group">
-                                 <label for="txtEmail"></label>
-                                    <input type="email" class="form-control"
-                                    id="txtEmail" name="txtEmail"  placeholder="Email" required="required" />
-                                </div>
-                                <div class="control-group"> 
-                                <label for="txtSotien"></label>
-
-                                    <input type="number" class="form-control" id="txtSotien" name="txtSotien"  placeholder="Số tiền ủng hộ" required="required" />
-                                </div>
-                                <div class="control-group">
-                                    <label for="txtAnh" style="color: white"> Ảnh xác nhận </label>
-                                    <input type="file" class="form-control" id="txtAnh" name="txtAnh" placeholder="Ảnh xác nhận" required="required" />
-                                </div>
-                                <div>
-                                    <button class="btn btn-custom" type="submit">Ủng hộ ngay</button>
-                                </div>
-                            </form>
-                        </div>
+                    <div class="col-lg-5" style="padding: 200px 90px 0 80px" >
+                        <button class="btn btn-custom" type="submit" style="width: 80%"><a href="huong-dan-dong-gop.php" style="color: white">Hướng dẫn đóng góp</a></button>
+                        <br>
+                        <br>
+                        <button class="btn btn-custom" type="submit" style="width: 80%"><a href="huong-dan-dong-gop.php" style="color: white">Cập nhật đóng góp</a></button>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="main-panel">        
+        <div class="content-wrapper">
+          <div class="row" >
+            <div class="col-md-6 grid-margin stretch-card" style="padding: 0 20px 0 190px">
+              <div class="card">
+                <div class="card-body" >
+                  <h4 class="card-title" style="text-align: center; color: #20212b">Đóng góp tiền</h4>
+                  <p class="card-description" style="text-align: center">
+                    (Vui lòng điền vào đây nếu bạn đóng góp tiền)
+                  </p>
+                  <br>
+                  <form class="forms-sample" method="POST" action="donate_money_act.php" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="txtTen">Họ và tên</label>
+                      <input type="text" class="form-control" id="txtTen"  name="txtTen" placeholder="Họ và tên" " required="required" />
+                    </div>
+                    <div class="form-group">
+                      <label for="txtSdt">Số điện thoại</label>
+                        <input type="text" class="form-control" id="txtSdt" name = "txtSdt" placeholder="Số điện thoại" required="required" />
+                    </div>
+                    <div class="form-group">
+                     <label for="txtEmail">Email</label>
+                        <input type="email" class="form-control"
+                        id="txtEmail" name="txtEmail"  placeholder="Email" required="required" />
+                    </div>
+                    <div class="form-group">
+                     <label for="txtSotien">Số tiền ủng hộ</label>
+                        <input type="number" class="form-control" id="txtSotien" name="txtSotien"  placeholder="Số tiền ủng hộ" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="txtAnh" style="color: #20212b"> Ảnh xác nhận </label>
+                        <input type="file" class="form-control" id="txtAnh" name="txtAnh" placeholder="Ảnh xác nhận" required="required" />
+                    </div>
+                      <button class="btn btn-custom" type="submit" style="width: 100%">Ủng hộ</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 grid-margin stretch-card" style="padding: 0 190px 0 20px">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title" style="text-align: center; color: #20212b">Đóng góp hiện vật</h4>
+                  <p class="card-description" style="text-align: center">
+                     (Vui lòng điền vào đây nếu bạn muốn đóng góp hiện vật)
+                  </p>
+                  <br>
+                  <form class="forms-sample" method="POST" action="donate_things_act.php" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="txtTen">Họ và tên</label>
+                      <input type="text" class="form-control" id="txtTen"  name="txtTen" placeholder="Họ và tên" " required="required" />
+                    </div>
+                    <div class="form-group">
+                      <label for="txtSdt">Số điện thoại</label>
+                        <input type="text" class="form-control" id="txtSdt" name = "txtSdt" placeholder="Số điện thoại" required="required" />
+                    </div>
+                    <div class="form-group">
+                     <label for="txtEmail">Email</label>
+                        <input type="email" class="form-control"
+                        id="txtEmail" name="txtEmail"  placeholder="Email" required="required" />
+                    </div>
+                    <div class="form-group">
+                     <label for="txtPhanloai">Phân loại</label>
+                        <select id="txtPhanloai" name="txtPhanloai" class="form-control" style="background-color: #f3f6ff">
+                            <option value="">Chọn</option>
+                            <option value="Quần áo, giày dép">Quần áo, giày dép</option>
+                            <option value="Đồ dùng học tập">Đồ dùng học tập</option>
+                            <option value="Thiết bị điện tử">Thiết bị điện tử</option>
+                            <option value="Khác">Khác</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                     <label for="txtkhac">Nếu chọn mục khác, hãy điền tên hiện vật muốn ủng hộ:</label>
+                        <input type="text" class="form-control"
+                        id="txtkhac" name="txtkhac"  placeholder="Điền tên hiện vật muốn ủng hộ" required="required" />
+                    </div>
+                          <button class="btn btn-custom" type="submit" style="width: 100%">Ủng hộ</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+        </div>
+        </div>
         </div>
         <!-- Donate End -->
 

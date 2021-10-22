@@ -379,7 +379,7 @@
                     <div class="col-lg-7">
                         <div class="donate-content">
                             <div class="section-header">
-                                <p>Úng hộ</p>
+                                <p>Ủng hộ</p>
                                 <h2>Hãy chung tay để trẻ em đang gặp khó khăn có cuộc sống tốt hơn</h2>
                             </div>
                             <div class="donate-text">
@@ -390,16 +390,19 @@
                         </div>
                     </div>
                     <div class="col-lg-5">
-                        <div class="donate-form">
-                             <form class="forms-sample" enctype="multipart/form-data">
+                        
+                             <form class="forms-sample" enctype="multipart/form-data" style="width: 100%; 
+                                     padding: 200px 0 0 80px ">
                                 <div>
-                                    <button class="btn btn-custom" type="submit"><a href="donate.php" >Ủng hộ ngay</a> </button>
+                                    <button class="btn btn-custom" type="submit" style="width: 80%">
+                                    <a href="donate.php" style="color: white">Quyên góp</a> 
+                                    </button>
                                 </div>
+                                <br>
                                  <div >
-                                    <button class="btn btn-custom" type="submit"><a href="update_donate.php" >Danh sách ủng hộ</a> </button>
+                                    <button class="btn btn-custom" type="submit" style="width: 80%"><a href="huong-dan-dong-gop.php" style="color: white">Hướng dẫn quyên góp</a> </button>
                                 </div>
                             </form>
-                        </div>
                     </div>
 
                 </div>

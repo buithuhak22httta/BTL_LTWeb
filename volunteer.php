@@ -114,21 +114,31 @@
                             <div class="section-header">
                                 <h3 style="text-align: center; color: white;" >Đăng kí trở thành tình nguyện viên</h3>
                             </div>
-                            <form>
+                            <form class="forms-sample" method="POST" action="volunteer_act.php" enctype="multipart/form-data">
                                 <div class="control-group">
-                                    <input type="text" class="form-control" placeholder="Họ và tên" required="required" />
+                                    <label for="txtTen"></label>
+                                    <input type="text" id="txtTen" name="txtTen" class="form-control" placeholder="Họ và tên" required="required" />
                                 </div>
                                 <div class="control-group">
-                                    <input type="text" class="form-control" placeholder="Số điện thoại" required="required" />
+                                    <label for="txtSdt"></label>
+                                    <input type="text" id="txtSdt" name="txtSdt" class="form-control" placeholder="Số điện thoại" required="required" />
                                 </div>
                                 <div class="control-group">
-                                    <input type="email" class="form-control" placeholder="Email" required="required" />
+                                    <label for="txtEmail"></label>
+                                    <input type="email" id="txtEmail" name="txtEmail" class="form-control" placeholder="Email" required="required" />
                                 </div>
                                 <div class="form-group">
-                                  <input type="text" class="form-control" placeholder="Giới tính" required="required" />
+                                    <label for="txtgioitinh"></label>
+                                    <select id="txtgioitinh" name="txtgioitinh" class="form-control" >
+                                        <option value="">Giới tính</option>
+                                        <option style="background-color: #20212b" value="Nam">Nam</option>
+                                        <option style="background-color: #20212b" value="Nữ">Nữ</option>
+                                    </select>
+
                                   </div>
                                   <div class="control-group">
-                                    <textarea class="form-control" placeholder="Vì sao bạn muốn trở thành một tình nguyện viên?" required="required"></textarea>
+                                    <label for="txtGhichu"></label>
+                                    <textarea class="form-control" id="txtGhichu" name="txtGhichu" placeholder="Vì sao bạn muốn trở thành một tình nguyện viên?" required="required"></textarea>
                                 </div>
                                   <div>
                                     <button class="btn btn-custom" type="submit">Đăng kí</button>
@@ -140,7 +150,6 @@
                     <div class="col-lg-7">
                         <div class="volunteer-content">
                             <div class="section-header">
-                                <p>Trở thành một tình nguyện viên</p>
                                 <h2>Hãy tạo nên điều kỳ diệu cho những sinh mệnh nhỏ</h2>
                             </div>
                             <div class="volunteer-text">
