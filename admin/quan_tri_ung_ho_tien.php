@@ -213,6 +213,7 @@ $anh=$_SESSION['anh'];
                           <th>
                             STT
                           </th>
+                          <th>Thời gian</th>
                           <th>
                             Họ tên
                           </th>
@@ -249,7 +250,7 @@ $anh=$_SESSION['anh'];
                           <td>
                            <?php echo $i;?>
                           </td>
-                          
+                          <td> <?php echo date("d/m/y", strtotime($row["time"]));?></td>
                           <td>
                             <?php echo $row["ten"];?>
                           </td>
@@ -265,8 +266,7 @@ $anh=$_SESSION['anh'];
                            <td>
                               <?php echo $row["anh_xac_nhan"];?>
                           </td>
-                          
-                          <td><a href="ungho_sua.php?id=<?php echo $row['id_tnv'];?>">Sửa</a></td>
+                          <td><a href="ung_ho_tien_sua.php?id=<?php echo $row['id_ung_ho'];?>">Sửa</a></td>
                         </tr>
                         <?php }
                             //5. Đóng kết nối
