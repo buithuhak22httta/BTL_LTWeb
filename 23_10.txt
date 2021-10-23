@@ -1,0 +1,20 @@
+3. dropdown sự kiện cho trang ủng hộ(Oanh+Chính)
+7. sửa lại hướng dẫn(Tuấn)
+5. xác nhận ủng hộ(Oanh+Chính)
+4. cài khóa, cập nhật các bảng(Hà)
+6. VD 4 bài sự kiện(Tuấn+NgHà)
+1. Sửa lại sơ đồ ttlk, vẽ mô hình dl quan hệ(NgHà)
+2. dropdown tình ng viên(Hà)
+
+
+
+
+
+8. chatbot
+9. Cuốn báo cáo: 
+chương 1:
+chương 2: 
+2.1
+2.2
+chương 3:
+

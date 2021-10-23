@@ -29,6 +29,7 @@
             $ten = $_POST["txtTen"];
             $email = $_POST["txtEmail"];
             $sdt = $_POST["txtSdt"];
+            $ngay = $_POST["txtNgay"];
 
              if ($_POST["txtPhanloai"]==NULL) {
                $phanloai= $_POST["txtkhac"];
@@ -38,7 +39,7 @@
 
             //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
             $sql = "
-                    INSERT INTO `tbl_ungho_vatchat` (`id_vat_chat`, `ten`, `sdt`, `email`, `phanloai`, `time`) VALUES (NULL, '".$ten."', '".$sdt."', '".$email."', '".$phanloai."', 'current_timestamp()');
+                    INSERT INTO `tbl_ungho_vatchat` (`id_vat_chat`, `ten`, `sdt`, `email`, `phanloai`, `time`) VALUES (NULL, '".$ten."', '".$sdt."', '".$email."', '".$phanloai."', '".$ngay."');
                     ";
             //4. Thực thi câu lệnh truy vấn
                 $ten_ung_ho = mysqli_query($ket_noi, $sql);

@@ -267,6 +267,7 @@ $anh=$_SESSION['anh'];
                               <?php echo $row["anh_xac_nhan"];?>
                           </td>
                           <td><a href="ung_ho_tien_sua.php?id=<?php echo $row['id_ung_ho'];?>">Sửa</a></td>
+                          <td><a href="ung_ho_tien_xac_nhan.php?id=<?php echo $row['id_ung_ho'];?>">Xác nhận</a></td>
                         </tr>
                         <?php }
                             //5. Đóng kết nối

@@ -30,6 +30,7 @@
             $email = $_POST["txtEmail"];
             $sdt = $_POST["txtSdt"];
             $sotien = $_POST["txtSotien"];
+            $ngay = $_POST["txtNgay"];
 
             $noi_dat_file_anh_xn = "img/anhxn/".basename($_FILES["txtAnh"]["name"]);
             $file_anh_tam = $_FILES["txtAnh"]["tmp_name"];
@@ -42,14 +43,14 @@
             }
             //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
             $sql = "
-                    INSERT INTO `tbl_ung_ho` (`id_ung_ho`, `ten`,'time', `dien_thoai`, `email`, `so_tien`, `anh_xac_nhan`) VALUES (NULL, '".$ten."',current_timestamp() , '".$sdt."', '".$email."', '".$sotien."', 'img/anhxn/".$anh."');
+                    INSERT INTO `tbl_ung_ho` (`id_ung_ho`, `ten`,`time`, `dien_thoai`, `email`, `so_tien`, `anh_xac_nhan`) VALUES (NULL, '".$ten."','".$ngay."' , '".$sdt."', '".$email."', '".$sotien."', 'img/anhxn/".$anh."');
                     ";
             //4. Thực thi câu lệnh truy vấn
                 $ten_ung_ho = mysqli_query($ket_noi, $sql);
             //5. Hiện thị thông báo thêm mới thành công và đẩy các bạn về trang quản trị tin tức
                 echo "
                     <script type='text/javascript'>
-                        window.alert('Bạn đã ủng hộ thành công!');
+                        window.alert('Cảm ơn bạn đã ủng hộ, kiểm tra tin nhắn hoặc email. Chúng tôi sẽ xác nhận lại khi nhận được!');
                     </script>
                 ";
                 echo "

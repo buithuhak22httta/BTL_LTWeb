@@ -186,6 +186,10 @@
                         <input type="number" class="form-control" id="txtSotien" name="txtSotien"  placeholder="Số tiền ủng hộ" required="required" />
                     </div>
                     <div class="form-group">
+                     <label for="txtNgay">Ngày ủng hộ</label>
+                        <input type="date" class="form-control" id="txtNgay" name="txtNgay"  placeholder="Ngày ủng hộ" required="required" />
+                    </div>
+                    <div class="form-group">
                         <label for="txtAnh" style="color: #20212b"> Ảnh xác nhận </label>
                         <input type="file" class="form-control" id="txtAnh" name="txtAnh" placeholder="Ảnh xác nhận" required="required" />
                     </div>
@@ -206,16 +210,16 @@
                   <form class="forms-sample" method="POST" action="donate_things_act.php" enctype="multipart/form-data">
                     <div class="form-group">
                       <label for="txtTen">Họ và tên</label>
-                      <input type="text" class="form-control" id="txtTen"  name="txtTen" placeholder="Họ và tên" " required="required" />
+                      <input type="text" class="form-control" id="txtTen"  name="txtTen" placeholder="Họ và tên"/>
                     </div>
                     <div class="form-group">
                       <label for="txtSdt">Số điện thoại</label>
-                        <input type="text" class="form-control" id="txtSdt" name = "txtSdt" placeholder="Số điện thoại" required="required" />
+                        <input type="text" class="form-control" id="txtSdt" name = "txtSdt" placeholder="Số điện thoại" />
                     </div>
                     <div class="form-group">
                      <label for="txtEmail">Email</label>
                         <input type="email" class="form-control"
-                        id="txtEmail" name="txtEmail"  placeholder="Email" required="required" />
+                        id="txtEmail" name="txtEmail"  placeholder="Email"/>
                     </div>
                     <div class="form-group">
                      <label for="txtPhanloai">Phân loại</label>
@@ -231,6 +235,10 @@
                      <label for="txtkhac">Nếu chọn mục khác, hãy điền tên hiện vật muốn ủng hộ:</label>
                         <input type="text" class="form-control"
                         id="txtkhac" name="txtkhac"  placeholder="Điền tên hiện vật muốn ủng hộ" required="required" />
+                    </div>
+                    <div class="form-group">
+                     <label for="txtNgay">Ngày ủng hộ</label>
+                        <input type="date" class="form-control" id="txtNgay" name="txtNgay"  placeholder="Ngày ủng hộ" required="required" />
                     </div>
                           <button class="btn btn-custom" type="submit" style="width: 100%">Ủng hộ</button>
                   </form>
