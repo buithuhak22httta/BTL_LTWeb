@@ -379,7 +379,7 @@
                     <div class="col-lg-7">
                         <div class="donate-content">
                             <div class="section-header">
-                                <p>Ủng hộ</p>
+                                <p>Quyên góp</p>
                                 <h2>Hãy chung tay để trẻ em đang gặp khó khăn có cuộc sống tốt hơn</h2>
                             </div>
                             <div class="donate-text">
@@ -392,15 +392,17 @@
                     <div class="col-lg-5">
                         
                              <form class="forms-sample" enctype="multipart/form-data" style="width: 100%; 
-                                     padding: 200px 0 0 80px ">
-                                <div>
-                                    <button class="btn btn-custom" type="submit" style="width: 80%">
-                                    <a href="donate.php" style="color: white">Quyên góp</a> 
-                                    </button>
-                                </div>
+                                     padding: 200px 0 0 80px" action="donate.php">
                                 <br>
-                                 <div >
-                                    <button class="btn btn-custom" type="submit" style="width: 80%"><a href="huong-dan-dong-gop.php" style="color: white">Hướng dẫn quyên góp</a> </button>
+                                 <div>
+                                    <button class="btn btn-custom"  style="width: 80%; color: white">Quyên góp</button>
+                                </div>
+                            </form>
+                            <form class="forms-sample" enctype="multipart/form-data" style="width: 100%; 
+                                     padding: 0px 0 0 80px" action="huong-dan-dong-gop.php">
+                                <br>
+                                 <div>
+                                    <button class="btn btn-custom"  style="width: 80%; color: white">Hướng dẫn quyên góp</button>
                                 </div>
                             </form>
                     </div>
