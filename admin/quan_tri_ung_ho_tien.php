@@ -164,6 +164,13 @@ $anh=$_SESSION['anh'];
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="quan_tri_tham_gia.php">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Quản trị tham gia</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
               <i class="icon-ban menu-icon"></i>
               <span class="menu-title">Error pages</span>
@@ -236,7 +243,7 @@ $anh=$_SESSION['anh'];
                         //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
                         $sql = "
                                 SELECT * 
-                                from tbl_ung_ho
+                                from tbl_ung_ho_tien
                                 order by id_ung_ho desc";
                         //3. Thực thi câu lệnh truy vấn
                         $ten_ung_ho = mysqli_query($ket_noi, $sql);

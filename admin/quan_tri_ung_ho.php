@@ -176,6 +176,12 @@ $anh=$_SESSION['anh'];
           
           
         </ul>
+        <li class="nav-item">
+            <a class="nav-link" href="quan_tri_tham_gia.php">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Quản trị tham gia</span>
+            </a>
+          </li>
       </nav>
       <!-- partial -->
       <div class="main-panel">

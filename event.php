@@ -132,7 +132,7 @@
                                 <div class="event-text">
                                     <h3><?php echo $row["ten"];?></h3>
                                     <p>
-                                       <?php echo $row["noi_dung"];?>
+                                       <?php echo $row["mo_ta"];?>
                                     </p>
                                     <a class="btn btn-custom" href="volunteer.php">Tham gia</a>
                                 </div>

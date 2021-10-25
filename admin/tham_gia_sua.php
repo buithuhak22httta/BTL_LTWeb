@@ -24,7 +24,7 @@ $anh=$_SESSION['anh'];
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Thêm mới sự kiện</title>
+  <title>Cập nhật tham gia</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -41,21 +41,6 @@ $anh=$_SESSION['anh'];
   <link rel="shortcut icon" href="images/favicon.png" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-  <script>
-            tinymce.init({
-                selector: '#txtNoiDung'
-                            });
-        </script>
-        <script>
-            tinymce.init({
-                selector: '#txtTen'
-                            });
-        </script>
-         <script>
-            tinymce.init({
-                selector: '#txtMota'
-                            });
-        </script>
 </head>
 <body>
   <div class="container-scroller">
@@ -85,7 +70,7 @@ $anh=$_SESSION['anh'];
           <li class="nav-item nav-profile dropdown">
           <strong><?php echo $ten ;?></strong>
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="../<?php echo $anh ;?>" alt="profile"/>
+              <img src="images/faces/face28.jpg" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
@@ -160,7 +145,8 @@ $anh=$_SESSION['anh'];
               <span class="menu-title">Quản trị chia sẻ</span>
             </a>
           </li>
-        
+              
+
           <li class="nav-item">
             <a class="nav-link" href="quan_tri_tinh_nguyen_vien.php">
               <i class="icon-head menu-icon"></i>
@@ -168,7 +154,7 @@ $anh=$_SESSION['anh'];
             </a>
           </li>
 
-          <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
               <i class="icon-head menu-icon"></i>
               <span class="menu-title">Quản trị ủng hộ</span>
@@ -213,7 +199,7 @@ $anh=$_SESSION['anh'];
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Thêm mới sự kiện</h3>
+                  <h3 class="font-weight-bold">Cập nhật tham gia</h3>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -230,38 +216,59 @@ $anh=$_SESSION['anh'];
           <div class="col-lg-12 stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Danh sách sự kiện | <a href="su_kien_them_moi.php">Thêm mới</a></h4>
+                  <h4 class="card-title">Danh sách tình nguyện viên tham gia sự kiện | <a href="tham_gia_them_moi.php">Thêm mới</a></h4>
                   <div class="table-responsive pt-3">
-                    <form class="forms-sample" method="POST" action="su_kien_them_moi_thuc_hien.php" enctype="multipart/form-data">
+
+                    <?php
+                                //Viết câu lệnh để thực hiện load dữ liệu và hiển thị lên webpage
+                                //1. Load file cấu hình để kết nối đến máy chủ CSDL
+                                    include('../config.php');
+                    //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
+                    $id_tham_gia =$_GET["id"];
+
+                    $sql = "
+                            SELECT * 
+                            from tbl_tham_gia 
+                            where id_tham_gia = ".$id_tham_gia."
+                            order by id_su_kien desc";
+                    //3. Thực thi câu lệnh truy vấn
+                    $noi_dung_tg = mysqli_query($ket_noi, $sql);
+                    //4. Hiện thị dữ liệu lấy đc
+                    $row = mysqli_fetch_array($noi_dung_tg);
+                    $sql1 = "
+                                            SELECT * 
+                                            from tbl_su_kien
+                                            ";
+                                    $noi_dung_sk = mysqli_query($ket_noi, $sql1);
+                                    $row1 = mysqli_fetch_array($noi_dung_sk);
+                        ;?>
+
+                    <form class="forms-sample" method="POST" action="tham_gia_sua_thuc_hien.php" enctype="multipart/form-data">
                     <div class="form-group">
-                      <label for="txtTen">Tên sự kiện</label>
-                      <input type="text" class="form-control" id="txtTen" name="txtTen" placeholder="Tên sự kiện">
+                      <label for="txtTen">ID tình nguyện viên</label>
+                      <select class="form-control" id="txtTNV" name="txtTNV" placeholder="ID tình nguyện viên" required="required">
+                                    <option> <?php echo $row['id_tnv'];?> </option>
+                                    <?php foreach ($noi_dung_tnv as $key => $value)
+                                    {;?>
+                                    <option value="<?php echo $value['id_tnv'];?>"> <?php echo $value['id_tnv'];?></option>
+                                    <?php } ;?>
+                                    </select>
                     </div>
                     <div class="form-group">
-                      <label for="txtMota">Mô tả</label>
-                      <input type="text" class="form-control" id="txtMota" name="txtMota" placeholder="Mô tả">
+                      <label for="txtSukien">Tên sự kiện</label>
+                      <select class="form-control" id="txtSukien" name="txtSukien" placeholder="Sự kiện bạn muốn tham gia" required="required">
+                                    <option> <?php echo $row1['ten'];?> </option>
+                                    <?php foreach ($noi_dung_sk as $key => $value)
+                                    {;?>
+                                    <option value="<?php echo $value['id_su_kien'];?>"> <?php echo $value['ten'];?></option>
+                                    <?php } mysqli_close($ket_noi) ;?>
+
+                                    </select>
                     </div>
-                    <div class="form-group">
-                      <label for="txtNoiDung">Nội dung</label>
-                      <input type="text" class="form-control" id="txtNoiDung" name="txtNoiDung" placeholder="Nội dung">
+                    <div>
+                    <input type="hidden" name="txtID" value="<?php echo $row['id_tham_gia'];?>">
+                    <button type="submit" class="btn btn-primary mr-2">Cập nhật</button>
                     </div>
-                    <div class="form-group">
-                      <label for="txtNgay">Ngày tổ chức</label>
-                      <input type="date" class="form-control" id="txtNgay" name="txtNgay" placeholder="Ngày tổ chức">
-                    </div>
-                    <div class="form-group">
-                      <label for="txtThoiGian">Thời gian</label>
-                      <input type="text" class="form-control" id="txtThoiGian" name="txtThoiGian" placeholder="Thời gian">
-                    </div>
-                    <div class="form-group">
-                      <label for="txtDiaDiem">Địa điểm</label>
-                      <input type="text" class="form-control" id="txtDiaDiem" name="txtDiaDiem" placeholder="Địa điểm">
-                    </div>
-                    <div class="form-group">
-                      <label for="txtAnh">Ảnh</label>
-                      <input type="file" class="form-control" id="txtAnh" name="txtAnh" placeholder="Ảnh minh họa">
-                    </div>
-                    <button type="submit" class="btn btn-primary mr-2">Đăng bài</button>
                   </form>
                   </div>
                 </div>

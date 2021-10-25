@@ -23,7 +23,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Cập nhật sự kiện</title>
+  <title>Tham gia thêm mới</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -45,50 +45,25 @@
             include('../config.php');
 
             //2. Lấy dữ liệu
-            $id_su_kien = $_POST["txtID"];
-            $ten = $_POST["txtTen"];
-            $mo_ta = $_POST["txtMota"];
-            $noi_dung = $_POST["txtNoiDung"];
-            $ngay_tc = $_POST["txtNgay"];
-            $thoigian = $_POST["txtThoiGian"];
-            $diadiem = $_POST["txtDiaDiem"];
-            $noi_dat_file_anh_minh_hoa = "../img/".basename($_FILES["txtAnh"]["name"]);
-            $file_anh_tam = $_FILES["txtAnh"]["tmp_name"];
-            $ket_qua_up_anh = move_uploaded_file($file_anh_tam, $noi_dat_file_anh_minh_hoa);
-            if(!$ket_qua_up_anh) {
-                $anh = NULL;
-            }
-            else {
-                $anh = basename($_FILES["txtAnh"]["name"]);
-            }
+            $tnv = (int)$_POST["txtTNV"];
+            $sukien = (int)$_POST["txtSukien"];
 
-            //3. Viết câu lệnh truy vấn sửa dữ liệu vào bảng tin tức trong CSDL
-            if($anh == NULL){
-                $sql = "
-                    UPDATE `tbl_su_kien` 
-                    SET `ten` = '".$ten."', `mo_ta` = '".$mo_ta."', `noi_dung` = '".$noi_dung."', `ngay_to_chuc` = '".$ngay_tc."', `dia_diem` = '".$diadiem."', `thoi_gian` = '".$thoigian."'
-                    WHERE `tbl_su_kien`.`id_su_kien` = '".$id_su_kien."'
+            //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
+            $sql = "
+                    INSERT INTO `tbl_tham_gia` (`id_tham_gia`, `id_tnv`, `id_su_kien`) VALUES (NULL, ".$tnv.", ".$sukien.");
                     ";
-            }
 
-            else {
-                $sql = "
-                    UPDATE `tbl_su_kien` 
-                    SET `ten` = '".$ten."', `mo_ta` = '".$mo_ta."', `noi_dung` = '".$noi_dung."', `ngay_to_chuc` = '".$ngay_tc."', `dia_diem` = '".$diadiem."', `thoi_gian` = '".$thoigian."', `image` = 'img/".$anh."'
-                    WHERE `tbl_su_kien`.`id_su_kien` = '".$id_su_kien."'
-                    ";
-            }
             //4. Thực thi câu lệnh truy vấn
                 $noi_dung_su_kien = mysqli_query($ket_noi, $sql);
             //5. Hiện thị thông báo thêm mới thành công và đẩy các bạn về trang quản trị tin tức
                 echo "
                     <script type='text/javascript'>
-                        window.alert('Bạn đã cập nhật sự kiện thành công');
+                        window.alert('Bạn đã thêm mới tham gia thành công');
                     </script>
                 ";
                 echo "
                     <script type='text/javascript'>
-                        window.location.href='quan_tri_su_kien.php';
+                        window.location.href='quan_tri_tham_gia.php';
                     </script>
                 ";
             ;?>

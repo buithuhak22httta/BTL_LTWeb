@@ -134,6 +134,20 @@
                             <div class="section-header">
                                 <h3 style="text-align: center; color: white;" >Đăng kí trở thành tình nguyện viên</h3>
                             </div>
+
+                    <?php
+                                    
+                                    $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
+                                    
+                                    $sql1 = "
+                                            SELECT * 
+                                            from tbl_su_kien
+                                            ";
+                                    $noi_dung_sk = mysqli_query($ket_noi, $sql1);
+                                    $row1 = mysqli_fetch_array($noi_dung_sk);
+                                    
+                    ;?>
+
                             <form class="forms-sample" method="POST" action="volunteer_act.php" enctype="multipart/form-data">
                                 <div class="control-group">
                                     <label for="txtTen"></label>
@@ -157,8 +171,14 @@
 
                                   </div>
                                   <div class="control-group">
-                                    <label for="txtGhichu"></label>
-                                    <textarea class="form-control" id="txtGhichu" name="txtGhichu" placeholder="Vì sao bạn muốn trở thành một tình nguyện viên?" required="required"></textarea>
+                                    <label for="txtSukien"></label>
+                                    <select class="form-control" id="txtSukien" name="txtSukien" placeholder="Sự kiện bạn muốn tham gia" required="required">
+                                    <option> <?php echo $row1['ten'];?> </option>
+                                    <?php foreach ($noi_dung_sk as $key => $value)
+                                    {;?>
+                                    <option style="background-color: #20212b" value="<?php echo $value['id_su_kien'];?>"> <?php echo $value['ten'];?></option>
+                                    <?php } mysqli_close($ket_noi) ;?>
+                                    </select>
                                 </div>
                                   <div>
                                     <button class="btn btn-custom" type="submit">Đăng kí</button>

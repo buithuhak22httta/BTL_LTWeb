@@ -24,7 +24,7 @@ $anh=$_SESSION['anh'];
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Thêm mới sự kiện</title>
+  <title>Tham gia thêm mới</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -213,7 +213,7 @@ $anh=$_SESSION['anh'];
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Thêm mới sự kiện</h3>
+                  <h3 class="font-weight-bold">Tham gia thêm mới</h3>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -230,36 +230,46 @@ $anh=$_SESSION['anh'];
           <div class="col-lg-12 stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Danh sách sự kiện | <a href="su_kien_them_moi.php">Thêm mới</a></h4>
+                  <h4 class="card-title">Danh sách tình nguyện viên tham gia sự kiện | <a href="tham_gia_them_moi.php">Thêm mới</a></h4>
                   <div class="table-responsive pt-3">
-                    <form class="forms-sample" method="POST" action="su_kien_them_moi_thuc_hien.php" enctype="multipart/form-data">
+                  <?php
+                                    
+                                    $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
+                                    
+                                    $sql1 = "
+                                            SELECT * 
+                                            from tbl_su_kien
+                                            ";
+                                    $noi_dung_sk = mysqli_query($ket_noi, $sql1);
+                                    $row1 = mysqli_fetch_array($noi_dung_sk);
+                                    $sql2 = "
+                                            SELECT * 
+                                            from tbl_tinh_nguyen_vien
+                                            ";
+                                    $noi_dung_tnv = mysqli_query($ket_noi, $sql2);
+                                    $row2 = mysqli_fetch_array($noi_dung_tnv);
+                    ;?>
+                    <form class="forms-sample" method="POST" action="tham_gia_them_moi_thuc_hien.php" enctype="multipart/form-data">
                     <div class="form-group">
-                      <label for="txtTen">Tên sự kiện</label>
-                      <input type="text" class="form-control" id="txtTen" name="txtTen" placeholder="Tên sự kiện">
+                      <label for="txtID">ID tình nguyện viên</label>
+                      <select class="form-control" id="txtTNV" name="txtTNV" placeholder="ID tình nguyện viên" required="required">
+                                    <option> <?php echo $row2['id_tnv'];?> </option>
+                                    <?php foreach ($noi_dung_tnv as $key => $value)
+                                    {;?>
+                                    <option value="<?php echo $value['id_tnv'];?>"> <?php echo $value['id_tnv'];?></option>
+                                    <?php } ;?>
+                                    </select>
                     </div>
                     <div class="form-group">
-                      <label for="txtMota">Mô tả</label>
-                      <input type="text" class="form-control" id="txtMota" name="txtMota" placeholder="Mô tả">
-                    </div>
-                    <div class="form-group">
-                      <label for="txtNoiDung">Nội dung</label>
-                      <input type="text" class="form-control" id="txtNoiDung" name="txtNoiDung" placeholder="Nội dung">
-                    </div>
-                    <div class="form-group">
-                      <label for="txtNgay">Ngày tổ chức</label>
-                      <input type="date" class="form-control" id="txtNgay" name="txtNgay" placeholder="Ngày tổ chức">
-                    </div>
-                    <div class="form-group">
-                      <label for="txtThoiGian">Thời gian</label>
-                      <input type="text" class="form-control" id="txtThoiGian" name="txtThoiGian" placeholder="Thời gian">
-                    </div>
-                    <div class="form-group">
-                      <label for="txtDiaDiem">Địa điểm</label>
-                      <input type="text" class="form-control" id="txtDiaDiem" name="txtDiaDiem" placeholder="Địa điểm">
-                    </div>
-                    <div class="form-group">
-                      <label for="txtAnh">Ảnh</label>
-                      <input type="file" class="form-control" id="txtAnh" name="txtAnh" placeholder="Ảnh minh họa">
+                      <label for="txtSukien">Tên sự kiện</label>
+                      <select class="form-control" id="txtSukien" name="txtSukien" placeholder="Sự kiện bạn muốn tham gia" required="required">
+                                    <option> <?php echo $row1['ten'];?> </option>
+                                    <?php foreach ($noi_dung_sk as $key => $value)
+                                    {;?>
+                                    <option value="<?php echo $value['id_su_kien'];?>"> <?php echo $value['ten'];?></option>
+                                    <?php } mysqli_close($ket_noi) ;?>
+
+                                    </select>
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Đăng bài</button>
                   </form>

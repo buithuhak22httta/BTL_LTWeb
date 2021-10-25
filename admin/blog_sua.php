@@ -51,6 +51,11 @@ $anh=$_SESSION['anh'];
                 selector: '#txtTen'
                             });
         </script>
+        <script>
+            tinymce.init({
+                selector: '#txtMota'
+                            });
+        </script>
 </head>
 <body>
   <div class="container-scroller">
@@ -179,6 +184,13 @@ $anh=$_SESSION['anh'];
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="quan_tri_tham_gia.php">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Quản trị tham gia</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
               <i class="icon-ban menu-icon"></i>
               <span class="menu-title">Error pages</span>
@@ -244,6 +256,10 @@ $anh=$_SESSION['anh'];
                     <div class="form-group">
                       <label for="txtTen">Tên blog</label>
                       <input type="text" class="form-control" id="txtTen" name="txtTen" placeholder="Tên blog" value="<?php echo $row['ten'] ;?>"/>
+                    </div>
+                    <div class="form-group">
+                      <label for="txtMota">Mô tả</label>
+                      <input type="text" class="form-control" id="txtMota" name="txtMota" placeholder="Mô tả" value="<?php echo $row['mo_ta'] ;?>"/>
                     </div>
                     <div class="form-group">
                       <label for="txtNoiDung">Nội dung</label>

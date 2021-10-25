@@ -47,6 +47,7 @@
             //2. Lấy dữ liệu
             $id_blog = $_POST["txtID"];
             $ten = $_POST["txtTen"];
+            $mo_ta = $_POST["txtMota"];
             $noi_dung = $_POST["txtNoiDung"];
             $noi_dat_file_anh_minh_hoa = "../img/".basename($_FILES["txtAnh"]["name"]);
             $file_anh_tam = $_FILES["txtAnh"]["tmp_name"];
@@ -62,7 +63,7 @@
             if($anh == NULL){
                 $sql = "
                     UPDATE `tbl_blog` 
-                    SET `ten` = '".$ten." ', `noi_dung` = '".$noi_dung."'
+                    SET `ten` = '".$ten." ',`mo_ta` = '".$mo_ta."', `noi_dung` = '".$noi_dung."', `thoi_gian` = CURRENT_TIMESTAMP
                     WHERE `tbl_blog`.`id_blog` = '".$id_blog."'
                     ";
             }
@@ -71,7 +72,7 @@
 
                  $sql = "
                     UPDATE `tbl_blog` 
-                    SET `ten` = '".$ten." ', `noi_dung` = '".$noi_dung."' , `anh_minh_hoa` = '".$anh."'
+                    SET `ten` = '".$ten." ',`mo_ta` = '".$mo_ta."', `noi_dung` = '".$noi_dung."' , `anh_minh_hoa` = 'img/".$anh."', `thoi_gian` = CURRENT_TIMESTAMP
                     WHERE `tbl_blog`.`id_blog` = '".$id_blog."'
                     ";
                

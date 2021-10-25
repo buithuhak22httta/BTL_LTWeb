@@ -50,12 +50,11 @@
             $gioi_tinh = $_POST["txtGioitinh"];
             $sdt = $_POST["txtSdt"];
             $email = $_POST["txtEmail"];
-            $ghi_chu= $_POST["txtGhichu"];
         
             //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
             $sql = "
 
-            UPDATE `tbl_tinh_nguyen_vien` SET `ten_tnv` = '".$ten."', `gioi_tinh` = '".$gioi_tinh."',`sdt` = '".$sdt."',`email` = '".$email."', `ghi_chu` = '".$ghi_chu."' WHERE `tbl_tinh_nguyen_vien`.`id_tnv` =  '".$id_tnv."'
+            UPDATE `tbl_tinh_nguyen_vien` SET `ten_tnv` = '".$ten."', `gioi_tinh` = '".$gioi_tinh."',`sdt` = '".$sdt."',`email` = '".$email."' WHERE `tbl_tinh_nguyen_vien`.`id_tnv` =  '".$id_tnv."'
             ";
                   
             //4. Thực thi câu lệnh truy vấn

@@ -11,7 +11,6 @@
                             ";
                             //$noi_dung=mysqli_query($ket_noi,$sql);
 
-
                     //3. Thực thi câu lệnh truy vấn
                     $xac_thuc_nguoi_dung = mysqli_query($ket_noi, $sql);
                     $row=mysqli_fetch_array($xac_thuc_nguoi_dung);
@@ -43,6 +42,7 @@
                         $_SESSION['da_dang_nhap'] =1;
                         $_SESSION['ten']=$row['ten'];
                         $_SESSION['anh']=$row['image'];
+                        $_SESSION['id']=$row['id_admin'];
                         echo "
                     <script type='text/javascript'>
                         window.alert('Bạn đã đăng nhập thành công');

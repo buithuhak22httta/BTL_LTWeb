@@ -46,6 +46,7 @@
 
             //2. Lấy dữ liệu
             $ten = $_POST["txtTen"];
+            $mo_ta = $_POST["txtMota"];
             $noi_dung = $_POST["txtNoiDung"];
             $ngay_tc = $_POST["txtNgay"];
             $thoigian = $_POST["txtThoiGian"];
@@ -62,7 +63,7 @@
 
             //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
             $sql = "
-                    INSERT INTO `tbl_su_kien` (`id_su_kien`, `ten`, `noi_dung`, `ngay_to_chuc`, `dia_diem`, `thoi_gian`, `image`) VALUES (NULL, '".$ten."', '".$noi_dung."', '".$ngay_tc."','".$diadiem."', '".$thoigian."', 'img/".$anh."');
+                    INSERT INTO `tbl_su_kien` (`id_su_kien`, `ten`, `mo_ta`, `noi_dung`, `ngay_to_chuc`, `dia_diem`, `thoi_gian`, `image`) VALUES (NULL, '".$ten."', '".$mo_ta."', '".$noi_dung."', '".$ngay_tc."','".$diadiem."', '".$thoigian."', 'img/".$anh."');
                     ";
             //4. Thực thi câu lệnh truy vấn
                 $noi_dung_su_kien = mysqli_query($ket_noi, $sql);

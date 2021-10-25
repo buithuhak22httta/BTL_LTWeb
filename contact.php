@@ -116,31 +116,30 @@
                     <img src="img/contact.jpg" alt="Image">
                 </div>
                 <div class="contact-form">
-                        <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <form method="POST" action="contact_act.php" enctype="multipart/form-data">
                             <div class="control-group">
-                                <input type="text" class="form-control" id="name" placeholder="Tên của bạn" required="required" data-validation-required-message="Hãy điền tên" />
+                                <input type="text" class="form-control" id="txtTen" name="txtTen" placeholder="Tên của bạn" required="required" data-validation-required-message="Hãy điền tên" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <input type="email" class="form-control" id="email" placeholder="Email" required="required" data-validation-required-message="Hãy điền email" />
+                                <input type="email" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email"/>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control" id="subject" placeholder="Nghề nghiệp" required="required">
+                                <input type="text" class="form-control" id="txtNghe" name="txtNghe" placeholder="Nghề nghiệp">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <textarea class="form-control" id="message" placeholder="Lời nhắn" required="required" data-validation-required-message="Hãy nhập lời nhắn"></textarea>
+                                <textarea class="form-control" id="txtLoinhan" name="txtLoinhan" placeholder="Lời nhắn" required="required" data-validation-required-message="Hãy nhập lời nhắn"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div>
-                                <button class="btn btn-custom" type="submit" id="sendMessageButton">Gửi tin</button>
+                                <button class="btn btn-custom" type="submit">Gửi tin</button>
                             </div>
                         </form>
                     </div>
             </div>
-        </div>
+            </div>
         <!-- Contact End -->
 
 

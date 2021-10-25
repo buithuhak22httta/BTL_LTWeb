@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Thêm mới ủng hộ</title>
+  <title>Thêm mới tình nguyện viên</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -30,14 +30,23 @@
             $email = $_POST["txtEmail"];
             $sdt = $_POST["txtSdt"];
             $gioi_tinh = $_POST["txtgioitinh"];
-            $ghi_chu= $_POST["txtGhichu"];
-
+            $su_kien= (int)$_POST["txtSukien"];
             //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
-            $sql = "
-                    INSERT INTO `tbl_tinh_nguyen_vien` (`id_tnv`, `ten_nv`, `gioi_tinh`, `sdt`, `email`, `ghi_chu`) VALUES (NULL, '".$ten."', '".$gioi_tinh."', '".$sdt."', '".$email."', '".$ghi_chu."');
+            $sql1 = "
+                    INSERT INTO `tbl_tinh_nguyen_vien` (`id_tnv`, `ten_nv`, `gioi_tinh`, `sdt`, `email`) VALUES (NULL, '".$ten."', '".$gioi_tinh."', '".$sdt."', '".$email."');
+                    ";
+            $thuc_thi1 = mysqli_query($ket_noi, $sql1);
+    $last_id = $ket_noi->insert_id;
+            // $sql = "select id_tnv from tbl_tinh_nguyen_vien where sdt='".$sdt."'";
+            // $id = mysqli_query($ket_noi, $sql);
+            // $id_real = (int)$id;
+            // print $id_real;
+            // exit();
+            $sql2 = "
+                      INSERT INTO `tbl_tham_gia` (`id_tham_gia`, `id_tnv`, `id_su_kien`) VALUES (NULL, ".$last_id.", ".$su_kien.");
                     ";
             //4. Thực thi câu lệnh truy vấn
-                $ten_ung_ho = mysqli_query($ket_noi, $sql);
+                $thuc_thi2 = mysqli_query($ket_noi, $sql2);
             //5. Hiện thị thông báo thêm mới thành công và đẩy các bạn về trang quản trị tin tức
                 echo "
                     <script type='text/javascript'>

@@ -126,7 +126,7 @@
                             <div class="blog-text">
                                 <h3><a href="#"><?php echo $row["ten"];?></a></h3>
                                 <p>
-                                   <?php echo $row["noi_dung"] ;?>
+                                   <?php echo $row["mo_ta"] ;?>
                                 </p>
                                     
                                 </div>

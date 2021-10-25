@@ -216,7 +216,7 @@
                         </div>
                         <div class="causes-text">
                             <h3><?php echo $row["ten"];?></h3>
-                            <p><?php echo $row["noi_dung"];?></p>
+                            <p><?php echo $row["mo_ta"];?></p>
                         </div>                        
                     </div>
                     <?php

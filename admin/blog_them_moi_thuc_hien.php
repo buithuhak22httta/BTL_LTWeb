@@ -14,7 +14,7 @@
                     </script>
                 ";
         }
-
+$id=$_SESSION['id'];
 ;?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,6 +46,7 @@
 
             //2. Lấy dữ liệu
             $ten = $_POST["txtTen"];
+            $mo_ta = $_POST["txtMota"];
             $noi_dung = $_POST["txtNoiDung"];
             $noi_dat_file_anh_minh_hoa = "../img/".basename($_FILES["txtAnh"]["name"]);
             $file_anh_tam = $_FILES["txtAnh"]["tmp_name"];
@@ -59,8 +60,8 @@
 
             //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
             $sql = "
-                   INSERT INTO `tbl_blog` (`id_blog`, `ten`, `noi_dung`, `anh_minh_hoa`)
-                   VALUES (NULL, '".$ten."', '".$noi_dung."', '".$anh."');
+                   INSERT INTO `tbl_blog` (`id_blog`, `ten`, `mo_ta`, `noi_dung`, `anh_minh_hoa`, `thoi_gian`, `id_admin`)
+                   VALUES (NULL, '".$ten."','".$mo_ta."', '".$noi_dung."', 'img/".$anh."', CURRENT_TIMESTAMP, '".$id."');
                     ";
             //4. Thực thi câu lệnh truy vấn
                 $noi_dung_blog = mysqli_query($ket_noi, $sql);

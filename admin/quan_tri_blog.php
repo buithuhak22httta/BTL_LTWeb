@@ -164,6 +164,13 @@ $anh=$_SESSION['anh'];
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="quan_tri_tham_gia.php">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Quản trị tham gia</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
               <i class="icon-ban menu-icon"></i>
               <span class="menu-title">Error pages</span>
@@ -218,9 +225,6 @@ $anh=$_SESSION['anh'];
                           <th style="text-align: center;">
                             Tên blog
                           </th>
-                          <th style="text-align: center;">
-                            Nội dung
-                          </th>
                           <th style="text-align: center;">Sửa</th>
                           <th style="text-align: center;">Xóa</th>
                         </tr>
@@ -246,7 +250,6 @@ $anh=$_SESSION['anh'];
                                         <tr class="table-info">
                                             <td style="text-align: center;"><?php echo $i;?></td>
                                             <td><?php echo $row["ten"] ;?></td>
-                                            <td><?php echo $row["noi_dung"] ;?></td>
                                             <td><a href="blog_sua.php?id=<?php echo $row['id_blog'];?>">Sửa</a></td>
                                             <td><a href="blog_xoa.php?id=<?php echo $row['id_blog'];?>">Xóa</a></td>
                                         </tr>

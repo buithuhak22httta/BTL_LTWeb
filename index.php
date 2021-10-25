@@ -283,6 +283,23 @@
         
         
         <!-- Facts Start -->
+        <?php
+            //1 Kết nối
+          //1. Load file cấu hình để kết nối đến máy chủ CSDL
+                 include('config.php');
+          //2 Truy vấn
+          $sql1 = "SELECT DISTINCT(dia_diem) FROM `tbl_su_kien`";
+          $sql2 = "SELECT DISTINCT(id_tnv) FROM `tbl_tinh_nguyen_vien`";
+
+          //3 Thực thi truy vấn
+          $noi_dung_sk = mysqli_query($ket_noi,$sql1);
+          $noi_dung_tnv = mysqli_query($ket_noi,$sql2);
+
+          //4 Đếm số lượng bản ghi
+          $so_luong_dd = mysqli_num_rows($noi_dung_sk);
+          $so_luong_tnv = mysqli_num_rows($noi_dung_tnv)
+
+            ;?>
         <div class="facts" data-parallax="scroll" data-image-src="img/facts.jpg">
             <div class="container">
                 <div class="row">
@@ -290,7 +307,7 @@
                         <div class="facts-item">
                             <i class="flaticon-home"></i>
                             <div class="facts-text">
-                                <h3 class="facts-plus" data-toggle="counter-up">30</h3>
+                                <h3 class="facts-plus" data-toggle="counter-up"><?php echo $so_luong_dd;?></h3>
                                 <p>Tỉnh thành</p>
                             </div>
                         </div>
@@ -299,7 +316,7 @@
                         <div class="facts-item">
                             <i class="flaticon-charity"></i>
                             <div class="facts-text">
-                                <h3 class="facts-plus" data-toggle="counter-up">250</h3>
+                                <h3 class="facts-plus" data-toggle="counter-up"><?php echo $so_luong_tnv;?></h3>
                                 <p>Tình nguyện viên</p>
                             </div>
                         </div>
@@ -359,7 +376,7 @@
                         </div>
                         <div class="causes-text">
                             <h3><?php echo $row["ten"];?></h3>
-                            <p><?php echo $row["noi_dung"];?></p>
+                            <p><?php echo $row["mo_ta"];?></p>
                         </div>                        
                     </div>
                     <?php
@@ -440,7 +457,7 @@
                                 <div class="event-text">
                                     <h3><?php echo $row["ten"];?></h3>
                                     <p>
-                                       <?php echo $row["noi_dung"];?>
+                                       <?php echo $row["mo_ta"];?>
                                     </p>
                                     <a class="btn btn-custom" href="volunteer.php">Tham gia</a>
                                 </div>
@@ -503,26 +520,55 @@
             <div class="volunteer" data-parallax="scroll" data-image-src="img/volunteer.jpg">
                 <div class="row align-items-center">
                     <div class="col-lg-5">
-                    
                         <div class="volunteer-form">
                             <div class="section-header">
                                 <h3 style="text-align: center; color: white;" >Đăng kí trở thành tình nguyện viên</h3>
                             </div>
-                            <form>
+
+                    <?php
+                                    
+                                    $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
+                                    
+                                    $sql1 = "
+                                            SELECT * 
+                                            from tbl_su_kien
+                                            ";
+                                    $noi_dung_sk = mysqli_query($ket_noi, $sql1);
+                                    $row1 = mysqli_fetch_array($noi_dung_sk);
+                                    
+                    ;?>
+
+                            <form class="forms-sample" method="POST" action="volunteer_act.php" enctype="multipart/form-data">
                                 <div class="control-group">
-                                    <input type="text" class="form-control" placeholder="Họ và tên" required="required" />
+                                    <label for="txtTen"></label>
+                                    <input type="text" id="txtTen" name="txtTen" class="form-control" placeholder="Họ và tên" required="required" />
                                 </div>
                                 <div class="control-group">
-                                    <input type="text" class="form-control" placeholder="Số điện thoại" required="required" />
+                                    <label for="txtSdt"></label>
+                                    <input type="text" id="txtSdt" name="txtSdt" class="form-control" placeholder="Số điện thoại" required="required" />
                                 </div>
                                 <div class="control-group">
-                                    <input type="email" class="form-control" placeholder="Email" required="required" />
+                                    <label for="txtEmail"></label>
+                                    <input type="email" id="txtEmail" name="txtEmail" class="form-control" placeholder="Email" required="required" />
                                 </div>
                                 <div class="form-group">
-                                  <input type="text" class="form-control" placeholder="Giới tính" required="required" />
+                                    <label for="txtgioitinh"></label>
+                                    <select id="txtgioitinh" name="txtgioitinh" class="form-control" >
+                                        <option value="">Giới tính</option>
+                                        <option style="background-color: #20212b" value="Nam">Nam</option>
+                                        <option style="background-color: #20212b" value="Nữ">Nữ</option>
+                                    </select>
+
                                   </div>
                                   <div class="control-group">
-                                    <textarea class="form-control" placeholder="Vì sao bạn muốn trở thành một tình nguyện viên?" required="required"></textarea>
+                                    <label for="txtSukien"></label>
+                                    <select class="form-control" id="txtSukien" name="txtSukien" placeholder="Sự kiện bạn muốn tham gia" required="required">
+                                    <option> <?php echo $row1['ten'];?> </option>
+                                    <?php foreach ($noi_dung_sk as $key => $value)
+                                    {;?>
+                                    <option style="background-color: #20212b" value="<?php echo $value['id_su_kien'];?>"> <?php echo $value['ten'];?></option>
+                                    <?php } mysqli_close($ket_noi) ;?>
+                                    </select>
                                 </div>
                                   <div>
                                     <button class="btn btn-custom" type="submit">Đăng kí</button>
@@ -600,26 +646,25 @@
                     <img src="img/contact.jpg" alt="Image">
                 </div>
                 <div class="contact-form">
-                        <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <form method="POST" action="contact_act.php" enctype="multipart/form-data">
                             <div class="control-group">
-                                <input type="text" class="form-control" id="name" placeholder="Tên của bạn" required="required" data-validation-required-message="Hãy điền tên" />
+                                <input type="text" class="form-control" id="txtTen" name="txtTen" placeholder="Tên của bạn" required="required" data-validation-required-message="Hãy điền tên" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <input type="email" class="form-control" id="email" placeholder="Email" required="required" data-validation-required-message="Hãy điền email" />
+                                <input type="email" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email"/>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control" id="subject" placeholder="Chủ đề" required="required" data-validation-required-message="Hãy điền chủ đề" />
+                                <input type="text" class="form-control" id="txtNghe" name="txtNghe" placeholder="Nghề nghiệp">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <textarea class="form-control" id="message" placeholder="Lời nhắn" required="required" data-validation-required-message="Hãy nhập lời nhắn"></textarea>
+                                <textarea class="form-control" id="txtLoinhan" name="txtLoinhan" placeholder="Lời nhắn" required="required" data-validation-required-message="Hãy nhập lời nhắn"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div>
-                                <button class="btn btn-custom" type="submit" id="sendMessageButton">Gửi tin</button>
+                                <button class="btn btn-custom" type="submit">Gửi tin</button>
                             </div>
                         </form>
                     </div>
@@ -651,7 +696,7 @@
                             <div class="blog-text">
                                 <h3><a href="#"><?php echo $row["ten"];?></a></h3>
                                 <p>
-                                    <?php echo $row["noi_dung"];?> 
+                                    <?php echo $row["mo_ta"];?> 
                                 </p>
                             </div>
                             <div class="blog-meta">

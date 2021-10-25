@@ -165,6 +165,13 @@ $anh=$_SESSION['anh'];
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="quan_tri_tham_gia.php">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Quản trị tham gia</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
               <i class="icon-ban menu-icon"></i>
               <span class="menu-title">Error pages</span>
@@ -229,9 +236,6 @@ $anh=$_SESSION['anh'];
                           <th>
                             Email
                           </th>
-                          <th>
-                            Ghi chú
-                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -267,14 +271,6 @@ $anh=$_SESSION['anh'];
                           </td>
                            <td>
                             <?php echo $row["email"];?>
-                          </td>
-                          <td>
-                            <?php if ($row["ghi_chu"] ==NULL) {
-                                echo "Trống";
-                            }else{
-                              echo $row["ghi_chu"];
-                            }
-                            ;?>
                           </td>
                           <td><a href="tnv_sua.php?id=<?php echo $row['id_tnv'];?>">Sửa</a></td>
                           <td><a href="tnv_xoa.php?id=<?php echo $row['id_tnv'];?>">Xóa</a></td>

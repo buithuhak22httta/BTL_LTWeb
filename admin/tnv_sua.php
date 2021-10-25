@@ -169,6 +169,13 @@ $anh=$_SESSION['anh'];
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="quan_tri_tham_gia.php">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Quản trị tham gia</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
               <i class="icon-ban menu-icon"></i>
               <span class="menu-title">Error pages</span>
@@ -249,10 +256,6 @@ $anh=$_SESSION['anh'];
                     <div class="form-group">
                       <label for="txtEmail">Email</label>
                       <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" value="<?php echo $row['email'] ;?>"/>
-                    </div>
-                    <div class="form-group">
-                      <label for="txtGhichu">Ghi chú</label>
-                      <input type="text" class="form-control" id="txtGhichu" name="txtGhichu" placeholder="Ghi chú" value="<?php echo $row['ghi_chu'] ;?>"/>
                     </div>
                     <input type="hidden" name="txtId" value="<?php echo $row['id_tnv'];?>">
                     <button type="submit" class="btn btn-primary mr-2">Cập nhật</button>
