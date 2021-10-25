@@ -155,6 +155,49 @@
                 </div>
             </div>
         </div>
+         <div class="container">
+            <div class="text" style="text-align: center;"><h1>Danh sách ủng hộ tiền</h1><br></div>
+            <table align="center" border="1" style="height: 397px; width: 100%;" width="381">
+            <tbody>
+                <tr align="center"  bgcolor="#424040" style="color: white" >
+                    <td width="50"><b>Họ và Tên</b></td>
+                    <td width="50"><b>Số tiền ủng hộ</b></td>
+                    <td width="50"><b>Ngày ủng hộ</b></td>
+                </tr>
+
+                <?php
+                        //1. Kết nối đến máy chủ dữ liệu & CSDL mà các bạn muốn lấy, thêm mới, sửa, xóa
+                        $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
+                        //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
+                        $sql = "
+                                SELECT * 
+                                from tbl_ung_ho
+                                order by id_ung_ho desc";
+                        //3. Thực thi câu lệnh truy vấn
+                        $ten_ung_ho = mysqli_query($ket_noi, $sql);
+                        //4. Hiện thị dữ liệu lấy đc
+                        $i=0;
+                        while ($row = mysqli_fetch_array($ten_ung_ho))
+                            {
+                                $i++;
+                                ;?>
+                        <tr align="center">
+                          
+                          <td >
+                            <?php echo $row["ten"];?>
+                          </td>
+                          <td>
+                              <?php echo $row["so_tien"];?>
+                          </td>
+                          <td> <?php echo date("d/m/y", strtotime($row["time"]));?></td>
+                           
+                        </tr>
+                        <?php }
+                            //5. Đóng kết nối
+                            mysqli_close($ket_noi) ;?>
+            </tbody>
+            </table>
+        </div>
 
         
         <!-- Donate End -->
