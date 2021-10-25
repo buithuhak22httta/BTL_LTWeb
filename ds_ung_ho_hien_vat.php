@@ -171,8 +171,8 @@
                         //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
                         $sql = "
                                 SELECT * 
-                                from tbl_ung_ho
-                                order by id_ung_ho desc";
+                                from tbl_ungho_vatchat
+                                order by id_vat_chat desc";
                         //3. Thực thi câu lệnh truy vấn
                         $ten_ung_ho = mysqli_query($ket_noi, $sql);
                         //4. Hiện thị dữ liệu lấy đc
@@ -182,17 +182,14 @@
                                 $i++;
                                 ;?>
                         <tr align="center">
+                          <td>
                             <?php echo $row["ten"];?>
                           </td>
                           <td>
-                            <?php echo $row["dien_thoai"];?>
-                          </td>
-                          <td>
-                              <?php echo $row["phan_loai"];?>
+                              <?php echo $row["phanloai"];?>
                           </td>
                           <td><?php echo date("d/m/y", strtotime($row["time"]));?></td>
                         </tr>
-                          
                         <?php }
                             //5. Đóng kết nối
                             mysqli_close($ket_noi) ;?>
