@@ -47,11 +47,15 @@
             //2. Lấy dữ liệu
             $id_tnv = $_GET['id'];
             //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
-            $sql = "
+            $sql1= "
+                    DELETE FROM `tbl_tham_gia` WHERE `tbl_tham_gia`.`id_tnv` = '".$id_tnv."'
+                  ";
+            $sql2 = "
                     DELETE FROM `tbl_tinh_nguyen_vien` WHERE `tbl_tinh_nguyen_vien`.`id_tnv` = '".$id_tnv."'
                     ";
             //4. Thực thi câu lệnh truy vấn
-                $tnv = mysqli_query($ket_noi, $sql);
+                $tnv1 = mysqli_query($ket_noi, $sql1);
+                $tnv2 = mysqli_query($ket_noi, $sql2);
             //5. Hiện thị thông báo thêm mới thành công và đẩy các bạn về trang quản trị tin tức
                 echo "
                     <script type='text/javascript'>
