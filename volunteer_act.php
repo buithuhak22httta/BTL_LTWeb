@@ -31,6 +31,12 @@
             $sdt = $_POST["txtSdt"];
             $gioi_tinh = $_POST["txtgioitinh"];
             $su_kien= (int)$_POST["txtSukien"];
+
+            $sql = "select * from tbl_tinh_nguyen_vien where ten_nv = '".$ten."' and gioi_tinh = '".$gioi_tinh."' and sdt = '".$sdt."' and email = '".$email."'";
+            $noi_dung = mysqli_query($ket_noi,$sql);
+            $kiem_tra = mysqli_num_rows($noi_dung);
+            if($kiem_tra==0)
+            {
             //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
             $sql1 = "
                     INSERT INTO `tbl_tinh_nguyen_vien` (`id_tnv`, `ten_nv`, `gioi_tinh`, `sdt`, `email`) VALUES (NULL, '".$ten."', '".$gioi_tinh."', '".$sdt."', '".$email."');
@@ -40,13 +46,23 @@
             // $sql = "select id_tnv from tbl_tinh_nguyen_vien where sdt='".$sdt."'";
             // $id = mysqli_query($ket_noi, $sql);
             // $id_real = (int)$id;
-            // print $id_real;
+            // print $sql1;
             // exit();
             $sql2 = "
                       INSERT INTO `tbl_tham_gia` (`id_tham_gia`, `id_tnv`, `id_su_kien`) VALUES (NULL, ".$last_id.", ".$su_kien.");
                     ";
             //4. Thực thi câu lệnh truy vấn
                 $thuc_thi2 = mysqli_query($ket_noi, $sql2);
+              }
+              else
+                {
+                  $row = mysqli_fetch_array($noi_dung);
+                  $sql2 = "
+                      INSERT INTO `tbl_tham_gia` (`id_tham_gia`, `id_tnv`, `id_su_kien`) VALUES (NULL, ".$row['id_tnv'].", ".$su_kien.")
+                    ";
+                 $thuc_thi2 = mysqli_query($ket_noi, $sql2);
+               }
+
             //5. Hiện thị thông báo thêm mới thành công và đẩy các bạn về trang quản trị tin tức
                 echo "
                     <script type='text/javascript'>
