@@ -223,6 +223,9 @@ $anh=$_SESSION['anh'];
                           <th style="text-align: center;">
                             Tên sự kiện
                           </th>
+                          <th style="text-align: center;">
+                            Số tiền ủng hộ
+                          </th>
                           <th style="text-align: center;">Sửa</th>
                           <th style="text-align: center;">Xóa</th>
                         </tr>
@@ -248,6 +251,7 @@ $anh=$_SESSION['anh'];
                                         <tr class="table-info">
                                             <td style="text-align: center;"><?php echo $i;?></td>
                                             <td><?php echo $row["ten"] ;?></td>
+                                            <td><?php echo $row["so_tien_ung_ho"] ;?></td>
                                             <td><a href="su_kien_sua.php?id=<?php echo $row['id_su_kien'];?>">Sửa</a></td>
                                             <td><a href="su_kien_xoa.php?id=<?php echo $row['id_su_kien'];?>">Xóa</a></td>
                                         </tr>
