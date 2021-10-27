@@ -122,15 +122,15 @@
                     
                 
                     <div class="sidebar-1">
-                        <h1 class="title-detail"><?php echo $row["ten"];?></h1>
+                        <h1 class="title-detail"><b><u><?php echo $row["ten"];?></u></b></h1>
                     </div>
-
+                        
                     <div class="main-content-body">       
-                        <h2 class="sapo"><?php echo $row["mo_ta"] ;?></h2>      
+                        <p><b><?php echo $row["mo_ta"] ;?></b></p>      
                     </div>
                 
             <div class="VCSortableInPreviewMode" type="Photo" style="">
-            <div><img src="<?php echo $row["image"];?>" w="1785" h="1151" alt="Image" style="max-width:100%;" width="700" height="400">
+            <div style="margin-left:6cm"><img src="<?php echo $row["image"];?>" w="1785" h="1151" alt="Image" style="max-width:100%;" width="700" height="400" >
             </div>
             </div> 
             <p><?php echo $row["noi_dung"] ;?></p>
