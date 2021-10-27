@@ -150,7 +150,7 @@
                         <button class="btn btn-custom" type="submit" style="width: 80%"><a href="huong-dan-dong-gop.php" style="color: white">Hướng dẫn đóng góp</a></button>
                         <br>
                         <br>
-                        <button class="btn btn-custom" type="submit" style="width: 80%"><a href="huong-dan-dong-gop.php" style="color: white">Cập nhật đóng góp</a></button>
+                        <button class="btn btn-custom" type="submit" style="width: 80%"><a href="update_donate.php" style="color: white">Cập nhật đóng góp</a></button>
                     </div>
                 </div>
             </div>

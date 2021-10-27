@@ -150,7 +150,7 @@
                         
                         $sql1 = "
                                 SELECT * 
-                                from tbl_ung_ho_tien
+                                from tbl_ung_ho_vatchat_da_xn
                                 ";
                         $noi_dung_sk = mysqli_query($ket_noi, $sql1);
                         $row1 = mysqli_fetch_array($noi_dung_sk);
@@ -161,7 +161,7 @@
                         <tr>
                           <th>STT</th>
                           <th>Họ và tên</th>
-                          <th>Số tiền</th>
+                          <th>Phân Loại</th>
                           <th>Ngày ủng hộ</th>
                         </tr>
                       </thead>
@@ -172,9 +172,9 @@
                         //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
                          $sql = "
                                 SELECT * 
-                                from tbl_ung_ho_da_xn
+                                from tbl_ung_ho_vatchat_da_xn
                                 where trang_thai = 'Công khai'
-                                order by id_xn desc";
+                                order by id_vc_xn desc";
                         //3. Thực thi câu lệnh truy vấn
                         $ten_ung_ho = mysqli_query($ket_noi, $sql);
                         //4. Hiện thị dữ liệu lấy đc
@@ -191,7 +191,7 @@
                             <?php echo $row["ten"];?>
                           </td>
                           <td>
-                              <?php echo $row["so_tien"];?>
+                              <?php echo $row["phanloai"];?>
                           </td>
                           <td> <?php echo date("d/m/y", strtotime($row["time"]));?></td>
                         </tr>
