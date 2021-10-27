@@ -219,7 +219,7 @@ $anh=$_SESSION['anh'];
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                        <th>#</th>
+                        
                           <th>
                             STT
                           </th>
@@ -257,7 +257,7 @@ $anh=$_SESSION['anh'];
                                 $i++;
                                 ;?>
                         <tr>
-                        <td><input type="checkbox" class="select" name=""></td>
+                        
                           <td>
                            <?php echo $i;?>
                           </td>

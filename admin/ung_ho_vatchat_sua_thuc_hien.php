@@ -49,10 +49,10 @@
             $ten = $_POST["txtTen"];
             $sdt = $_POST["txtSdt"];
             $email = $_POST["txtEmail"];
+            $phanloai = $_POST["txtphanloai"];
 
                  $sql = "
-                    UPDATE `tbl_ung_ho_tien` SET `ten` = '".$ten."', `dien_thoai` ='".$sdt."', `email`='".$email."' 
-                     WHERE `tbl_ung_ho_tien`.`id_ung_ho` = '".$id_uh."';
+                    UPDATE `tbl_ungho_vatchat` SET `ten` = '".$ten."', `sdt` = '".$sdt."', `email` = '".$email."',`phanloai` = '".$phanloai."' WHERE `tbl_ungho_vatchat`.`id_vat_chat` = '".$id_uh."';
                     ";
             //4. Thực thi câu lệnh truy vấn
                 $noi_dung_uh = mysqli_query($ket_noi, $sql);
@@ -64,7 +64,7 @@
                 ";
                 echo "
                     <script type='text/javascript'>
-                        window.location.href='quan_tri_ung_ho_tien.php';
+                        window.location.href='quan_tri_ung_ho_vat_chat.php';
                     </script>
                 ";
             ;?>

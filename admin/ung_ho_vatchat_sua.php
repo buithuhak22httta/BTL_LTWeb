@@ -227,9 +227,9 @@ $anh=$_SESSION['anh'];
 
                     $sql = "
                             SELECT * 
-                            from tbl_ung_ho_tien
-                            where id_ung_ho = ".$id_uh."
-                            order by id_ung_ho desc";
+                            from tbl_ungho_vatchat
+                            where id_vat_chat = ".$id_uh."
+                            order by id_vat_chat desc";
                     //3. Thực thi câu lệnh truy vấn
                     $uho = mysqli_query($ket_noi, $sql);
                     //4. Hiện thị dữ liệu lấy đc
@@ -237,20 +237,24 @@ $anh=$_SESSION['anh'];
                     
                         ;?>
 
-                    <form class="forms-sample" method="POST" action="ung_ho_tien_sua_thuc_hien.php" enctype="multipart/form-data">
+                    <form class="forms-sample" method="POST" action="ung_ho_vatchat_sua_thuc_hien.php" enctype="multipart/form-data">
                     <div class="form-group">
                       <label for="txtTen">Họ và tên</label>
                       <input type="text" class="form-control" id="txtTen" name="txtTen" placeholder="Họ và tên" value="<?php echo $row['ten'] ;?>"/>
                     </div>
                     <div class="form-group">
                       <label for="txtSdt">Số điện thoại</label>
-                      <input type="text" class="form-control" id="txtSdt" name="txtSdt" placeholder="Số điện thoại" value="<?php echo $row['dien_thoai'] ;?>"/>
+                      <input type="text" class="form-control" id="txtSdt" name="txtSdt" placeholder="Số điện thoại" value="<?php echo $row['sdt'] ;?>"/>
                     </div>
                     <div class="form-group">
                       <label for="txtEmail">Email</label>
                       <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" value="<?php echo $row['email'] ;?>"/>
                     </div>
-                    <input type="hidden" name="txtId" value="<?php echo $row['id_ung_ho'];?>">
+                    <div class="form-group">
+                      <label for="txtphanloai">Phân loại</label>
+                      <input type="text" class="form-control" id="txtEmail" name="txtphanloai" placeholder="Phân loại" value="<?php echo $row['phanloai'] ;?>"/>
+                    </div>
+                    <input type="hidden" name="txtId" value="<?php echo $row['id_vat_chat'];?>">
                     <button type="submit" class="btn btn-primary mr-2">Cập nhật</button>
                   </form>
                   </div>
