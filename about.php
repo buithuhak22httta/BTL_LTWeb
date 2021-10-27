@@ -149,6 +149,23 @@
         
         
         <!-- Facts Start -->
+        <?php
+            //1 Kết nối
+          //1. Load file cấu hình để kết nối đến máy chủ CSDL
+                 include('config.php');
+          //2 Truy vấn
+          $sql1 = "SELECT DISTINCT(dia_diem) FROM `tbl_su_kien`";
+          $sql2 = "SELECT DISTINCT(id_tnv) FROM `tbl_tinh_nguyen_vien`";
+
+          //3 Thực thi truy vấn
+          $noi_dung_sk = mysqli_query($ket_noi,$sql1);
+          $noi_dung_tnv = mysqli_query($ket_noi,$sql2);
+
+          //4 Đếm số lượng bản ghi
+          $so_luong_dd = mysqli_num_rows($noi_dung_sk);
+          $so_luong_tnv = mysqli_num_rows($noi_dung_tnv)
+
+            ;?>
         <div class="facts" data-parallax="scroll" data-image-src="img/facts.jpg">
             <div class="container">
                 <div class="row">
@@ -156,7 +173,7 @@
                         <div class="facts-item">
                             <i class="flaticon-home"></i>
                             <div class="facts-text">
-                                <h3 class="facts-plus" data-toggle="counter-up">30</h3>
+                                <h3 class="facts-plus" data-toggle="counter-up"><?php echo $so_luong_dd;?></h3>
                                 <p>Tỉnh thành</p>
                             </div>
                         </div>
@@ -165,7 +182,7 @@
                         <div class="facts-item">
                             <i class="flaticon-charity"></i>
                             <div class="facts-text">
-                                <h3 class="facts-plus" data-toggle="counter-up">250</h3>
+                                <h3 class="facts-plus" data-toggle="counter-up"><?php echo $so_luong_tnv;?></h3>
                                 <p>Tình nguyện viên</p>
                             </div>
                         </div>
