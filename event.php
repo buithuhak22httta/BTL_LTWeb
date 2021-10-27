@@ -135,6 +135,12 @@
                                        <?php echo $row["mo_ta"];?>
                                     </p>
                                     <a class="btn btn-custom" href="volunteer.php">Tham gia</a>
+                                    
+                                    <div class="btn btn-custom">
+                                        <input type="hidden" name="txtID">
+                                        <div class="d-grid"><a href="event_noi_dung.php?id=<?php echo $row['id_su_kien'];?>">Xem thêm</a></div>
+                                        <!--<a class="btn btn-custom" href="event_noi_dung.php?id=<?php echo $row['id_su_kien'];?>">Xem chi tiết</a></div> -->
+                                    </div>
                                 </div>
                             </div>
                         </div>

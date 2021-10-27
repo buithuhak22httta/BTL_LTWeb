@@ -196,7 +196,7 @@ $anh=$_SESSION['anh'];
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Quản trị ủng hộ vật chất</h3>
+                  <h3 class="font-weight-bold">Quản trị ủng hộ tiền</h3>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -215,10 +215,12 @@ $anh=$_SESSION['anh'];
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Danh sách ủng hộ</h4>
+                              
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
                         <tr>
+                        
                           <th>
                             STT
                           </th>
@@ -233,11 +235,11 @@ $anh=$_SESSION['anh'];
                             Email
                           </th>
                           <th>
-                            Phân loại
+                            Số tiền ủng hộ
                           </th>
-                         <th>
-                           Trạng thái
-                         </th>
+                          <th> Ảnh xác nhận</th>
+                          <th>Trạng thái</th>
+                          <th>Sự kiện</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -246,9 +248,7 @@ $anh=$_SESSION['anh'];
                         $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
                         //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
                         $sql = "
-                                SELECT * 
-                                from tbl_ungho_vatchat
-                                order by id_vat_chat desc";
+                                SELECT id_ung_ho, tbl_ung_ho_tien.ten, time, email, dien_thoai, so_tien, anh_xac_nhan, trang_thai, tbl_su_kien.ten as 'Su_kien' from tbl_ung_ho_tien join tbl_su_kien on tbl_ung_ho_tien.id_su_kien = tbl_su_kien.id_su_kien order by id_ung_ho DESC";
                         //3. Thực thi câu lệnh truy vấn
                         $ten_ung_ho = mysqli_query($ket_noi, $sql);
                         //4. Hiện thị dữ liệu lấy đc
@@ -258,27 +258,34 @@ $anh=$_SESSION['anh'];
                                 $i++;
                                 ;?>
                         <tr>
+                        
                           <td>
                            <?php echo $i;?>
                           </td>
-                          <td><?php echo date("d/m/y", strtotime($row["time"]));?></td>
+                          <td> <?php echo date("d/m/y", strtotime($row["time"]));?></td>
                           <td>
                             <?php echo $row["ten"];?>
                           </td>
                           <td>
-                            <?php echo $row["sdt"];?>
+                            <?php echo $row["dien_thoai"];?>
                           </td>
                            <td>
                             <?php echo $row["email"];?>
                           </td>
                           <td>
-                              <?php echo $row["phanloai"];?>
+                              <?php echo $row["so_tien"];?>
+                          </td>
+                           <td>
+                              <?php echo $row["anh_xac_nhan"];?>
                           </td>
                           <td>
-                          <?php echo $row["trang_thai"];?>
-                        </td>
-                           <td><a href="ung_ho_tien_sua.php?id=<?php echo $row['id_vat_chat'];?>">Sửa</a></td>
-                           <td><a href="ung_ho_vat_chat_xn.php?id=<?php echo $row['id_vat_chat'];?>">Xác nhận</a></td>
+                              <?php echo $row["trang_thai"];?>
+                          </td>
+                          <td>
+                              <?php echo $row["Su_kien"];?>
+                          </td>
+                          <td><a href="ung_ho_tien_sua.php?id=<?php echo $row['id_ung_ho'];?>">Sửa</a></td>
+                          <td><a href="ung_ho_tien_xac_nhan.php?id=<?php echo $row['id_ung_ho'];?>">Xác nhận</a></td>
                         </tr>
                         <?php }
                             //5. Đóng kết nối

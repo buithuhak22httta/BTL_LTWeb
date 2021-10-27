@@ -19,12 +19,11 @@ $anh=$_SESSION['anh'];
 ;?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Quản trị ủng hộ</title>
+  <title>Quản trị blog</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -143,6 +142,7 @@ $anh=$_SESSION['anh'];
               <span class="menu-title">Quản trị chia sẻ</span>
             </a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href="quan_tri_tinh_nguyen_vien.php">
               <i class="icon-head menu-icon"></i>
@@ -186,17 +186,17 @@ $anh=$_SESSION['anh'];
             </div>
           </li>
 
+          
         </ul>
       </nav>
       <!-- partial -->
-
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Quản trị ủng hộ vật chất</h3>
+                  <h3 class="font-weight-bold">Quản trị blog</h3>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -210,79 +210,54 @@ $anh=$_SESSION['anh'];
               </div>
             </div>
           </div>
-            
-            <div class="col-lg-12 grid-margin stretch-card">
+          <div class="col-lg-12 stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Danh sách ủng hộ</h4>
-                  <div class="table-responsive">
-                    <table class="table table-striped">
+                  <h4 class="card-title">Danh sách blog</h4>
+                  <p class="card-description">
+                   <button type="button" class="btn btn-primary btn-sm"><a href="blog_them_moi.php" style="color: white; text-decoration: none">Thêm mới</a></button>
+                  </p>
+                  <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th>
+                          <th style="text-align: center;">
                             STT
                           </th>
-                          <th>Thời gian</th>
-                          <th>
-                            Họ tên
+                          <th style="text-align: center;">
+                            Tên blog
                           </th>
-                          <th>
-                            Số điện thoại
-                          </th>
-                          <th>
-                            Email
-                          </th>
-                          <th>
-                            Phân loại
-                          </th>
-                         <th>
-                           Trạng thái
-                         </th>
+                          <th style="text-align: center;">Sửa</th>
+                          <th style="text-align: center;">Xóa</th>
                         </tr>
                       </thead>
                       <tbody>
-                      <?php
-                        //1. Kết nối đến máy chủ dữ liệu & CSDL mà các bạn muốn lấy, thêm mới, sửa, xóa
-                        $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
-                        //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
-                        $sql = "
-                                SELECT * 
-                                from tbl_ungho_vatchat
-                                order by id_vat_chat desc";
-                        //3. Thực thi câu lệnh truy vấn
-                        $ten_ung_ho = mysqli_query($ket_noi, $sql);
-                        //4. Hiện thị dữ liệu lấy đc
-                        $i=0;
-                        while ($row = mysqli_fetch_array($ten_ung_ho))
-                            {
-                                $i++;
-                                ;?>
-                        <tr>
-                          <td>
-                           <?php echo $i;?>
-                          </td>
-                          <td><?php echo date("d/m/y", strtotime($row["time"]));?></td>
-                          <td>
-                            <?php echo $row["ten"];?>
-                          </td>
-                          <td>
-                            <?php echo $row["sdt"];?>
-                          </td>
-                           <td>
-                            <?php echo $row["email"];?>
-                          </td>
-                          <td>
-                              <?php echo $row["phanloai"];?>
-                          </td>
-                          <td>
-                          <?php echo $row["trang_thai"];?>
-                        </td>
-                           <td><a href="ung_ho_tien_sua.php?id=<?php echo $row['id_vat_chat'];?>">Sửa</a></td>
-                           <td><a href="ung_ho_vat_chat_xn.php?id=<?php echo $row['id_vat_chat'];?>">Xác nhận</a></td>
-                        </tr>
-                        <?php }
-                            //5. Đóng kết nối
-                            mysqli_close($ket_noi) ;?>
+                        <?php
+                                    //1. Kết nối đến máy chủ dữ liệu & CSDL mà các bạn muốn lấy, thêm mới, sửa, xóa
+                                    $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
+                                    //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
+                                    $sql = "
+                                            SELECT * 
+                                            from tbl_blog
+                                            order by id_blog desc";
+                                    //3. Thực thi câu lệnh truy vấn
+                                    $noi_dung_blog = mysqli_query($ket_noi, $sql);
+                                    //4. Hiện thị dữ liệu lấy đc
+                                    $i=0;
+                                    while ($row = mysqli_fetch_array($noi_dung_blog))
+                                        {
+                                            $i++;
+                                            ;?>
+
+                                        <tr class="table-info">
+                                            <td style="text-align: center;"><?php echo $i;?></td>
+                                            <td><?php echo $row["ten"] ;?></td>
+                                            <td><a href="blog_sua.php?id=<?php echo $row['id_blog'];?>">Sửa</a></td>
+                                            <td><a href="blog_xoa.php?id=<?php echo $row['id_blog'];?>">Xóa</a></td>
+                                        </tr>
+                                        <?php }
+                                        //5. Đóng kết nối
+                                        mysqli_close($ket_noi) ;?>               
                       </tbody>
                     </table>
                   </div>

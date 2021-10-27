@@ -24,25 +24,23 @@ $anh=$_SESSION['anh'];
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Quản trị ủng hộ</title>
+  <title>Quản trị tình nguyện viên</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
 </head>
+
 <body>
   <div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
+    <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo mr-5" href="index.php"><img src="images/logo.svg" class="mr-2" alt="logo"/></a>
@@ -81,6 +79,7 @@ $anh=$_SESSION['anh'];
               </a>
             </div>
           </li>
+          
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="icon-menu"></span>
@@ -108,14 +107,15 @@ $anh=$_SESSION['anh'];
           </div>
         </div>
       </div>
+      
       <!-- partial -->
-      <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <!-- partial:../../partials/_sidebar.html -->
+     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
             <a class="nav-link" href="index.php">
               <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Danh mục</span>
+              <span class="menu-title">Trang chủ</span>
             </a>
           </li>
           <li class="nav-item">
@@ -143,6 +143,7 @@ $anh=$_SESSION['anh'];
               <span class="menu-title">Quản trị chia sẻ</span>
             </a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href="quan_tri_tinh_nguyen_vien.php">
               <i class="icon-head menu-icon"></i>
@@ -186,17 +187,17 @@ $anh=$_SESSION['anh'];
             </div>
           </li>
 
+          
         </ul>
       </nav>
       <!-- partial -->
-
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Quản trị ủng hộ vật chất</h3>
+                  <h3 class="font-weight-bold">Quản trị tình nguyện viên</h3>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -214,7 +215,10 @@ $anh=$_SESSION['anh'];
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Danh sách ủng hộ</h4>
+                  <h4 class="card-title">Danh sách tình nguyện viên</h4>
+                  <p class="card-description">
+                   <button type="button" class="btn btn-primary btn-sm"><a href="tnv_them_moi.php" style="color: white; text-decoration: none">Thêm mới</a></button>
+                  </p>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
@@ -222,9 +226,11 @@ $anh=$_SESSION['anh'];
                           <th>
                             STT
                           </th>
-                          <th>Thời gian</th>
                           <th>
                             Họ tên
+                          </th>
+                          <th>
+                            Giới tính
                           </th>
                           <th>
                             Số điện thoại
@@ -232,12 +238,6 @@ $anh=$_SESSION['anh'];
                           <th>
                             Email
                           </th>
-                          <th>
-                            Phân loại
-                          </th>
-                         <th>
-                           Trạng thái
-                         </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -247,13 +247,13 @@ $anh=$_SESSION['anh'];
                         //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
                         $sql = "
                                 SELECT * 
-                                from tbl_ungho_vatchat
-                                order by id_vat_chat desc";
+                                from tbl_tinh_nguyen_vien 
+                                order by id_tnv desc";
                         //3. Thực thi câu lệnh truy vấn
-                        $ten_ung_ho = mysqli_query($ket_noi, $sql);
+                        $noi_dung_su_kien = mysqli_query($ket_noi, $sql);
                         //4. Hiện thị dữ liệu lấy đc
                         $i=0;
-                        while ($row = mysqli_fetch_array($ten_ung_ho))
+                        while ($row = mysqli_fetch_array($noi_dung_su_kien))
                             {
                                 $i++;
                                 ;?>
@@ -261,9 +261,12 @@ $anh=$_SESSION['anh'];
                           <td>
                            <?php echo $i;?>
                           </td>
-                          <td><?php echo date("d/m/y", strtotime($row["time"]));?></td>
+                          
                           <td>
-                            <?php echo $row["ten"];?>
+                            <?php echo $row["ten_nv"];?>
+                          </td>
+                          <td>
+                            <?php echo $row["gioi_tinh"];?>
                           </td>
                           <td>
                             <?php echo $row["sdt"];?>
@@ -271,14 +274,8 @@ $anh=$_SESSION['anh'];
                            <td>
                             <?php echo $row["email"];?>
                           </td>
-                          <td>
-                              <?php echo $row["phanloai"];?>
-                          </td>
-                          <td>
-                          <?php echo $row["trang_thai"];?>
-                        </td>
-                           <td><a href="ung_ho_tien_sua.php?id=<?php echo $row['id_vat_chat'];?>">Sửa</a></td>
-                           <td><a href="ung_ho_vat_chat_xn.php?id=<?php echo $row['id_vat_chat'];?>">Xác nhận</a></td>
+                          <td><a href="tnv_sua.php?id=<?php echo $row['id_tnv'];?>">Sửa</a></td>
+                          <td><a href="tnv_xoa.php?id=<?php echo $row['id_tnv'];?>">Xóa</a></td>
                         </tr>
                         <?php }
                             //5. Đóng kết nối
@@ -291,8 +288,7 @@ $anh=$_SESSION['anh'];
             </div>
           </div>
         </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
+        
         
         <!-- partial -->
       </div>
@@ -301,16 +297,10 @@ $anh=$_SESSION['anh'];
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
-
   <!-- plugins:js -->
   <script src="vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
-  <script src="vendors/chart.js/Chart.min.js"></script>
-  <script src="vendors/datatables.net/jquery.dataTables.js"></script>
-  <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-  <script src="js/dataTables.select.min.js"></script>
-
   <!-- End plugin js for this page -->
   <!-- inject:js -->
   <script src="js/off-canvas.js"></script>
@@ -320,10 +310,6 @@ $anh=$_SESSION['anh'];
   <script src="js/todolist.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="js/dashboard.js"></script>
-  <script src="js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
 </body>
-
 </html>
-

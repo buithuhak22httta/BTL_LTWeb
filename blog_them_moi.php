@@ -24,7 +24,7 @@ $anh=$_SESSION['anh'];
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Quản trị ủng hộ</title>
+  <title>Thêm mới blog</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -39,6 +39,23 @@ $anh=$_SESSION['anh'];
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>
+            tinymce.init({
+                selector: '#txtTen'
+                            });
+        </script>
+        <script>
+            tinymce.init({
+                selector: '#txtNoiDung'
+                            });
+        </script>
+        <script>
+            tinymce.init({
+                selector: '#txtMota'
+                            });
+        </script>
 </head>
 <body>
   <div class="container-scroller">
@@ -110,7 +127,7 @@ $anh=$_SESSION['anh'];
       </div>
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
             <a class="nav-link" href="index.php">
@@ -118,6 +135,7 @@ $anh=$_SESSION['anh'];
               <span class="menu-title">Danh mục</span>
             </a>
           </li>
+             
           <li class="nav-item">
             <a class="nav-link" href="quan_tri_admin.php">
               <i class="icon-head menu-icon"></i>
@@ -143,13 +161,15 @@ $anh=$_SESSION['anh'];
               <span class="menu-title">Quản trị chia sẻ</span>
             </a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href="quan_tri_tinh_nguyen_vien.php">
               <i class="icon-head menu-icon"></i>
               <span class="menu-title">Quản trị tình nguyện viên</span>
             </a>
           </li>
-           <li class="nav-item">
+
+       <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
               <i class="icon-head menu-icon"></i>
               <span class="menu-title">Quản trị ủng hộ</span>
@@ -159,8 +179,8 @@ $anh=$_SESSION['anh'];
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="quan_tri_ung_ho_tien.php"> Ủng hộ tiền </a></li>
                 <li class="nav-item"> <a class="nav-link" href="quan_tri_ung_ho_vat_chat.php">Ủng hộ vật chất</a></li>
-                 <li class="nav-item"> <a class="nav-link" href="xac_nhan_ungho.php">Đã xác nhận ủng hộ tiền</a></li>
-                 <li class="nav-item"> <a class="nav-link" href="xac_nhan_ungho_vat_chat.php">Đã xác nhận ủng hộ vật chất</a></li>
+                <li class="nav-item"> <a class="nav-link" href="xac_nhan_ungho.php">Đã xác nhận ủng hộ tiền</a></li>
+                 <li class="nav-item"> <a class="nav-link" href="xac_nhan_ungho.php">Đã xác nhận ủng hộ vật chất</a></li>
               </ul>
             </div>
           </li>
@@ -189,14 +209,13 @@ $anh=$_SESSION['anh'];
         </ul>
       </nav>
       <!-- partial -->
-
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Quản trị ủng hộ vật chất</h3>
+                  <h3 class="font-weight-bold">Thêm mới blog</h3>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -210,81 +229,29 @@ $anh=$_SESSION['anh'];
               </div>
             </div>
           </div>
-            
-            <div class="col-lg-12 grid-margin stretch-card">
+          <div class="col-lg-12 stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Danh sách ủng hộ</h4>
-                  <div class="table-responsive">
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th>
-                            STT
-                          </th>
-                          <th>Thời gian</th>
-                          <th>
-                            Họ tên
-                          </th>
-                          <th>
-                            Số điện thoại
-                          </th>
-                          <th>
-                            Email
-                          </th>
-                          <th>
-                            Phân loại
-                          </th>
-                         <th>
-                           Trạng thái
-                         </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      <?php
-                        //1. Kết nối đến máy chủ dữ liệu & CSDL mà các bạn muốn lấy, thêm mới, sửa, xóa
-                        $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
-                        //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
-                        $sql = "
-                                SELECT * 
-                                from tbl_ungho_vatchat
-                                order by id_vat_chat desc";
-                        //3. Thực thi câu lệnh truy vấn
-                        $ten_ung_ho = mysqli_query($ket_noi, $sql);
-                        //4. Hiện thị dữ liệu lấy đc
-                        $i=0;
-                        while ($row = mysqli_fetch_array($ten_ung_ho))
-                            {
-                                $i++;
-                                ;?>
-                        <tr>
-                          <td>
-                           <?php echo $i;?>
-                          </td>
-                          <td><?php echo date("d/m/y", strtotime($row["time"]));?></td>
-                          <td>
-                            <?php echo $row["ten"];?>
-                          </td>
-                          <td>
-                            <?php echo $row["sdt"];?>
-                          </td>
-                           <td>
-                            <?php echo $row["email"];?>
-                          </td>
-                          <td>
-                              <?php echo $row["phanloai"];?>
-                          </td>
-                          <td>
-                          <?php echo $row["trang_thai"];?>
-                        </td>
-                           <td><a href="ung_ho_tien_sua.php?id=<?php echo $row['id_vat_chat'];?>">Sửa</a></td>
-                           <td><a href="ung_ho_vat_chat_xn.php?id=<?php echo $row['id_vat_chat'];?>">Xác nhận</a></td>
-                        </tr>
-                        <?php }
-                            //5. Đóng kết nối
-                            mysqli_close($ket_noi) ;?>
-                      </tbody>
-                    </table>
+                  <h4 class="card-title">Danh sách blog | <a href="blog_them_moi.php">Thêm mới</a></h4>
+                  <div class="table-responsive pt-3">
+                    <form class="forms-sample" method="POST" action="blog_them_moi_thuc_hien.php" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="txtTen">Tên blog</label>
+                      <input type="text" class="form-control" id="txtTen" name="txtTen" placeholder="Tên blog">
+                    </div>
+                    <div class="form-group">
+                      <label for="txtNoiDung">Mô tả</label>
+                      <input type="text" class="form-control" id="txtMota" name="txtMota" placeholder="Mô tả">        
+                    <div class="form-group">
+                    <div class="form-group">
+                      <label for="txtNoiDung">Nội dung</label>
+                      <input type="text" class="form-control" id="txtNoiDung" name="txtNoiDung" placeholder="Nội dung">        
+                    <div class="form-group">
+                      <label for="txtAnh">Ảnh</label>
+                      <input type="file" class="form-control" id="txtAnh" name="txtAnh" placeholder="Ảnh minh họa">
+                    </divn>
+                    <button type="submit" class="btn btn-primary mr-2">Đăng bài</button>
+                  </form>
                   </div>
                 </div>
               </div>

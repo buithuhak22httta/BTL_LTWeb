@@ -24,7 +24,7 @@ $anh=$_SESSION['anh'];
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Quản trị ủng hộ</title>
+  <title>Ủng hộ đã xác nhận</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -159,17 +159,10 @@ $anh=$_SESSION['anh'];
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="quan_tri_ung_ho_tien.php"> Ủng hộ tiền </a></li>
                 <li class="nav-item"> <a class="nav-link" href="quan_tri_ung_ho_vat_chat.php">Ủng hộ vật chất</a></li>
-                 <li class="nav-item"> <a class="nav-link" href="xac_nhan_ungho.php">Đã xác nhận ủng hộ tiền</a></li>
+                <li class="nav-item"> <a class="nav-link" href="xac_nhan_ungho.php">Đã xác nhận ủng hộ tiền</a></li>
                  <li class="nav-item"> <a class="nav-link" href="xac_nhan_ungho_vat_chat.php">Đã xác nhận ủng hộ vật chất</a></li>
               </ul>
             </div>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="quan_tri_tham_gia.php">
-              <i class="icon-head menu-icon"></i>
-              <span class="menu-title">Quản trị tham gia</span>
-            </a>
           </li>
 
           <li class="nav-item">
@@ -196,7 +189,7 @@ $anh=$_SESSION['anh'];
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Quản trị ủng hộ vật chất</h3>
+                  <h3 class="font-weight-bold">Ủng hộ đã xác nhận</h3>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -214,7 +207,7 @@ $anh=$_SESSION['anh'];
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Danh sách ủng hộ</h4>
+                  <h4 class="card-title">Ủng hộ đã xác nhận</h4>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
@@ -229,15 +222,10 @@ $anh=$_SESSION['anh'];
                           <th>
                             Số điện thoại
                           </th>
+                          <th>Email</th>
                           <th>
-                            Email
+                            Số tiền ủng hộ
                           </th>
-                          <th>
-                            Phân loại
-                          </th>
-                         <th>
-                           Trạng thái
-                         </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -245,10 +233,10 @@ $anh=$_SESSION['anh'];
                         //1. Kết nối đến máy chủ dữ liệu & CSDL mà các bạn muốn lấy, thêm mới, sửa, xóa
                         $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
                         //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
-                        $sql = "
+                         $sql = "
                                 SELECT * 
-                                from tbl_ungho_vatchat
-                                order by id_vat_chat desc";
+                                from tbl_ung_ho_da_xn
+                                order by id_xn desc";
                         //3. Thực thi câu lệnh truy vấn
                         $ten_ung_ho = mysqli_query($ket_noi, $sql);
                         //4. Hiện thị dữ liệu lấy đc
@@ -261,24 +249,19 @@ $anh=$_SESSION['anh'];
                           <td>
                            <?php echo $i;?>
                           </td>
-                          <td><?php echo date("d/m/y", strtotime($row["time"]));?></td>
+                          <td> <?php echo date("d/m/y", strtotime($row["time"]));?></td>
                           <td>
                             <?php echo $row["ten"];?>
                           </td>
                           <td>
-                            <?php echo $row["sdt"];?>
+                            <?php echo $row["dien_thoai"];?>
                           </td>
                            <td>
                             <?php echo $row["email"];?>
                           </td>
                           <td>
-                              <?php echo $row["phanloai"];?>
+                              <?php echo $row["so_tien"];?>
                           </td>
-                          <td>
-                          <?php echo $row["trang_thai"];?>
-                        </td>
-                           <td><a href="ung_ho_tien_sua.php?id=<?php echo $row['id_vat_chat'];?>">Sửa</a></td>
-                           <td><a href="ung_ho_vat_chat_xn.php?id=<?php echo $row['id_vat_chat'];?>">Xác nhận</a></td>
                         </tr>
                         <?php }
                             //5. Đóng kết nối
