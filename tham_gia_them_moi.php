@@ -24,7 +24,7 @@ $anh=$_SESSION['anh'];
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Trang chủ quản trị</title>
+  <title>Tham gia thêm mới</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -39,6 +39,23 @@ $anh=$_SESSION['anh'];
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>
+            tinymce.init({
+                selector: '#txtNoiDung'
+                            });
+        </script>
+        <script>
+            tinymce.init({
+                selector: '#txtTen'
+                            });
+        </script>
+         <script>
+            tinymce.init({
+                selector: '#txtMota'
+                            });
+        </script>
 </head>
 <body>
   <div class="container-scroller">
@@ -68,7 +85,7 @@ $anh=$_SESSION['anh'];
           <li class="nav-item nav-profile dropdown">
           <strong><?php echo $ten ;?></strong>
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-               <img src="../<?php echo $anh ;?>" alt="profile"/>
+              <img src="../<?php echo $anh ;?>" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
@@ -118,13 +135,12 @@ $anh=$_SESSION['anh'];
               <span class="menu-title">Danh mục</span>
             </a>
           </li>
-          <li class="nav-item">
+           <li class="nav-item">
             <a class="nav-link" href="quan_tri_admin.php">
               <i class="icon-head menu-icon"></i>
               <span class="menu-title">Quản trị admin</span>
             </a>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" href="quan_tri_su_kien.php">
               <i class="icon-layout menu-icon"></i>
@@ -144,6 +160,7 @@ $anh=$_SESSION['anh'];
               <span class="menu-title">Quản trị chia sẻ</span>
             </a>
           </li>
+        
           <li class="nav-item">
             <a class="nav-link" href="quan_tri_tinh_nguyen_vien.php">
               <i class="icon-head menu-icon"></i>
@@ -161,7 +178,7 @@ $anh=$_SESSION['anh'];
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="quan_tri_ung_ho_tien.php"> Ủng hộ tiền </a></li>
                 <li class="nav-item"> <a class="nav-link" href="quan_tri_ung_ho_vat_chat.php">Ủng hộ vật chất</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="xac_nhan_ungho.php">Đã xác nhận ủng hộ tiền</a></li>
+                <li class="nav-item"> <a class="nav-link" href="xac_nhan_ungho.php">Đã xác nhận ủng hộ tiền</a></li>
                  <li class="nav-item"> <a class="nav-link" href="xac_nhan_ungho.php">Đã xác nhận ủng hộ vật chất</a></li>
               </ul>
             </div>
@@ -188,6 +205,7 @@ $anh=$_SESSION['anh'];
             </div>
           </li>
 
+          
         </ul>
       </nav>
       <!-- partial -->
@@ -197,8 +215,7 @@ $anh=$_SESSION['anh'];
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Welcome Aamir</h3>
-                  <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>
+                  <h3 class="font-weight-bold">Tham gia thêm mới</h3>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -212,68 +229,58 @@ $anh=$_SESSION['anh'];
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6 grid-margin stretch-card">
-              <div class="card tale-bg">
-                <div class="card-people mt-auto">
-                  <img src="images/dashboard/people.svg" alt="people">
-                  <div class="weather-info">
-                    <div class="d-flex">
-                      <div>
-                        <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
-                      </div>
-                      <div class="ml-2">
-                        <h4 class="location font-weight-normal">Bangalore</h4>
-                        <h6 class="font-weight-normal">India</h6>
-                      </div>
+          <div class="col-lg-12 stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Danh sách tình nguyện viên tham gia sự kiện | <a href="tham_gia_them_moi.php">Thêm mới</a></h4>
+                  <div class="table-responsive pt-3">
+                  <?php
+                                    
+                                    $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
+                                    
+                                    $sql1 = "
+                                            SELECT * 
+                                            from tbl_su_kien
+                                            ";
+                                    $noi_dung_sk = mysqli_query($ket_noi, $sql1);
+                                    $row1 = mysqli_fetch_array($noi_dung_sk);
+                                    $sql2 = "
+                                            SELECT * 
+                                            from tbl_tinh_nguyen_vien
+                                            ";
+                                    $noi_dung_tnv = mysqli_query($ket_noi, $sql2);
+                                    $row2 = mysqli_fetch_array($noi_dung_tnv);
+                    ;?>
+                    <form class="forms-sample" method="POST" action="tham_gia_them_moi_thuc_hien.php" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="txtID">ID tình nguyện viên</label>
+                      <select class="form-control" id="txtTNV" name="txtTNV" placeholder="ID tình nguyện viên" required="required">
+                                    <option> <?php echo $row2['id_tnv'];?> </option>
+                                    <?php foreach ($noi_dung_tnv as $key => $value)
+                                    {;?>
+                                    <option value="<?php echo $value['id_tnv'];?>"> <?php echo $value['id_tnv'];?></option>
+                                    <?php } ;?>
+                                    </select>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 grid-margin transparent">
-              <div class="row">
-                <div class="col-md-6 mb-4 stretch-card transparent">
-                  <div class="card card-tale">
-                    <div class="card-body">
-                      <p class="mb-4">Today’s Bookings</p>
-                      <p class="fs-30 mb-2">4006</p>
-                      <p>10.00% (30 days)</p>
+                    <div class="form-group">
+                      <label for="txtSukien">Tên sự kiện</label>
+                      <select class="form-control" id="txtSukien" name="txtSukien" placeholder="Sự kiện bạn muốn tham gia" required="required">
+                                    <option> <?php echo $row1['ten'];?> </option>
+                                    <?php foreach ($noi_dung_sk as $key => $value)
+                                    {;?>
+                                    <option value="<?php echo $value['id_su_kien'];?>"> <?php echo $value['ten'];?></option>
+                                    <?php } mysqli_close($ket_noi) ;?>
+
+                                    </select>
                     </div>
-                  </div>
-                </div>
-                <div class="col-md-6 mb-4 stretch-card transparent">
-                  <div class="card card-dark-blue">
-                    <div class="card-body">
-                      <p class="mb-4">Total Bookings</p>
-                      <p class="fs-30 mb-2">61344</p>
-                      <p>22.00% (30 days)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-                  <div class="card card-light-blue">
-                    <div class="card-body">
-                      <p class="mb-4">Number of Meetings</p>
-                      <p class="fs-30 mb-2">34040</p>
-                      <p>2.00% (30 days)</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 stretch-card transparent">
-                  <div class="card card-light-danger">
-                    <div class="card-body">
-                      <p class="mb-4">Number of Clients</p>
-                      <p class="fs-30 mb-2">47033</p>
-                      <p>0.22% (30 days)</p>
-                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Đăng bài</button>
+                  </form>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
         
