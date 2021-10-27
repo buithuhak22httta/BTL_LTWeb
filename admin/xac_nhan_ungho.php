@@ -235,8 +235,8 @@ $anh=$_SESSION['anh'];
                         //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
                          $sql = "
                                 SELECT * 
-                                from tbl_ung_ho_tien
-                                order by id_ung_ho desc";
+                                from tbl_ung_ho_da_xn
+                                order by id_xn desc";
                         //3. Thực thi câu lệnh truy vấn
                         $ten_ung_ho = mysqli_query($ket_noi, $sql);
                         //4. Hiện thị dữ liệu lấy đc

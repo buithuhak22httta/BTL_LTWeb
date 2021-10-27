@@ -238,6 +238,7 @@ $anh=$_SESSION['anh'];
                           </th>
                           <th> Ảnh xác nhận</th>
                           <th>Trạng thái</th>
+                          <th>Sự kiện</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -246,9 +247,7 @@ $anh=$_SESSION['anh'];
                         $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
                         //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
                         $sql = "
-                                SELECT * 
-                                from tbl_ung_ho_tien
-                                order by id_ung_ho desc";
+                                SELECT id_ung_ho, tbl_ung_ho_tien.ten, time, email, dien_thoai, so_tien, anh_xac_nhan, trang_thai, tbl_su_kien.ten as 'Su_kien' from tbl_ung_ho_tien join tbl_su_kien on tbl_ung_ho_tien.id_su_kien = tbl_su_kien.id_su_kien order by id_ung_ho DESC";
                         //3. Thực thi câu lệnh truy vấn
                         $ten_ung_ho = mysqli_query($ket_noi, $sql);
                         //4. Hiện thị dữ liệu lấy đc
@@ -281,12 +280,11 @@ $anh=$_SESSION['anh'];
                           <td>
                               <?php echo $row["trang_thai"];?>
                           </td>
-                          <td><a href="ung_ho_tien_sua.php?id=<?php echo $row['id_ung_ho'];?>">Sửa</a></td>
                           <td>
-                            <form method="POST" action=".php" enctype="multipart/form-data">
-                              <button type="submit" class="btn btn-primary mr-2">Xác nhận</button>
-                            </form> 
+                              <?php echo $row["Su_kien"];?>
                           </td>
+                          <td><a href="ung_ho_tien_sua.php?id=<?php echo $row['id_ung_ho'];?>">Sửa</a></td>
+                          <td><a href="ung_ho_tien_xac_nhan.php?id=<?php echo $row['id_ung_ho'];?>">Xác nhận</a></td>
                         </tr>
                         <?php }
                             //5. Đóng kết nối
