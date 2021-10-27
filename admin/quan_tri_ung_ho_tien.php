@@ -159,6 +159,7 @@ $anh=$_SESSION['anh'];
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="quan_tri_ung_ho_tien.php"> Ủng hộ tiền </a></li>
                 <li class="nav-item"> <a class="nav-link" href="quan_tri_ung_ho_vat_chat.php">Ủng hộ vật chất</a></li>
+                 <li class="nav-item"> <a class="nav-link" href="xac_nhan_ungho.php">Đã xác nhận</a></li>
               </ul>
             </div>
           </li>
@@ -213,10 +214,12 @@ $anh=$_SESSION['anh'];
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Danh sách ủng hộ</h4>
+                              
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
                         <tr>
+                        <th>#</th>
                           <th>
                             STT
                           </th>
@@ -234,6 +237,7 @@ $anh=$_SESSION['anh'];
                             Số tiền ủng hộ
                           </th>
                           <th> Ảnh xác nhận</th>
+                          <th>Trạng thái</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -254,6 +258,7 @@ $anh=$_SESSION['anh'];
                                 $i++;
                                 ;?>
                         <tr>
+                        <td><input type="checkbox" class="select" name=""></td>
                           <td>
                            <?php echo $i;?>
                           </td>
@@ -273,8 +278,15 @@ $anh=$_SESSION['anh'];
                            <td>
                               <?php echo $row["anh_xac_nhan"];?>
                           </td>
+                          <td>
+                              <?php echo $row["trang_thai"];?>
+                          </td>
                           <td><a href="ung_ho_tien_sua.php?id=<?php echo $row['id_ung_ho'];?>">Sửa</a></td>
-                          <td><a href="ung_ho_tien_xac_nhan.php?id=<?php echo $row['id_ung_ho'];?>">Xác nhận</a></td>
+                          <td>
+                            <form method="POST" action=".php" enctype="multipart/form-data">
+                              <button type="submit" class="btn btn-primary mr-2">Xác nhận</button>
+                            </form> 
+                          </td>
                         </tr>
                         <?php }
                             //5. Đóng kết nối

@@ -1,4 +1,3 @@
-
 <?php
     //kiểm tra bạn có quyền truy cập trang này k qua biến $session['da_dang_nhap']
     session_start();
@@ -16,14 +15,15 @@
                 ";
         }
 
-;?><!DOCTYPE html>
+;?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Xóa tình nguyện viên</title>
+  <title>Thêm mới tình nguyện viên</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -45,20 +45,23 @@
             include('../config.php');
 
             //2. Lấy dữ liệu
-            $id_tnv = $_GET['id'];
-
-            $sql = "DELETE FROM `tbl_tham_gia` WHERE `tbl_tham_gia`.`id_tnv` = '".$id_tnv."'";
-            $thucthi = mysqli_query($ket_noi, $sql);
+            $ten = $_POST["txtTen"];
+            $sdt = $_POST["txtSdt"];
+            $email = $_POST["txtEmail"];
+            $tien = $_POST["txtSotien"]
+        
             //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
-            $sql1 = "
-                    DELETE FROM `tbl_tinh_nguyen_vien` WHERE `tbl_tinh_nguyen_vien`.`id_tnv` = '".$id_tnv."'
+            $sql = "
+
+            INSERT INTO `tbl_tinh_nguyen_vien` (`id_tnv`, `ten_nv`, `gioi_tinh`, `sdt`, `email`) VALUES (NULL, '".$ten."', '".$gioi_tinh."', '".$sdt."', '".$email."');
                     ";
+                  
             //4. Thực thi câu lệnh truy vấn
-                $tnv = mysqli_query($ket_noi, $sql1);
+                $tinh_nguyen_vien = mysqli_query($ket_noi, $sql);
             //5. Hiện thị thông báo thêm mới thành công và đẩy các bạn về trang quản trị tin tức
                 echo "
                     <script type='text/javascript'>
-                        window.alert('Bạn đã xóa tình nguyện viên thành công');
+                        window.alert('Bạn đã thêm mới tình nguyện viên thành công');
                     </script>
                 ";
                 echo "

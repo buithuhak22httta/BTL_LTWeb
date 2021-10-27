@@ -159,6 +159,7 @@ $anh=$_SESSION['anh'];
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="quan_tri_ung_ho_tien.php"> Ủng hộ tiền </a></li>
                 <li class="nav-item"> <a class="nav-link" href="quan_tri_ung_ho_vat_chat.php">Ủng hộ vật chất</a></li>
+                 <li class="nav-item"> <a class="nav-link" href="xac_nhan_ungho.php">Đã xác nhận</a></li>
               </ul>
             </div>
           </li>
