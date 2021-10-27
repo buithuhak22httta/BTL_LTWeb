@@ -24,7 +24,7 @@ $anh=$_SESSION['anh'];
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Ủng hộ đã xác nhận</title>
+  <title>Ủng hộ vật chất đã xác nhận</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -189,7 +189,7 @@ $anh=$_SESSION['anh'];
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Ủng hộ đã xác nhận</h3>
+                  <h3 class="font-weight-bold">Ủng hộ vật chất đã xác nhận</h3>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -207,7 +207,7 @@ $anh=$_SESSION['anh'];
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Ủng hộ đã xác nhận</h4>
+                  <h4 class="card-title">Ủng hộ vật chất đã xác nhận</h4>
                   <div class="table-responsive">
                     <table class="table table-striped">
                       <thead>
@@ -226,6 +226,9 @@ $anh=$_SESSION['anh'];
                           <th>
                             Phân Loại
                           </th>
+                          <th>
+                            Sự kiện
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -234,8 +237,8 @@ $anh=$_SESSION['anh'];
                         $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
                         //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
                          $sql = "
-                                SELECT * 
-                                from tbl_ung_ho_vatchat_da_xn
+                                SELECT time, tbl_ung_ho_vatchat_da_xn.ten, dien_thoai, phanloai, email, tbl_su_kien.ten as 'su_kien'
+                                from tbl_ung_ho_vatchat_da_xn join tbl_su_kien on tbl_ung_ho_vatchat_da_xn.id_su_kien = tbl_su_kien.id_su_kien
                                 order by id_vc_xn desc";
                         //3. Thực thi câu lệnh truy vấn
                         $ten_ung_ho = mysqli_query($ket_noi, $sql);
@@ -261,6 +264,9 @@ $anh=$_SESSION['anh'];
                           </td>
                           <td>
                               <?php echo $row["phanloai"];?>
+                          </td>
+                          <td>
+                              <?php echo $row["su_kien"];?>
                           </td>
                         </tr>
                         <?php }
