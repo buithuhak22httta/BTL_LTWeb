@@ -1,21 +1,3 @@
-<?php
-    //kiểm tra bạn có quyền truy cập trang này k qua biến $session['da_dang_nhap']
-    session_start();
-    if(!$_SESSION['da_dang_nhap'])
-        {
-                        echo "
-                    <script type='text/javascript'>
-                        window.alert('Bạn không có quyền truy cập');
-                    </script>
-                ";
-                echo "
-                    <script type='text/javascript'>
-                        window.location.href='dang_nhap.php';
-                    </script>
-                ";
-        }
-
-;?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Xóa sự kiện</title>
+  <title>Thêm mới ủng hộ</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -42,26 +24,40 @@
 <body>
     <?php
             //1. Kết nối đến máy chủ dữ liệu & CSDL mà các bạn muốn lấy, thêm mới, sửa, xóa
-            include('../config.php');
-
+              include('config.php');
             //2. Lấy dữ liệu
-            $id_su_kien = $_GET['id'];
+            $ten = $_POST["txtTen"];
+            $email = $_POST["txtEmail"];
+            $sdt = $_POST["txtSdt"];
+            $sotien = $_POST["txtSotien"];
+
+            $noi_dat_file_anh_xn = "img/anhxn/".basename($_FILES["txtAnh"]["name"]);
+            $file_anh_tam = $_FILES["txtAnh"]["tmp_name"];
+            $ket_qua_up_anh = move_uploaded_file($file_anh_tam, $noi_dat_file_anh_xn);
+            if(!$ket_qua_up_anh) {
+                $anh = NULL;
+            }
+            else {
+                $anh = basename($_FILES["txtAnh"]["name"]);
+            }
             //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
             $sql = "
-                    DELETE FROM `tbl_su_kien` WHERE `tbl_su_kien`.`id_su_kien` = '".$id_su_kien."'
+                    INSERT INTO `tbl_ung_ho` (`id_ung_ho`, `ten`, `dien_thoai`, `email`, `so_tien`, `anh_xac_nhan`) VALUES (NULL, '".$ten."', '".$sdt."', '".$email."', '".$sotien."', 'img/anhxn/".$anh."');
                     ";
             //4. Thực thi câu lệnh truy vấn
-                $noi_dung_su_kien = mysqli_query($ket_noi, $sql);
+                $ten_ung_ho = mysqli_query($ket_noi, $sql);
             //5. Hiện thị thông báo thêm mới thành công và đẩy các bạn về trang quản trị tin tức
                 echo "
                     <script type='text/javascript'>
-                        window.alert('Bạn đã xóa sự kiện thành công');
+                        window.alert('Bạn đã ủng hộ thành công!');
                     </script>
                 ";
                 echo "
                     <script type='text/javascript'>
-                        window.location.href='quan_tri_su_kien.php';
+                        window.location.href='donate.php';
                     </script>
                 ";
+               
             ;?>
 </body>
+

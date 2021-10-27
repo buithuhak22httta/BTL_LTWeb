@@ -14,8 +14,14 @@
                     </script>
                 ";
         }
-
+$ten=$_SESSION['ten'];
+$anh=$_SESSION['anh'];
 ;?>
+<<<<<<< HEAD
+<?php
+echo 'Ban da ung ho thanh cong';
+;?>
+=======
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +29,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Xóa tham gia</title>
+  <title>Thêm mới ủng hộ</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -45,23 +51,27 @@
             include('../config.php');
 
             //2. Lấy dữ liệu
-            $id_tham_gia = $_GET['id'];
+            $ten = $_POST["txtTen"];
+            $email = $_POST["txtEmail"];
+            $sotien = $_POST["txtSotien"];
+
             //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
             $sql = "
-                    DELETE FROM `tbl_tham_gia` WHERE `tbl_tham_gia`.`id_tham_gia` = '".$id_tham_gia."'
+                    INSERT INTO `tbl_ung_ho` (`id_ung_ho`, `ten`, `email`, `so_tien`) VALUES (NULL, '".$ten."', '".$email."', '".$sotien."'); 
                     ";
             //4. Thực thi câu lệnh truy vấn
-                $noi_dung_su_kien = mysqli_query($ket_noi, $sql);
+                $ten_ung_ho = mysqli_query($ket_noi, $sql);
             //5. Hiện thị thông báo thêm mới thành công và đẩy các bạn về trang quản trị tin tức
                 echo "
                     <script type='text/javascript'>
-                        window.alert('Bạn đã xóa tham gia thành công');
+                        window.alert('Bạn đã thêm một người ủng hộ mới');
                     </script>
                 ";
                 echo "
                     <script type='text/javascript'>
-                        window.location.href='quan_tri_tham_gia.php';
+                        window.location.href='quan_tri_ung_ho.php';
                     </script>
                 ";
             ;?>
 </body>
+>>>>>>> bcf8dfb78f09ebd51b182ea3a6b1a436d6c67546
