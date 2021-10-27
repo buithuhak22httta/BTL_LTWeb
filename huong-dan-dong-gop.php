@@ -105,7 +105,6 @@
         <div class="container">
             <div class="text"><b><p><u>1. Tiếp nhận Đóng góp:</u></p></b></div>
             <div class="text"><b><p>a. Đóng góp qua hình thức chuyển khoản:</p></b></div>
-            <div class="text"><p>Đóng góp tới quỹ từ thiện HELPV với nội dung: Tên - email - ủng hộ sự kiện nào?</p></div>
             <table align="center" border="1" style="height: 397px; width: 100%;" width="381">
             <tbody>
                 <tr align="center"  bgcolor="#424040" style="color: white" >
@@ -177,13 +176,12 @@
                     <tr>
                         <td align="center" style="text-align: center;" width="174">Chuyển khoản</td>
                         <td align="center" width="192">
-                            <p>Gửi Phiếu thu kiêm thư cảm ơn của Quỹ từ thiện HELPV (có dấu đỏ) đến người đóng góp:</p>
-                            <p >+ 1 bản sao gửi vào địa chỉ thư điện tử (nếu có)</p>
-                            <p >+ 1 bản chính gửi qua đường bưu điện (nếu có)</p>
+                            <p>Đóng góp tới quỹ HELPV với cú pháp: </p>
+                            <p>Tên - email - ủng hộ sự kiện nào?</p>
                         </td>
-                        <td align="center" style="text-align: center;" rowspan="2" width="197">Cập nhật đóng góp tại Zalo</td>
+                        <td align="center" style="text-align: center;" rowspan="2" width="197">Cập nhật đóng góp bằng cách truy cập mục ủng hộ của trang chính HELPV và điền thông tin để xác nhận.</td>
 
-                        <td align="center" style="text-align: center;" rowspan="2" width="197">Người đóng góp theo dõi khoản đóng góp và thông báo ngay cho Quỹ nếu chưa được cập nhật hoặc có nhầm lẫn, sai sót.</td>
+                        <td align="center" style="text-align: center;" rowspan="2" width="197">Người đóng góp theo dõi khoản đóng góp và thông báo ngay cho Quỹ qua người liên hệ hoặc trên Zalo nếu chưa được cập nhật hoặc có nhầm lẫn, sai sót.</td>
                     </tr>
                     <tr>
                         <td align="center" style="text-align: center;" width="174">Tiền mặt/ Hiện vật</td>
