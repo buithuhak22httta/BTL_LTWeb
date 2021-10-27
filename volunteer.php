@@ -144,8 +144,7 @@
                                     $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
                                     
                                     $sql1 = "
-                                            SELECT * 
-                                            from tbl_su_kien
+                                            SELECT * FROM tbl_su_kien where ngay_to_chuc > CURRENT_DATE
                                             ";
                                     $noi_dung_sk = mysqli_query($ket_noi, $sql1);
                                     $row1 = mysqli_fetch_array($noi_dung_sk);
