@@ -135,7 +135,7 @@
             <div class="event-item">
                 <div class="event-content">
                     <div class="event-text">
-                         <h3 style="text-align: center;"><b>CHUNG SỨC CÙNG CỘNG ĐỒNG ƯƠM NHỮNG MẦM NON TƯƠNG LAI </b></h3>
+                        <h3 style="text-align: center;"><b>CHUNG SỨC CÙNG CỘNG ĐỒNG ƯƠM NHỮNG MẦM NON TƯƠNG LAI </b></h3>
                         <br>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
              <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title"><a href="update_donate.php"> Danh sách ủng hộ tiền</a> / <a href="cap_nhat_ung_ho_hien_vat.php">Danh sách ủng hộ hiện vật</a> </h4>
+                  <h4 class="card-title"><a href="update_donate.php"> Danh sách ủng hộ tiền</a>/<a href="cap_nhat_ung_ho_hien_vat.php">Danh sách ủng hộ hiện vật</a> </h4>
                   <div class="table-responsive pt-3">
                   <?php
                          $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
