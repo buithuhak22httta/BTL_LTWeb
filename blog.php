@@ -114,7 +114,8 @@
                 <div class="row">
                 <?php
                include('config.php');
-                $sql="SELECT * FROM tbl_blog";
+                $sql="SELECT * FROM tbl_blog
+                      ";
                 $noi_dung=mysqli_query($ket_noi,$sql);
                 while($row=mysqli_fetch_array($noi_dung))
                 {
@@ -128,6 +129,7 @@
                                 <p>
                                    <?php echo $row["mo_ta"] ;?>
                                 </p>
+                                <a class="btn btn-custom" href="noidungchitiet.php?id=<?php echo $row['id_blog'];?>">Chi tiết</a>
                                     
                                 </div>
                                 
