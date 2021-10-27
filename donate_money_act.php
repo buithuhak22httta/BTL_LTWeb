@@ -31,6 +31,8 @@
             $sdt = $_POST["txtSdt"];
             $sotien = $_POST["txtSotien"];
             $ngay = $_POST["txtNgay"];
+            $su_kien= (int)$_POST["txtSukien"];
+            $ck = $_POST["optionsRadios"];
 
             $noi_dat_file_anh_xn = "img/anhxn/".basename($_FILES["txtAnh"]["name"]);
             $file_anh_tam = $_FILES["txtAnh"]["tmp_name"];
@@ -42,11 +44,11 @@
                 $anh = basename($_FILES["txtAnh"]["name"]);
             }
             //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
-            $sql = "
-                    INSERT INTO `tbl_ung_ho` (`id_ung_ho`, `ten`,`time`, `dien_thoai`, `email`, `so_tien`, `anh_xac_nhan`) VALUES (NULL, '".$ten."','".$ngay."' , '".$sdt."', '".$email."', '".$sotien."', 'img/anhxn/".$anh."');
+            $sql1 = "
+                    INSERT INTO `tbl_ung_ho_tien` (`id_ung_ho`, `time`, `ten`, `dien_thoai`, `email`, `so_tien`, `anh_xac_nhan`, `trang_thai`, `id_su_kien`) VALUES (NULL, '".$ngay."', '".$ten."', '".$sdt."', '".$email."', '".$sotien."', 'img/anhxn/".$anh."', '".$ck."', '".$su_kien."');
                     ";
             //4. Thực thi câu lệnh truy vấn
-                $ten_ung_ho = mysqli_query($ket_noi, $sql);
+                $thuc_thi1 = mysqli_query($ket_noi, $sql1);
             //5. Hiện thị thông báo thêm mới thành công và đẩy các bạn về trang quản trị tin tức
                 echo "
                     <script type='text/javascript'>

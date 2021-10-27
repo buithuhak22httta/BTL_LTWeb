@@ -30,7 +30,7 @@
             color: #20212b;
             background-color: #f3f6ff;
             font-family: 'Quicksand';
-            border: 1px solid #8e8e8e 
+           
         }
         .card-body{
             font-family: 'Quicksand';
@@ -132,30 +132,67 @@
         
         <!-- Donate Start -->
         <div class="container">
-            <div class="donate" data-parallax="scroll" data-image-src="img/donate.jpg">
-                <div class="row align-items-center" >
-                    <div class="col-lg-7">
-                        <div class="donate-content">
-                            <div class="section-header">
-                                <h2 style="text-align: center">Hãy chung tay để trẻ em đang gặp khó khăn có cuộc sống tốt hơn</h2>
-                            </div>
-                            <div class="donate-text">
-                                <p style="text-align: center"> 
-                                    Cả nước hiện có khoảng gần 5,6 triệu trẻ em nghèo đa chiều. Trong đó 50% trẻ em dân tộc thiếu số là trẻ em nghèo. Hơn 36% trẻ em dân tộc thiểu số còn chưa được dùng nước sạch, dịch vụ y tế, chưa được tiếp cận kịp thời các dịch vụ bảo vệ trẻ em, tỷ lệ học sinh được đến trường ở vùng dân tộc thiểu số và miền núi còn thấp, hầu hết các xã miền núi đặc biệt khó khăn còn thiếu điểm vui chơi cho trẻ em.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5" style="padding: 200px 90px 0 80px" >
-                        <button class="btn btn-custom" type="submit" style="width: 80%"><a href="ds_ung_ho_tien.php" style="color: white">Danh sách người ủng hộ tiền</a></button>
+            <div class="event-item">
+                <div class="event-content">
+                    <div class="event-text">
+                        <h5 style="text-align: center;"><b>CHƯƠNG TRÌNH VOLUNTEER CỦA HELPV</b></h5>
                         <br>
-                        <br>
-                        <button class="btn btn-custom" type="submit" style="width: 80%"><a href="ds_ung_ho_hien_vat.php" style="color: white">Danh sách người ủng hộ hiện vật</a></button>
                     </div>
                 </div>
             </div>
-        </div>
-
+             <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Danh sách ủng hộ</h4>
+                  <div class="table-responsive pt-3">
+                  <?php
+                         $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
+                        
+                        $sql1 = "
+                                SELECT * 
+                                from tbl_ung_ho_tien
+                                ";
+                        $noi_dung_sk = mysqli_query($ket_noi, $sql1);
+                        $row1 = mysqli_fetch_array($noi_dung_sk);
+                                        
+                        ;?>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>STT</th>
+                          <th>Họ và tên</th>
+                          <th>Số tiền</th>
+                          <th>Amount</th>
+                          <th>Deadline</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            1
+                          </td>
+                          <td>
+                            Herman Beck
+                          </td>
+                          <td>
+                            <div class="progress">
+                              <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                          <td>
+                            $ 77.99
+                          </td>
+                          <td>
+                            May 15, 2015
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
         
         <!-- Donate End -->
 

@@ -22,6 +22,9 @@
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+        <style>
+            img.hinhanh {display: block; margin-left: auto; margin-right: auto;}
+        </style>
     </head>
 
     <body>
@@ -109,17 +112,18 @@
             <div class="event-item">
                 <div class="event-content">
                     <div class="event-text">
-                        <h5>CHƯƠNG TRÌNH VOLUNTEER CỦA HELPV</h5>
+                        <h5 style="text-align: center;"><b>CHƯƠNG TRÌNH VOLUNTEER CỦA HELPV</b></h5>
+                        <br>
                         <p>Là một tình nguyện viên của HELPV, bạn không chỉ góp phần thay đổi cuộc sống của những em bé có hoàn cảnh khó khăn, mà bạn còn góp công thay đổi thế giới. Trong 70 năm qua, HELPV đã hoàn thành những nhiệm vụ của tổ chức nhờ những nỗ lực không ngừng nghỉ của tất cả những tình nguyện viên và những cá nhân trải rộng khắp toàn cầu.</p>
-
-                        <h5> LÝ DO ĐỂ TRỞ THÀNH MỘT TÌNH NGUYỆN VIÊN CỦA HELPV?</h5>
-
+                        <br>
+                        <h5 style="text-align: center;"><b>LÝ DO ĐỂ TRỞ THÀNH MỘT TÌNH NGUYỆN VIÊN CỦA HELPV?</b></h5>
+                        <br>
                         <p>Tinh thần thiện nguyện được thể hiện bởi các cá nhân, gia đình - những người đã cống hiến năng lượng, kinh nghiệm cũng như sự cảm thông của họ cho mỗi một hoàn cảnh trẻ thơ. Ở HELPV, cộng đồng giáo dục và tình nguyện viên luôn cố gắng hết sức để giúp những người trẻ tuổi khôn ngoan hơn - một cách an toàn, chắc chắn và đầy bản lĩnh. Chúng tôi tạo ra chương trình dành cho những tình nguyện viên, điều đó có nghĩa là chúng ta làm điều này chỉ vì đơn giản là chúng ta thực sự yêu thích nó.</p>
 
                         <p>HELPV là một tổ chức mạnh mẽ và sôi nổi vì những nỗ lực của cả một tập thể dựa trên nền tảng hệ thống tình nguyện rộng lớn và đa dạng. Những tình nguyện viên của HELPV đã hỗ trợ đón nhận hơn 280.000 HSSV quốc tế trong hệ thống HELPHELP toàn cầu, hơn 350 HSSV Việt Nam đến Mỹ, Canada, Đức, Pháp, Bỉ… du học và kể cả HELPV Vietnam tiếp nhận các HSSV quốc tế đến đây học tập, trải nghiệm trao đổi văn hoá.</p>
 
                         <p>Tình nguyện viên của HELPV cung cấp những hỗ trợ cần thiết cho học sinh, gia đình và những tình nguyện viên khác thông qua nhiều cách khác nhau. Là một tổ chức phi lợi nhuận, chúng tôi coi trọng tính linh hoạt về thời gian và địa điểm hoạt động của mỗi tình nguyện viên. Với nhiều vai trò tình nguyện viên có sẵn, bạn có thể lựa chọn vị trí phù hợp nhất với lịch trình và sở thích của bạn.</p>
-                        <p><img src="img/volunteer1.jpg" alt="Image" style="margin: auto;"></p>
+                        <p><img src="img/volunteer1.jpg" alt="Image" class="hinhanh"></p>
                         <p><i>“Lý do cho việc tham gia tình nguyện của tôi chính là muốn gửi lời cảm ơn chân thành nhất đến với những con người đã hỗ trợ và giúp đỡ chúng tôi trong suốt hành trình trải nghiệm. Và một phần thưởng bổ sung khi được làm việc cho HELPV chính là đã giúp tôi có một công việc mới đầy thử thách và thú vị” – Một tình nguyện viên của HELPV chia sẻ.</i></p>
                          <p>Để bắt đầu tạo nên sự khác biệt, hãy đăng kí ngay để trở thành tình nguyện viên của HELPV Vietnam</p>
 

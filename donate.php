@@ -155,7 +155,6 @@
                 </div>
             </div>
         </div>
-
         <div class="main-panel">        
         <div class="content-wrapper">
           <div class="row" >
@@ -168,6 +167,18 @@
                   </p>
                   <br>
                   <form class="forms-sample" method="POST" action="donate_money_act.php" enctype="multipart/form-data">
+                         <?php
+                            
+                            $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
+                            
+                            $sql1 = "
+                                    SELECT * 
+                                    from tbl_su_kien
+                                    ";
+                            $noi_dung_sk = mysqli_query($ket_noi, $sql1);
+                            $row1 = mysqli_fetch_array($noi_dung_sk);
+                                        
+                        ;?>
                     <div class="form-group">
                       <label for="txtTen">Họ và tên</label>
                       <input type="text" class="form-control" id="txtTen"  name="txtTen" placeholder="Họ và tên" " required="required" />
@@ -185,14 +196,36 @@
                      <label for="txtSotien">Số tiền ủng hộ</label>
                         <input type="number" class="form-control" id="txtSotien" name="txtSotien"  placeholder="Số tiền ủng hộ" required="required" />
                     </div>
+
+                    <div class="form-group">
+                     <label for="txtSukien">Chọn sự kiện bạn muốn ủng hộ</label>
+                        <select type="text" class="form-control" id="txtSukien" name="txtSukien" required="required">
+                        <option> <?php echo $row1['ten'];?> </option>
+                        <?php foreach ($noi_dung_sk as $key => $value)
+                        {;?>
+                        <option style="background-color: white" value="<?php echo $value['id_su_kien'];?>"> <?php echo $value['ten'];?></option>
+                        <?php } mysqli_close($ket_noi) ;?>
+                        </select>
+                    </div>
+
                     <div class="form-group">
                      <label for="txtNgay">Ngày ủng hộ</label>
-                        <input type="date" class="form-control" id="txtNgay" name="txtNgay"  placeholder="Ngày ủng hộ" required="required" />
+                        <input type="date" class="form-control" id="txtNgay" name="txtNgay" placeholder="Ngày ủng hộ" required="required" />
                     </div>
                     <div class="form-group">
                         <label for="txtAnh" style="color: #20212b"> Ảnh xác nhận </label>
                         <input type="file" class="form-control" id="txtAnh" name="txtAnh" placeholder="Ảnh xác nhận" required="required" />
                     </div>
+                    <label>Bạn có đồng ý công khai thông tin ủng hộ trên website của HELPV không?
+                       <br><i style="font-size: 15px">(Chúng tôi chỉ công khai tên và số tiền mà bạn ủng hộ)</i>
+                       </label>
+                          
+                            <label class="form-check-label"  for="optionsRadios" style="padding: 0 0 0 30px ">
+                              <input type="radio" class="form-check-input" name="optionsRadios" value="Công khai" checked>Đồng ý
+                              <br>
+                              <input type="radio" class="form-check-input" name="optionsRadios" value="Không">Không đồng ý
+                            </label>
+                          <br><br>
                       <button class="btn btn-custom" type="submit" style="width: 100%">Ủng hộ</button>
                   </form>
                 </div>
@@ -208,6 +241,18 @@
                   </p>
                   <br>
                   <form class="forms-sample" method="POST" action="donate_things_act.php" enctype="multipart/form-data">
+                  <?php
+                            
+                            $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
+                            
+                            $sql1 = "
+                                    SELECT * 
+                                    from tbl_su_kien
+                                    ";
+                            $noi_dung_sk = mysqli_query($ket_noi, $sql1);
+                            $row1 = mysqli_fetch_array($noi_dung_sk);
+                                        
+                        ;?>
                     <div class="form-group">
                       <label for="txtTen">Họ và tên</label>
                       <input type="text" class="form-control" id="txtTen"  name="txtTen" placeholder="Họ và tên"/>
@@ -234,12 +279,31 @@
                     <div class="form-group">
                      <label for="txtkhac">Nếu chọn mục khác, hãy điền tên hiện vật muốn ủng hộ:</label>
                         <input type="text" class="form-control"
-                        id="txtkhac" name="txtkhac"  placeholder="Điền tên hiện vật muốn ủng hộ" required="required" />
+                        id="txtkhac" name="txtkhac"  placeholder="Điền tên hiện vật muốn ủng hộ"/>
+                    </div>
+                    <div class="form-group">
+                     <label for="txtSukien">Chọn sự kiện bạn muốn ủng hộ</label>
+                        <select type="text" class="form-control" id="txtSukien" name="txtSukien"  required="required">
+                        <option> <?php echo $row1['ten'];?> </option>
+                        <?php foreach ($noi_dung_sk as $key => $value)
+                        {;?>
+                        <option style="background-color: white" value="<?php echo $value['id_su_kien'];?>"> <?php echo $value['ten'];?></option>
+                        <?php } mysqli_close($ket_noi) ;?>
+                        </select>
                     </div>
                     <div class="form-group">
                      <label for="txtNgay">Ngày ủng hộ</label>
                         <input type="date" class="form-control" id="txtNgay" name="txtNgay"  placeholder="Ngày ủng hộ" required="required" />
                     </div>
+                    <label>Bạn có đồng ý công khai thông tin ủng hộ trên website của HELPV không?
+                       <br><i style="font-size: 15px">(Chúng tôi chỉ công khai tên và hiện vật mà bạn ủng hộ)</i>
+                       </label>
+                            <label class="form-check-label"  for="optionsRadios" style="padding: 0 0 0 30px ">
+                              <input type="radio" class="form-check-input" name="optionsRadios" value="Công khai" checked>Đồng ý
+                              <br>
+                              <input type="radio" class="form-check-input" name="optionsRadios" value="Không">Không đồng ý
+                            </label>
+                          <br><br>
                           <button class="btn btn-custom" type="submit" style="width: 100%">Ủng hộ</button>
                   </form>
                 </div>
