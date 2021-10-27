@@ -159,8 +159,7 @@ $anh=$_SESSION['anh'];
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="quan_tri_ung_ho_tien.php"> Ủng hộ tiền </a></li>
                 <li class="nav-item"> <a class="nav-link" href="quan_tri_ung_ho_vat_chat.php">Ủng hộ vật chất</a></li>
-                 <li class="nav-item"> <a class="nav-link" href="xac_nhan_ungho.php">Đã xác nhận ủng hộ tiền</a></li>
-                 <li class="nav-item"> <a class="nav-link" href="xac_nhan_ungho_vat_chat.php">Đã xác nhận ủng hộ vật chất</a></li>
+                 <li class="nav-item"> <a class="nav-link" href="xac_nhan_ungho.php">Đã xác nhận</a></li>
               </ul>
             </div>
           </li>
@@ -277,8 +276,8 @@ $anh=$_SESSION['anh'];
                           <td>
                           <?php echo $row["trang_thai"];?>
                         </td>
-                           <td><a href="ung_ho_tien_sua.php?id=<?php echo $row['id_vat_chat'];?>">Sửa</a></td>
-                           <td><a href="ung_ho_vat_chat_xn.php?id=<?php echo $row['id_vat_chat'];?>">Xác nhận</a></td>
+                           <td><a href="ung_ho_vatchat_sua.php?id=<?php echo $row['id_vat_chat'];?>">Sửa</a></td>
+                           <td><a href="ung_ho_tien_xac_nhan.php?id=<?php echo $row['id_vat_chat'];?>">Xác nhận</a></td>
                         </tr>
                         <?php }
                             //5. Đóng kết nối

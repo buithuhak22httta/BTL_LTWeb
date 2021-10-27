@@ -59,19 +59,12 @@ $idadmin=$_SESSION['id'];
                     INSERT INTO `tbl_ung_ho_da_xn` (`id_xn`, `time`, `ten`, `dien_thoai`, `email`, `so_tien`, `anh_xac_nhan`, `trang_thai`, `id_su_kien`,`id_admin`
                      ) VALUES (NULL, '".$time."', '".$ten."', '".$sdt."', '".$email."', '".$tien."', '".$anh."', '".$trang_thai."', ".$su_kien.", ".$idadmin.");
                     ";
-                $them_so_tien = "
-                                  UPDATE `tbl_su_kien`
-                                  SET `so_tien_ung_ho` = `so_tien_ung_ho` + ".$tien."
-                                  WHERE  `tbl_su_kien`.`id_su_kien` = ".$su_kien.";
-                                ";
-
                     //print $sql; exit();
                 $del = "
                         DELETE FROM `tbl_ung_ho_tien` where `tbl_ung_ho_tien`.`id_ung_ho` = '".$id."'
                         ";
             //4. Thực thi câu lệnh truy vấn
                 $noi_dung_uh = mysqli_query($ket_noi, $sql);
-                $thuc_thi = mysqli_query($ket_noi, $them_so_tien);
                 $xoa = mysqli_query($ket_noi, $del);
             //5. Hiện thị thông báo thêm mới thành công và đẩy các bạn về trang quản trị tin tức
                 echo "
