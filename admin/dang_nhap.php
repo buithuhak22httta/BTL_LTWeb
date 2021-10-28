@@ -27,7 +27,7 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <img src="images/logo.svg" alt="logo">
+                <img src="images/a.jpg" alt="logo">
               </div>
               <h4>Xin chào! Hãy đăng nhập để vào hệ thống</h4>
               <form class="pt-3" method="POST" action="dang_nhap_kiem_tra.php">

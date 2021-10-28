@@ -74,7 +74,7 @@ $idadmin=$_SESSION['id'];
                 ";
                 echo "
                     <script type='text/javascript'>
-                        window.location.href='quan_tri_ung_ho_tien.php';
+                        window.location.href='xac_nhan_ungho_tien.php';
                     </script>
                 ";
             ;?>
