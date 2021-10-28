@@ -48,7 +48,7 @@
             //5. Hiện thị thông báo thêm mới thành công và đẩy các bạn về trang quản trị tin tức
                 echo "
                     <script type='text/javascript'>
-                        window.alert('Bạn đã ủng hộ thành công!');
+                        window.alert('Cảm ơn bạn đã ủng hộ, kiểm tra tin nhắn hoặc email. Chúng tôi sẽ xác nhận lại khi nhận được!');
                     </script>
                 ";
                
