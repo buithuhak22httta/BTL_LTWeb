@@ -290,14 +290,17 @@
           //2 Truy vấn
           $sql1 = "SELECT DISTINCT(dia_diem) FROM `tbl_su_kien`";
           $sql2 = "SELECT DISTINCT(id_tnv) FROM `tbl_tinh_nguyen_vien`";
+          $sql3 = "SELECT sum(so_tien_ung_ho) as 'Total' FROM `tbl_su_kien`";
 
           //3 Thực thi truy vấn
           $noi_dung_sk = mysqli_query($ket_noi,$sql1);
           $noi_dung_tnv = mysqli_query($ket_noi,$sql2);
+          $noi_dung_total = mysqli_query($ket_noi,$sql3);
 
           //4 Đếm số lượng bản ghi
           $so_luong_dd = mysqli_num_rows($noi_dung_sk);
-          $so_luong_tnv = mysqli_num_rows($noi_dung_tnv)
+          $so_luong_tnv = mysqli_num_rows($noi_dung_tnv);
+          $row = mysqli_fetch_array($noi_dung_total);
 
             ;?>
         <div class="facts" data-parallax="scroll" data-image-src="img/facts.jpg">
@@ -323,18 +326,9 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="facts-item">
-                            <i class="flaticon-kindness"></i>
-                            <div class="facts-text">
-                                <h3 class="facts-dollar" data-toggle="counter-up">10000</h3>
-                                <p>Mục tiêu</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="facts-item">
                             <i class="flaticon-donation"></i>
                             <div class="facts-text">
-                                <h3 class="facts-dollar" data-toggle="counter-up">4000</h3>
+                                <h3 data-toggle="counter-up"><?php echo $row['Total'];?></h3>
                                 <p>Đã đạt được</p>
                             </div>
                         </div>
@@ -377,7 +371,6 @@
                         <div class="causes-text">
                             <h3><?php echo $row["ten"];?></h3>
                             <p><?php echo $row["mo_ta"];?></p>
-                           
                         </div>       
 
                     </div>
@@ -709,7 +702,6 @@
                             <div class="blog-meta">
                                 <p><i class="fa fa-user"></i><a href="">Admin</a></p>
                                 <p><i class="fa fa-comments"></i><a href="">15 bình luận</a></p>
-                                 
                             </div>
                         </div>
                     </div>
