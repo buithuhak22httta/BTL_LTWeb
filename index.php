@@ -377,7 +377,9 @@
                         <div class="causes-text">
                             <h3><?php echo $row["ten"];?></h3>
                             <p><?php echo $row["mo_ta"];?></p>
-                        </div>                        
+                            <a class="btn btn-custom" href="noidungchitiet.php?id=<?php echo $row['id_blog'];?>">Chi tiết</a>
+                        </div>       
+
                     </div>
                     <?php
                     }

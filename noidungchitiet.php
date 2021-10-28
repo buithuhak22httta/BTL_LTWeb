@@ -6,6 +6,16 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Free Website Template" name="keywords">
         <meta content="Free Website Template" name="description">
+        <style type="text/css">
+        .div4{
+          
+            width:900px;
+            margin-left:170px;
+            margin-right: 170px;
+
+           
+         }
+        </style>
 
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
@@ -118,24 +128,25 @@
                 $noi_dung=mysqli_query($ket_noi,$sql);
                 while($row=mysqli_fetch_array($noi_dung))
                 {
-            ;?>
+            ;?>     
                     
+            <div class="div4">
+                           <h1><b style="color: #f9a011"><?php echo $row["ten"];?></b></h1>
+            </div>
+            <div class="div4">       
+                        <p><b><?php echo $row["mo_ta"] ;?></b></p>      
+            </div>
+
+                         
                 
-                    <div class="sidebar-1">
-                    <h1 class="title-detail"><?php echo $row["ten"];?></h1>
-                    </div>
-                    <div class="main-content-body">       
-                    <h2 class="sapo"><?php echo $row["mo_ta"] ;?></h2>      
-                    </div>
-                    
             <div class="VCSortableInPreviewMode" type="Photo" style="">
-            <div><img src="<?php echo $row["anh_minh_hoa"];?>" w="1785" h="1151" alt="Image" style="max-width:100%;" width="700" height="400">
+            <div style="margin-left:6cm"><br><img src="<?php echo $row["anh_minh_hoa"];?>" w="1785" h="1151" alt="Image" style="max-width:100%;" width="700" height="400" >
             </div>
+            </div> 
+
+            <div class="div4">
+            <p  align="justify"><br><?php echo $row["noi_dung"] ;?></p>
             </div>
-            <p><?php echo $row["noi_dung"] ;?></p>
-
-      
-
 
                 <?php 
             }
