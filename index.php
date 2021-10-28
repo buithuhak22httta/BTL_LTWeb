@@ -377,7 +377,7 @@
                         <div class="causes-text">
                             <h3><?php echo $row["ten"];?></h3>
                             <p><?php echo $row["mo_ta"];?></p>
-                            <a class="btn btn-custom" href="noidungchitiet.php?id=<?php echo $row['id_blog'];?>">Chi tiết</a>
+                           
                         </div>       
 
                     </div>
@@ -701,7 +701,7 @@
                                 <img src="<?php echo $row["anh_minh_hoa"];?>" alt="Image">
                             </div>
                             <div class="blog-text">
-                                <h3><a href="#"><?php echo $row["ten"];?></a></h3>
+                                <h3><a href="noidungchitiet.php?id=<?php echo $row['id_blog'];?>"><?php echo $row["ten"];?></a></h3>
                                 <p>
                                     <?php echo $row["mo_ta"];?> 
                                 </p>
@@ -709,6 +709,7 @@
                             <div class="blog-meta">
                                 <p><i class="fa fa-user"></i><a href="">Admin</a></p>
                                 <p><i class="fa fa-comments"></i><a href="">15 bình luận</a></p>
+                                 
                             </div>
                         </div>
                     </div>

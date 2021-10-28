@@ -125,12 +125,11 @@
                             <div class="blog-img">
                            <img src="<?php echo $row["anh_minh_hoa"];?>" alt="Image">
                             <div class="blog-text">
-                                <h3><a href="#"><?php echo $row["ten"];?></a></h3>
+                                <h3><a href="noidungchitiet.php?id=<?php echo $row['id_blog'];?>"><?php echo $row["ten"];?></a></h3>
                                 <p>
                                    <?php echo $row["mo_ta"] ;?>
                                 </p>
-                                <a class="btn btn-custom" href="noidungchitiet.php?id=<?php echo $row['id_blog'];?>">Chi tiết</a>
-                                    
+                                
                                 </div>
                                 
                             </div>
