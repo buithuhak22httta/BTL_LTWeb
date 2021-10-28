@@ -33,7 +33,7 @@
             $su_kien= (int)$_POST["txtSukien"];
             $ck = $_POST["optionsRadios"];
             if ($ck == 'Không') $ten=null;
-             if ($_POST["txtPhanloai"]==NULL) {
+             if ($_POST["txtPhanloai"]=='Khác') {
                $phanloai= $_POST["txtkhac"];
             }else{
                $phanloai = $_POST["txtPhanloai"];
