@@ -33,7 +33,7 @@
             $ngay = $_POST["txtNgay"];
             $su_kien= (int)$_POST["txtSukien"];
             $ck = $_POST["optionsRadios"];
-
+            if ($ck == 'Không') $ten=null;
             $noi_dat_file_anh_xn = "img/anhxn/".basename($_FILES["txtAnh"]["name"]);
             $file_anh_tam = $_FILES["txtAnh"]["tmp_name"];
             $ket_qua_up_anh = move_uploaded_file($file_anh_tam, $noi_dat_file_anh_xn);

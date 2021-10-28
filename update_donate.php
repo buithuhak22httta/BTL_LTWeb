@@ -145,17 +145,6 @@
                 <div class="card-body">
                   <h4 class="card-title"><a href="update_donate.php"> Danh sách ủng hộ tiền</a> / <a href="cap_nhat_ung_ho_hien_vat.php">Danh sách ủng hộ hiện vật</a> </h4>
                   <div class="table-responsive pt-3">
-                  <?php
-                         $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
-                        
-                        $sql1 = "
-                                SELECT * 
-                                from tbl_ung_ho_tien
-                                ";
-                        $noi_dung_sk = mysqli_query($ket_noi, $sql1);
-                        $row1 = mysqli_fetch_array($noi_dung_sk);
-                                        
-                        ;?>
                     <table class="table table-bordered">
                       <thead>
                         <tr>
@@ -163,6 +152,7 @@
                           <th>Họ và tên</th>
                           <th>Số tiền</th>
                           <th>Ngày ủng hộ</th>
+                          <th>Sự kiện</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -171,9 +161,8 @@
                         $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
                         //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
                          $sql = "
-                                SELECT * 
-                                from tbl_ung_ho_da_xn
-                                where trang_thai = 'Công khai'
+                                SELECT time, tbl_ung_ho_da_xn.ten, dien_thoai, email, so_tien, tbl_su_kien.ten as 'su_kien'
+                                from tbl_ung_ho_da_xn join tbl_su_kien on tbl_ung_ho_da_xn.id_su_kien = tbl_su_kien.id_su_kien
                                 order by id_xn desc";
                         //3. Thực thi câu lệnh truy vấn
                         $ten_ung_ho = mysqli_query($ket_noi, $sql);
@@ -194,6 +183,9 @@
                               <?php echo $row["so_tien"];?>
                           </td>
                           <td> <?php echo date("d/m/y", strtotime($row["time"]));?></td>
+                          <td>
+                              <?php echo $row["su_kien"];?>
+                          </td>
                         </tr>
                         <?php }
                             //5. Đóng kết nối

@@ -163,6 +163,7 @@
                           <th>Họ và tên</th>
                           <th>Phân Loại</th>
                           <th>Ngày ủng hộ</th>
+                          <th>Sự kiện</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -171,9 +172,8 @@
                         $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
                         //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
                          $sql = "
-                                SELECT * 
-                                from tbl_ung_ho_vatchat_da_xn
-                                where trang_thai = 'Công khai'
+                                SELECT time, tbl_ung_ho_vatchat_da_xn.ten, dien_thoai, phanloai, email, tbl_su_kien.ten as 'su_kien'
+                                from tbl_ung_ho_vatchat_da_xn join tbl_su_kien on tbl_ung_ho_vatchat_da_xn.id_su_kien = tbl_su_kien.id_su_kien
                                 order by id_vc_xn desc";
                         //3. Thực thi câu lệnh truy vấn
                         $ten_ung_ho = mysqli_query($ket_noi, $sql);
@@ -194,6 +194,9 @@
                               <?php echo $row["phanloai"];?>
                           </td>
                           <td> <?php echo date("d/m/y", strtotime($row["time"]));?></td>
+                          <td>
+                            <?php echo $row["su_kien"];?>
+                          </td>
                         </tr>
                         <?php }
                             //5. Đóng kết nối
