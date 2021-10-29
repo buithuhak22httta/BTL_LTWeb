@@ -263,7 +263,7 @@ $anh=$_SESSION['anh'];
                     </div>
                     <div class="form-group">
                       <label for="txtSukien">Sự kiện</label>
-                      <p type="text" class="form-control" id="txtSukien" name="txtSukien"><?php echo $row['Su_kien'] ;?></p>
+                       <div type="text" class="form-control" id="txtSukien" name="txtSukien"><?php echo $row['Su_kien'] ;?></div>
                     </div>
 
                     <input type="text" class="form-control" id="txtIdSukien" name="txtIdSukien" value="<?php echo $row['id_su_kien'] ;?>"/>

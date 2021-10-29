@@ -64,7 +64,6 @@ $idadmin=$_SESSION['id'];
                         ";
             //4. Thực thi câu lệnh truy vấn
                 $noi_dung_uh = mysqli_query($ket_noi, $sql);
-                $thuc_thi = mysqli_query($ket_noi, $them_so_tien);
                 $xoa = mysqli_query($ket_noi, $del);
             //5. Hiện thị thông báo thêm mới thành công và đẩy các bạn về trang quản trị tin tức
                 echo "
