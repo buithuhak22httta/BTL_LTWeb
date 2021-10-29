@@ -54,9 +54,8 @@
             //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
             $sql = "
 
-            UPDATE `tbl_tinh_nguyen_vien` SET `ten_tnv` = '".$ten."', `gioi_tinh` = '".$gioi_tinh."',`sdt` = '".$sdt."',`email` = '".$email."' WHERE `tbl_tinh_nguyen_vien`.`id_tnv` =  '".$id_tnv."'
+            UPDATE `tbl_tinh_nguyen_vien` SET `ten_nv` = '".$ten."', `gioi_tinh` = '".$gioi_tinh."',`sdt` = '".$sdt."',`email` = '".$email."' WHERE `tbl_tinh_nguyen_vien`.`id_tnv` =  '".$id_tnv."'
             ";
-                  
             //4. Thực thi câu lệnh truy vấn
                 $tinh_nguyen_vien = mysqli_query($ket_noi, $sql);
             //5. Hiện thị thông báo thêm mới thành công và đẩy các bạn về trang quản trị tin tức
