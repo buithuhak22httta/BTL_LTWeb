@@ -92,8 +92,7 @@ $anh=$_SESSION['anh'];
                 <i class="ti-settings text-primary"></i>
                 Cài Đặt
               </a>
-              <a class="dropdown-item" href='dang_nhap.php'>
-              <?php session_destroy();?>
+              <a class="dropdown-item" href='dang_xuat.php'>
                 <i class="ti-power-off text-primary"></i>
                 Đăng Xuất
               </a>
