@@ -48,7 +48,7 @@
             $email = $_POST["txtEmail"];
             $nghe_nghiep = $_POST["txtNgheNghiep"];
             $loi_nhan = $_POST["txtLoiNhan"];
-            
+       
                 $sql = "
                     UPDATE `tbl_chia_se_user` 
                     SET `ten` = '".$ten."', `email` = '".$email."', `nghe_nghiep` = '".$nghe_nghiep."', `loi_nhan` = '".$loi_nhan."'
