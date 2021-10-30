@@ -1,4 +1,3 @@
-
 <?php
     //kiểm tra bạn có quyền truy cập trang này k qua biến $session['da_dang_nhap']
     session_start();
@@ -17,7 +16,9 @@
         }
 $ten=$_SESSION['ten'];
 $anh=$_SESSION['anh'];
-;?><!DOCTYPE html>
+$id=$_SESSION['id'];
+;?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -88,7 +89,7 @@ $anh=$_SESSION['anh'];
               <img src="../<?php echo $anh ;?>" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
+              <a class="dropdown-item" href="admin_sua.php?id=<?php echo $id;?>">
                 <i class="ti-settings text-primary"></i>
                 Cài Đặt
               </a>
@@ -140,8 +141,7 @@ $anh=$_SESSION['anh'];
               <i class="icon-head menu-icon"></i>
               <span class="menu-title">Quản trị admin</span>
             </a>
-          </li>
-
+            </li>
           <li class="nav-item">
             <a class="nav-link" href="quan_tri_su_kien.php">
               <i class="icon-layout menu-icon"></i>
@@ -154,7 +154,6 @@ $anh=$_SESSION['anh'];
               <span class="menu-title">Quản trị blog</span>
             </a>
           </li>
-         
           <li class="nav-item">
             <a class="nav-link" href="quan_tri_chia_se.php">
               <i class="icon-grid-2 menu-icon"></i>
@@ -285,8 +284,7 @@ $anh=$_SESSION['anh'];
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        
-        <!-- partial -->
+            <!-- partial -->
       </div>
       <!-- main-panel ends -->
     </div>
