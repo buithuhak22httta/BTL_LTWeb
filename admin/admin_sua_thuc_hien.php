@@ -1,4 +1,3 @@
-
 <?php
     //kiểm tra bạn có quyền truy cập trang này k qua biến $session['da_dang_nhap']
     session_start();
