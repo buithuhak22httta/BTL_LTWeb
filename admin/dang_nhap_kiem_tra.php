@@ -1,7 +1,7 @@
 <?php
 //1. Load file cấu hình để kết nối đến máy chủ CSDL
                     include('../config.php');
-                    //2. Viết câu lệnh kiểm tra người dùng có tồn tại trong csdl hay k
+
                     $email = $_POST["txtEmail"];
                     $mat_khau = $_POST["txtMatKhau"];
                     $sql = "

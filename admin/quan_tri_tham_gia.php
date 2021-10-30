@@ -16,6 +16,7 @@
         }
 $ten=$_SESSION['ten'];
 $anh=$_SESSION['anh'];
+$id=$_SESSION['id'];
 ;?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +72,7 @@ $anh=$_SESSION['anh'];
               <img src="../<?php echo $anh ;?>" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
+              <a class="dropdown-item" href="admin_sua.php?id=<?php echo $id;?>">
                 <i class="ti-settings text-primary"></i>
                 Cài Đặt
               </a>
@@ -234,7 +235,7 @@ $anh=$_SESSION['anh'];
                       <tbody>
                         <?php
                                     //1. Kết nối đến máy chủ dữ liệu & CSDL mà các bạn muốn lấy, thêm mới, sửa, xóa
-                                    $ket_noi = mysqli_connect("localhost", "root", "", "helpv");
+                                    include('../config.php');
                                     //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
                                     $sql = "
                                             select tbl_tham_gia.id_tham_gia, tbl_tinh_nguyen_vien.id_tnv, tbl_su_kien.id_su_kien, tbl_tinh_nguyen_vien.ten_nv, tbl_su_kien.ten from (tbl_tinh_nguyen_vien join tbl_tham_gia on tbl_tinh_nguyen_vien.id_tnv=tbl_tham_gia.id_tnv) join tbl_su_kien on tbl_tham_gia.id_su_kien=tbl_su_kien.id_su_kien";
