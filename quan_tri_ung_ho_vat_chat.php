@@ -25,7 +25,7 @@ $id=$_SESSION['id'];
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Trang chủ quản trị</title>
+  <title>Quản trị ủng hộ</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -69,7 +69,7 @@ $id=$_SESSION['id'];
           <li class="nav-item nav-profile dropdown">
           <strong><?php echo $ten ;?></strong>
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-               <img src="../<?php echo $anh ;?>" alt="profile"/>
+              <img src="../<?php echo $anh ;?>" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item" href="admin_sua.php?id=<?php echo $id;?>">
@@ -125,7 +125,6 @@ $id=$_SESSION['id'];
               <span class="menu-title">Quản trị admin</span>
             </a>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" href="quan_tri_su_kien.php">
               <i class="icon-layout menu-icon"></i>
@@ -151,8 +150,7 @@ $id=$_SESSION['id'];
               <span class="menu-title">Quản trị tình nguyện viên</span>
             </a>
           </li>
-
-          <li class="nav-item">
+           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
               <i class="icon-head menu-icon"></i>
               <span class="menu-title">Quản trị ủng hộ</span>
@@ -192,14 +190,14 @@ $id=$_SESSION['id'];
         </ul>
       </nav>
       <!-- partial -->
+
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Chào mừng đến với trang chủ admin</h3>
-                  <h6 class="font-weight-normal mb-0">Chúc một ngày tốt lành!</h6>
+                  <h3 class="font-weight-bold">Quản trị ủng hộ vật chất</h3>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -213,81 +211,89 @@ $id=$_SESSION['id'];
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6 grid-margin stretch-card">
-              <div class="card tale-bg">
-                <div class="card-people mt-auto">
-                  <img src="images/dashboard/people.svg" alt="people">
-                  <div class="weather-info">
-                    <div class="d-flex">
-                      <!-- weather widget start --><div id="m-booked-bl-simple-54"> <div class="booked-wzs-160-110 weather-customize" style="background-color:#137AE9;width:160px;" id="width1"> <div class="booked-wzs-160-110_in"> <div class="booked-wzs-160-data"> <div class="booked-wzs-160-left-img wrz-18"></div> <div class="booked-wzs-160-right"> <div class="booked-wzs-day-deck"> <div class="booked-wzs-day-val"> <div class="booked-wzs-day-number"><span class="plus">+</span>20</div> <div class="booked-wzs-day-dergee"> <div class="booked-wzs-day-dergee-val">&deg;</div> <div class="booked-wzs-day-dergee-name">C</div> </div> </div> <div class="booked-wzs-day"> <div class="booked-wzs-day-d"><span class="plus">+</span>21&deg;</div> <div class="booked-wzs-day-n"><span class="plus">+</span>19&deg;</div> </div> </div> <div class="booked-wzs-160-info"> <div class="booked-wzs-160-city">Hà Nội</div> <div class="booked-wzs-160-date">, 30</div> </div> </div> </div> <div class="booked-wzs-center"><span class="booked-wzs-bottom-l"> Xem Dự báo 7 ngày</span></div> </div> </div> </div><script type="text/javascript"> var css_file=document.createElement("link"); var widgetUrl = location.href; css_file.setAttribute("rel","stylesheet"); css_file.setAttribute("type","text/css"); css_file.setAttribute("href",'https://s.bookcdn.com/css/w/booked-wzs-widget-160.css?v=0.0.1'); document.getElementsByTagName("head")[0].appendChild(css_file); function setWidgetData_54(data) { if(typeof(data) != 'undefined' && data.results.length > 0) { for(var i = 0; i < data.results.length; ++i) { var objMainBlock = document.getElementById('m-booked-bl-simple-54'); if(objMainBlock !== null) { var copyBlock = document.getElementById('m-bookew-weather-copy-'+data.results[i].widget_type); objMainBlock.innerHTML = data.results[i].html_code; if(copyBlock !== null) objMainBlock.appendChild(copyBlock); } } } else { alert('data=undefined||data.results is empty'); } } var widgetSrc = "https://widgets.booked.net/weather/info?action=get_weather_info;ver=7;cityID=19487;type=1;scode=124;ltid=3458;domid=1180;anc_id=16627;countday=undefined;cmetric=1;wlangID=33;color=137AE9;wwidth=160;header_color=ffffff;text_color=333333;link_color=08488D;border_form=1;footer_color=ffffff;footer_text_color=333333;transparent=0;v=0.0.1";widgetSrc += ';ref=' + widgetUrl;widgetSrc += ';rand_id=54';var weatherBookedScript = document.createElement("script"); weatherBookedScript.setAttribute("type", "text/javascript"); weatherBookedScript.src = widgetSrc; document.body.appendChild(weatherBookedScript) </script><!-- weather widget end -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <?php
-            //1 Kết nối
-          //1. Load file cấu hình để kết nối đến máy chủ CSDL
-                 include('../config.php');
-          //2 Truy vấn
-          $sql1 = "SELECT DISTINCT(dia_diem) FROM `tbl_su_kien`";
-          $sql2 = "SELECT DISTINCT(id_tnv) FROM `tbl_tinh_nguyen_vien`";
-          $sql3 = "SELECT sum(so_tien_ung_ho) as 'Total' FROM `tbl_su_kien`";
-          $sql4 = "SELECT DISTINCT(id_su_kien) FROM `tbl_su_kien`";
-
-          //3 Thực thi truy vấn
-          $noi_dung_sk = mysqli_query($ket_noi,$sql1);
-          $noi_dung_tnv = mysqli_query($ket_noi,$sql2);
-          $noi_dung_total = mysqli_query($ket_noi,$sql3);
-          $noi_dung_so_sk = mysqli_query($ket_noi,$sql4);
-
-          //4 Đếm số lượng bản ghi
-          $so_luong_dd = mysqli_num_rows($noi_dung_sk);
-          $so_luong_tnv = mysqli_num_rows($noi_dung_tnv);
-          $row = mysqli_fetch_array($noi_dung_total);
-          $so_luong_sk = mysqli_num_rows($noi_dung_so_sk);
-
-            ;?>
-            <div class="col-md-6 grid-margin transparent">
-              <div class="row">
-                <div class="col-md-6 mb-4 stretch-card transparent">
-                  <div class="card card-tale">
-                    <div class="card-body">
-                      <p class="mb-4">Tỉnh thành</p>
-                      <p class="fs-30 mb-2"><?php echo $so_luong_dd;?></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 mb-4 stretch-card transparent">
-                  <div class="card card-dark-blue">
-                    <div class="card-body">
-                      <p class="mb-4">Tổng số tình nguyện viên</p>
-                      <p class="fs-30 mb-2"><?php echo $so_luong_tnv;?></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-                  <div class="card card-light-blue">
-                    <div class="card-body">
-                      <p class="mb-4">Tồng số tiền đã nhận được</p>
-                      <p class="fs-30 mb-2"><?php echo $row['Total'];?></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 stretch-card transparent">
-                  <div class="card card-light-danger">
-                    <div class="card-body">
-                      <p class="mb-4">Tổng số sự kiện đã tổ chức</p>
-                      <p class="fs-30 mb-2"><?php echo $so_luong_sk;?></p>
-                    </div>
+            
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Danh sách ủng hộ</h4>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>
+                            STT
+                          </th>
+                          <th>Thời gian</th>
+                          <th>
+                            Họ tên
+                          </th>
+                          <th>
+                            Số điện thoại
+                          </th>
+                          <th>
+                            Email
+                          </th>
+                          <th>
+                            Phân loại
+                          </th>
+                         <th>
+                           Trạng thái
+                         </th>
+                         <th>Sự kiện</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <?php
+                        //1. Kết nối đến máy chủ dữ liệu & CSDL mà các bạn muốn lấy, thêm mới, sửa, xóa
+                        include('../config.php');
+                        //2. Viết câu lệnh truy vấn lấy ra dữ liệu mong muốn (tin tức đã lưu trong csdl)
+                        $sql = "
+                                SELECT id_vat_chat, tbl_ungho_vatchat.ten, time, email, sdt, phanloai, trang_thai, tbl_su_kien.ten as 'Su_kien' from tbl_ungho_vatchat join tbl_su_kien on tbl_ungho_vatchat.id_su_kien = tbl_su_kien.id_su_kien order by id_vat_chat DESC";
+                        //3. Thực thi câu lệnh truy vấn
+                        $ten_ung_ho = mysqli_query($ket_noi, $sql);
+                        //4. Hiện thị dữ liệu lấy đc
+                        $i=0;
+                        while ($row = mysqli_fetch_array($ten_ung_ho))
+                            {
+                                $i++;
+                                ;?>
+                        <tr>
+                          <td>
+                           <?php echo $i;?>
+                          </td>
+                          <td><?php echo date("d/m/y", strtotime($row["time"]));?></td>
+                          <td>
+                            <?php echo $row["ten"];?>
+                          </td>
+                          <td>
+                            <?php echo $row["sdt"];?>
+                          </td>
+                           <td>
+                            <?php echo $row["email"];?>
+                          </td>
+                          <td>
+                              <?php echo $row["phanloai"];?>
+                          </td>
+                          <td>
+                          <?php echo $row["trang_thai"];?>
+                        </td>
+                        <td>
+                              <?php echo $row["Su_kien"];?>
+                          </td>
+                           <td><a href="ung_ho_vatchat_sua.php?id=<?php echo $row['id_vat_chat'];?>">Sửa</a></td>
+                           <td><a href="ung_ho_vat_chat_xn.php?id=<?php echo $row['id_vat_chat'];?>">Xác nhận</a></td>
+                        </tr>
+                        <?php }
+                            //5. Đóng kết nối
+                            mysqli_close($ket_noi) ;?>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
         
