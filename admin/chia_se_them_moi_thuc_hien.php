@@ -42,7 +42,6 @@
 <body>
     <?php
             include('../config.php');
-
             $id_chia_se = $_POST["txtID"];
             $ten = $_POST["txtTen"];
             $email = $_POST["txtEmail"];
