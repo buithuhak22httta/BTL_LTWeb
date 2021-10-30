@@ -16,6 +16,7 @@
         }
 $ten=$_SESSION['ten'];
 $anh=$_SESSION['anh'];
+$id=$_SESSION['id'];
 ;?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +25,7 @@ $anh=$_SESSION['anh'];
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Cập nhật tình nguyện viên</title>
+  <title>Xác nhận ủng hộ tiền</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -74,7 +75,7 @@ $anh=$_SESSION['anh'];
               <img src="../<?php echo $anh ;?>" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
+              <a class="dropdown-item" href="admin_sua.php?id=<?php echo $id;?>">
                 <i class="ti-settings text-primary"></i>
                 Cài Đặt
               </a>
