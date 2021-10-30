@@ -57,7 +57,6 @@ $id=$_SESSION['id'];
             else {
                 $anh = basename($_FILES["txtAnh"]["name"]);
             }
-
             //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
             $sql = "
                    INSERT INTO `tbl_blog` (`id_blog`, `ten`, `mo_ta`, `noi_dung`, `anh_minh_hoa`, `thoi_gian`, `id_admin`)
