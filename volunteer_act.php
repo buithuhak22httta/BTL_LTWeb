@@ -32,11 +32,18 @@
             $gioi_tinh = $_POST["txtgioitinh"];
             $su_kien= (int)$_POST["txtSukien"];
             //3. Viết câu lệnh truy vấn thêm mới dữ liệu vào bảng tin tức trong CSDL
+            $sql= "SELECT id_tnv, count(id_tnv) as 'so_luong' from tbl_tinh_nguyen_vien where ten_nv='".$ten."' and gioi_tinh='".$gioi_tinh."' and email='".$email."' and sdt='".$sdt."'";
+            $nd=mysqli_query($ket_noi,$sql);
+            $row=mysqli_fetch_array($nd);
+            if($row["so_luong"]==0)
+            {
             $sql1 = "
                     INSERT INTO `tbl_tinh_nguyen_vien` (`id_tnv`, `ten_nv`, `gioi_tinh`, `sdt`, `email`) VALUES (NULL, '".$ten."', '".$gioi_tinh."', '".$sdt."', '".$email."');
                     ";
             $thuc_thi1 = mysqli_query($ket_noi, $sql1);
     $last_id = $ket_noi->insert_id;
+          }
+          else $last_id = $row["id_tnv"];
             // $sql = "select id_tnv from tbl_tinh_nguyen_vien where sdt='".$sdt."'";
             // $id = mysqli_query($ket_noi, $sql);
             // $id_real = (int)$id;
